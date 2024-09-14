@@ -1,5 +1,4 @@
-import EN from "@/lang/en.json";
-import ID from "@/lang/id.json";
+import LANG from "@/lang/data.json";
 import useStore from "@/app/store";
 
 const get = (json, key) => {
@@ -11,17 +10,20 @@ const get = (json, key) => {
 };
 
 const translator = (locale, key) => {
-  switch (locale) {
-    case "id":
-      return get(ID, key);
-    default:
-      return get(EN, key);
+  try {
+    switch (locale) {
+      case "id":
+        return get(get(LANG, key), "id");
+      default:
+        return get(get(LANG, key), "en");
+    }
+  } catch (error) {
+    return undefined;
   }
 };
 
 export function useTranslate() {
   const { lang } = useStore((state) => ({ lang: state.lang }));
-  console.log(lang);
 
   const isLangEn = lang === "en";
 
@@ -32,7 +34,7 @@ export function useTranslate() {
 
     const result = translator(locale, key);
     if (result === undefined) {
-      return translator("en", key) ?? key;
+      return translator("en", key) ?? translator("id", key) ?? key;
     }
 
     return result;

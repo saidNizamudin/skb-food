@@ -67,7 +67,7 @@ const Navbar = () => {
   return (
     <header className="z-10 fixed w-full font-montserrat">
       {/* Header Section */}
-      <div className="h-[40px] flex items-center text-white gap-6 bg-primary px-xCustom">
+      <div className="h-[40px] flex items-center text-white gap-6 bg-primary px-5">
         <span className="text-xs font-medium leading-none flex items-center">
           <BsTelephone className="mr-2" size={18} />
           (021) 7463 7390
@@ -94,18 +94,18 @@ const Navbar = () => {
       </div>
 
       {/* Navbar Section */}
-      <nav className="h-[120px] bg-white flex items-center justify-between flex-wrap gap-6 px-xCustom">
+      <nav className="h-[120px] bg-white flex items-center justify-between flex-wrap gap-6 px-5">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold font-bebas">
           <Image
-            src="/logo.png"
+            src="/images/logo/skb_food.png"
             alt="SKB Food"
-            width={206}
-            height={47}
+            width={900}
+            height={600}
             style={{
-              minWidth: "206px",
-              minHeight: "47px",
-              marginRight: 12,
+              width: "200px",
+              height: "auto",
+              marginRight: 24,
             }}
           />
         </Link>
@@ -158,7 +158,9 @@ const Navbar = () => {
           </div>
           <div className="flex items-center justify-center text-primary bg-primaryLight py-3 px-5 rounded-full gap-2">
             <BsTelephoneFill size={14} />
-            <span className="font-bold text-sm">Contact Us</span>
+            <span className="font-bold text-sm">
+              {getTranslation("common_contactUs")}
+            </span>
           </div>
         </div>
       </nav>

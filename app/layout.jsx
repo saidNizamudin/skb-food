@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import { Bebas_Neue, Montserrat } from "next/font/google";
-import { Navbar } from "@/components";
+import { Navbar, Footer } from "@/components";
 
 import "./globals.css";
 
@@ -33,9 +33,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${bebasNeue.variable} ${montserrat.variable} ${segoeUI.variable}antialiased`}
       >
-        <div className="min-h-screen">
+        <div>
           <Navbar />
-          <main className="h-screen pt-[160px]">{children}</main>
+          <main className="pt-[160px]">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
