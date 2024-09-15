@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { cn } from "@/lib/utils"; // Assuming `cn` is a classnames utility
+import { cn } from "@/lib/utils";
 
 const buttonVariants = ({ variant, size, weight }) => {
   const variants = {

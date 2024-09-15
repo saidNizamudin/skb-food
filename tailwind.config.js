@@ -23,11 +23,15 @@ module.exports = {
         secondaryDark: "#F8B400",
         black: "#1F1F1F",
         grey: "#575757",
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
       },
       spacing: {
         xCustom: "100px",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
