@@ -15,6 +15,7 @@ import { Fragment } from "react";
 import { SlMagnifier } from "react-icons/sl";
 import { useTranslate } from "@/hooks";
 import useStore from "@/app/store";
+import { Switch } from "@/components";
 
 const navigation = [
   {
@@ -67,7 +68,7 @@ const Navbar = () => {
   return (
     <header className="z-10 fixed w-full font-montserrat">
       {/* Header Section */}
-      <div className="h-[40px] flex items-center text-white gap-6 bg-primary px-5">
+      <div className="h-[40px] flex items-center text-white gap-6 bg-primary px-10">
         <span className="text-xs font-medium leading-none flex items-center">
           <BsTelephone className="mr-2" size={18} />
           (021) 7463 7390
@@ -76,25 +77,15 @@ const Navbar = () => {
           <MdOutlineMail className="mr-2" size={18} />
           corporatesecretary@skbfood.id
         </span>
-        <div className="flex items-center text-xs leading-none font-medium gap-2 ml-auto">
-          <div
-            className={`cursor-pointer ${lang === "id" && "font-bold"}`}
-            onClick={() => setLang("id")}
-          >
-            ID
-          </div>
-          <hr className="w-0.5 h-4 bg-white" />
-          <div
-            className={`cursor-pointer ${lang === "en" && "font-bold"}`}
-            onClick={() => setLang("en")}
-          >
-            EN
-          </div>
-        </div>
+        <Switch
+          className="ml-auto"
+          enabled={lang === "en"}
+          onChange={(value) => setLang(value ? "en" : "id")}
+        />
       </div>
 
       {/* Navbar Section */}
-      <nav className="h-[120px] bg-white flex items-center justify-between flex-wrap gap-6 px-5">
+      <nav className="h-[120px] bg-white flex items-center justify-between flex-wrap gap-6 px-10">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold font-bebas">
           <Image

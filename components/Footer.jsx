@@ -15,6 +15,7 @@ import { Fragment } from "react";
 import { SlMagnifier } from "react-icons/sl";
 import { useTranslate } from "@/hooks";
 import useStore from "@/app/store";
+import { Button } from "@/components";
 
 const Footer = () => {
   const { getTranslation } = useTranslate();
@@ -23,20 +24,23 @@ const Footer = () => {
 
   return (
     <footer className="flex flex-col">
-      <div className="flex flex-col items-center gap-10 justify-between bg-primary p-5 py-10 md:flex-row md:p-10 md:gap-5">
-        <span className="text-white text-balance text-4xl text-center font-bold font-montserrat w-full md:text-start md:w-1/2">
+      <div className="flex flex-col items-center gap-5 justify-between bg-primary p-10 md:flex-row">
+        <span className="text-white text-center text-[clamp(24px,3vw,36px)] font-bold font-montserrat w-full md:text-start md:w-3/5">
           {getTranslation("footer_email_title")}
         </span>
-        <div className="relative w-3/4 md:w-1/2">
+        <div className="relative w-3/4 md:w-2/5">
           <input
             type="text"
-            className="w-full h-14 px-5 pr-16 text-black font-montserrat rounded-full outline-none"
+            className="w-full h-12 px-5 pr-12 text-black font-montserrat rounded-full outline-none"
             placeholder={getTranslation("footer_email_placeholder")}
           />
-          <FaArrowRight
-            size={28}
-            className="absolute top-1/2 right-5 transform -translate-y-1/2 p-1 rounded-full text-white bg-primary"
-          />
+
+          <Button
+            size="icon"
+            className="absolute top-1/2 right-2 transform -translate-y-1/2 !w-8 !h-8"
+          >
+            <FaArrowRight size={20} />
+          </Button>
         </div>
       </div>
       <div className="flex flex-col p-5 gap-5 md:gap-10 md:p-10">
