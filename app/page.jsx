@@ -91,7 +91,7 @@ const Carousel = () => {
 const AboutUs = () => {
   const { getTranslation } = useTranslate();
   return (
-    <div className="flex flex-col items-center p-10 lg:flex-row gap-10">
+    <div className="flex flex-col items-center p-10  gap-10 md:px-xCustom lg:flex-row">
       <Image
         src="/images/home/partner.webp"
         alt="Partner"
@@ -125,7 +125,7 @@ const AboutUs = () => {
 const OurBusiness = () => {
   const { getTranslation } = useTranslate();
   return (
-    <div className="flex flex-col gap-10 items-start p-10 pr-0 md:flex-row md:gap-20">
+    <div className="flex flex-col gap-10 items-start p-10 pr-0 lg:flex-row md:gap-20 md:pl-xCustom">
       <div className="flex flex-col gap-2.5 flex-shrink-0">
         <span className="text-xl font-segoe font-bold text-primary">
           {getTranslation("common_ourBusiness")}
@@ -135,7 +135,7 @@ const OurBusiness = () => {
         </span>
         <Button size="lg">{getTranslation("common_readMore")}</Button>
       </div>
-      <div className="w-full md:w-auto md:flex-1 overflow-hidden">
+      <div className="w-full md:flex-1 overflow-hidden">
         <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide md:overflow-x-auto">
           {[
             {

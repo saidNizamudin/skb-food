@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import { Bebas_Neue, Montserrat } from "next/font/google";
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, Main } from "@/components";
 
 import "./globals.css";
 
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
       >
         <div>
           <Navbar />
-          <main className="pt-[160px]">{children}</main>
+          <Main>{children}</Main>
           <Footer />
         </div>
       </body>
