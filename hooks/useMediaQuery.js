@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export function useMediaQuery(width) {
-  const [isWidthMatch, setIsWidthMatch] = useState(false);
+  const [isWidthMatch, setIsWidthMatch] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {

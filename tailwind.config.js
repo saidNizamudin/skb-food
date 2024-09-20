@@ -29,7 +29,7 @@ module.exports = {
         },
       },
       spacing: {
-        xCustom: "100px",
+        xCustom: "180px",
       },
     },
   },

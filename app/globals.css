@@ -9,8 +9,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground: #0a0a0a;
-    --background: #ededed;
+    --foreground: black;
+    --background: white;
 
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
@@ -52,4 +52,8 @@ body {
 .scrollbar-hide {
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+.no-transition {
+  transition: none !important;
 }

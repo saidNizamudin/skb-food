@@ -28,8 +28,10 @@ const navigation = [
     name: "navbar_menu1",
     href: "/",
     children: [
-      { name: "navbar_menu1_child1", href: "/" },
-      { name: "navbar_menu1_child2", href: "/" },
+      { name: "navbar_menu1_child1", href: "/about-us/company" },
+      { name: "navbar_menu1_child2", href: "/about-us/vision-mission" },
+      { name: "navbar_menu1_child3", href: "/about-us/management" },
+      { name: "navbar_menu1_child4", href: "/about-us/structure" },
     ],
   },
   {
@@ -71,16 +73,18 @@ const ListItem = React.forwardRef(
     return (
       <li>
         <NavigationMenuLink asChild>
-          <a
+          <Link
             ref={ref}
             className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-black/30 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              "block select-none space-y-1 p-3 leading-none no-underline outline-none transition-colors hover:bg-primaryLight hover:text-primary focus:bg-accent focus:text-accent-foreground no-transition",
               className
             )}
             {...props}
           >
-            <div className="text-sm font-medium leading-none">{title}</div>
-          </a>
+            <div className="text-sm font-medium leading-none no-transition">
+              {title}
+            </div>
+          </Link>
         </NavigationMenuLink>
       </li>
     );
@@ -93,7 +97,7 @@ const Navbar = () => {
   const { lang } = useStore((state) => ({ lang: state.lang }));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { setLang } = useStore();
-  const isLargeScreen = useMediaQuery(1245);
+  const isLargeScreen = useMediaQuery(1300);
   const isOneRow = useMediaQuery(1080);
   const isNotBurger = useMediaQuery(750);
   const isSwitchOneRow = useMediaQuery(550);
@@ -218,17 +222,25 @@ const Navbar = () => {
           </Link>
         )}
         {isNotBurger && (
-          <div className="flex items-center h-max">
+          <div className="flex items-center h-max gap-2">
             {navigation.map((item, index) => (
               <NavigationMenu key={index}>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger haveChild={item.children}>
-                      {getTranslation(item.name)}
-                    </NavigationMenuTrigger>
+                    {item.children ? (
+                      <NavigationMenuTrigger haveChild={item.children}>
+                        {getTranslation(item.name)}
+                      </NavigationMenuTrigger>
+                    ) : (
+                      <Link href={item.href}>
+                        <NavigationMenuTrigger haveChild={item.children}>
+                          {getTranslation(item.name)}
+                        </NavigationMenuTrigger>
+                      </Link>
+                    )}
                     {item.children && (
                       <NavigationMenuContent>
-                        <ul className="flex flex-col w-max min-w-[150px] max-w-[250px] gap-1 p-1">
+                        <ul className="flex flex-col w-[250px] gap-1 py-1">
                           {item.children.map((component) => (
                             <ListItem
                               key={component.name}
@@ -270,7 +282,7 @@ const Navbar = () => {
                 <Link
                   key={index}
                   href={item.href}
-                  className="font-bold font-montserrat text-base text-black block p-1 rounded-md hover:bg-black/30"
+                  className="font-bold font-montserrat text-base text-black block py-2 px-6 rounded-md hover:bg-primaryLight hover:text-primary"
                 >
                   {getTranslation(item.name)}
                 </Link>
@@ -280,7 +292,7 @@ const Navbar = () => {
                       <Link
                         href={component.href}
                         key={component.name}
-                        className="text-black font-montserrat text-base p-1 hover:bg-black/30 rounded-md"
+                        className="text-black font-montserrat text-base py-2 px-6 hover:bg-primaryLight hover:text-primary rounded-md"
                       >
                         {getTranslation(component.name)}
                       </Link>

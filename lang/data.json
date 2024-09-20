@@ -1,37 +1,65 @@
 {
   "navbar_menu1": { "id": "Tentang Kami", "en": "About Us" },
   "navbar_menu1_child1": { "id": "Profil Perusahaan", "en": "Company Profile" },
-  "navbar_menu1_child2": { "id": "Profil Manajemen", "en": "Management Profile" },
-  
+  "navbar_menu1_child2": { "id": "Visi Misi", "en": "Vision Mission" },
+  "navbar_menu1_child3": {
+    "id": "Profil Manajemen",
+    "en": "Management Profile"
+  },
+  "navbar_menu1_child4": {
+    "id": "Struktur Organisasi",
+    "en": "Organizational Structure"
+  },
+
   "navbar_menu2": { "id": "Bisnis Kami", "en": "Our Business" },
-  "navbar_menu2_child1": { "id": "Persediaan Makanan (Ikan, Beras, Daging)", "en": "Food Supply (Fish, Rice, Meat)" },
-  "navbar_menu2_child2": { "id": "Brand owner (SKB Catering, Eskabeh Seafood)", "en": "Brand Owner (SKB Catering, Eskabeh Seafood)" },
-  
+  "navbar_menu2_child1": {
+    "id": "Persediaan Makanan (Ikan, Beras, Daging)",
+    "en": "Food Supply (Fish, Rice, Meat)"
+  },
+  "navbar_menu2_child2": {
+    "id": "Brand owner (SKB Catering, Eskabeh Seafood)",
+    "en": "Brand Owner (SKB Catering, Eskabeh Seafood)"
+  },
+
   "navbar_menu3": { "id": "Group Kami", "en": "Our Group" },
-  
+
   "navbar_menu4": { "id": "Hubungan Investor", "en": "Investor Relations" },
   "navbar_menu4_child1": { "id": "Laporan Keuangan", "en": "Financial Report" },
   "navbar_menu4_child2": { "id": "Laporan Tahunan", "en": "Annual Report" },
-  "navbar_menu4_child3": { "id": "Laporan Keberlanjutan", "en": "Sustainability Report" },
+  "navbar_menu4_child3": {
+    "id": "Laporan Keberlanjutan",
+    "en": "Sustainability Report"
+  },
   "navbar_menu4_child4": { "id": "Prospektus", "en": "Prospectus" },
-  "navbar_menu4_child5": { "id": "Presentasi kepada Investor", "en": "Investor Presentations" },
-  
+  "navbar_menu4_child5": {
+    "id": "Presentasi kepada Investor",
+    "en": "Investor Presentations"
+  },
+
   "navbar_menu5": { "id": "Ruang Media", "en": "Media Room" },
   "navbar_menu5_child1": { "id": "Press Release", "en": "Press Release" },
   "navbar_menu5_child2": { "id": "Blog & Artikel", "en": "Blog & Articles" },
   "navbar_menu5_child3": { "id": "CSR", "en": "CSR" },
 
-  "footer_email_title": { 
+  "footer_email_title": {
     "id": "Berlangganan buletin kami & Dapatkan Informasi tentang berita dan penawaran",
     "en": "Subscribe to our newsletter & Be Informed about news and offers"
   },
   "footer_email_placeholder": { "id": "Alamat Email", "en": "Email Address" },
+  "footer_follow": {
+    "id": "Ikuti Sosial Media Kami",
+    "en": "Follow Our Social Media"
+  },
 
-  "common_discoverMore": { "id": "Temukan Lebih Lanjut", "en": "Discover More" },
+  "common_home": { "id": "Beranda", "en": "Home" },
+  "common_discoverMore": {
+    "id": "Temukan Lebih Lanjut",
+    "en": "Discover More"
+  },
   "common_aboutUs": { "id": "Tentang Kami", "en": "About Us" },
   "common_readMore": { "id": "Baca Selengkapnya", "en": "Read More" },
   "common_contactUs": { "id": "Hubungi Kami", "en": "Contact Us" },
-  "common_ourBusiness": { "id": "Bisnis Kami", "en": "Our Business" }, 
+  "common_ourBusiness": { "id": "Bisnis Kami", "en": "Our Business" },
   "common_mediaRoom": { "id": "Ruang Media", "en": "Media Room" },
   "common_ourGroup": { "id": "Group Kami", "en": "Our Group" },
   "common_information": { "id": "Informasi", "en": "Information" },
@@ -41,13 +69,96 @@
   "common_fish": { "id": "Ikan", "en": "Fish" },
   "common_rice": { "id": "Beras", "en": "Rice" },
   "common_meat": { "id": "Daging", "en": "Meat" },
+  "common_hotel": { "id": "Hotel", "en": "Hotel" },
+  "common_restaurant": { "id": "Restoran", "en": "Restaurant" },
+  "common_cafe": { "id": "Kafe", "en": "Cafe" },
+  "common_traditionalMarket": {
+    "id": "Pasar Tradisional",
+    "en": "Traditional Market"
+  },
+  "common_salting": { "id": "Pemindangan", "en": "Salting" },
+  "common_groceryStore": { "id": "Toko Kelontong", "en": "Grocery Store" },
+  "common_vision": { "id": "Visi", "en": "Vision" },
+  "common_mission": { "id": "Misi", "en": "Mission" },
+  "common_commissioner": { "id": "Komisaris", "en": "Commissioner" },
+  "common_mainCommissioner": {
+    "id": "Komisaris Utama",
+    "en": "Main Commissioner"
+  },
+  "common_independentCommissioner": {
+    "id": "Komisaris Independen",
+    "en": "Independent Commissioner"
+  },
+  "common_director": { "id": "Direksi", "en": "Director" },
+  "common_mainDirector": { "id": "Direktur Utama", "en": "Main Director" },
+  "common_managementDirector": {
+    "id": "Direktur Manajemen Risiko & Kepatuhan",
+    "en": "Risk Management & Compliance Director"
+  },
+  "common_financeDirector": {
+    "id": "Direktur Keuangan & Bisnis",
+    "en": "Finance & Business Director"
+  },
 
-  "home_about_title": { "en": "We provide the best raw material for your business" },
-  "home_about_desc": { "id": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman. Perseroan memiliki kegiatan usaha untuk mendistribusikan bahan baku baik berupa olahan maupun non olahan (segar) dari penyedia/supplier kepada mitra waralaba dan mitra distributor/stockist yang tersebar di seluruh wilayah Indonesia." },
+  "home_about_title": {
+    "en": "We provide the best raw material for your business"
+  },
+  "home_about_desc": {
+    "id": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman. Perseroan memiliki kegiatan usaha untuk mendistribusikan bahan baku baik berupa olahan maupun non olahan (segar) dari penyedia/supplier kepada mitra waralaba dan mitra distributor/stockist yang tersebar di seluruh wilayah Indonesia."
+  },
   "home_business_title": { "en": "Food Supply", "id": "Persediaan Makanan" },
   "home_skb_title": { "en": "SKB Catering", "id": "SKB Catering" },
-  "home_skb_desc": { "id": "SKB Catering merupakan salah satu bisnis andalan dari PT. SARI KREASI BOGA Tbk. sebagai upaya untuk mendekatkan diri dengan para pelanggan. Disini kami menyediakan menu Catering andalan kami untuk melengkapi hidangan menu anda pada saat momen – momen penting seperti Meeting, Arisan, Ulang tahun, Gathering dan acara - acara spesial lainnya. Dengan harga yang spesial juga tentunya." },
+  "home_skb_desc": {
+    "id": "SKB Catering merupakan salah satu bisnis andalan dari PT. SARI KREASI BOGA Tbk. sebagai upaya untuk mendekatkan diri dengan para pelanggan. Disini kami menyediakan menu Catering andalan kami untuk melengkapi hidangan menu anda pada saat momen – momen penting seperti Meeting, Arisan, Ulang tahun, Gathering dan acara - acara spesial lainnya. Dengan harga yang spesial juga tentunya."
+  },
   "home_eskabeh_title": { "en": "Eskabeh Seafood", "id": "Eskabeh Seafood" },
-  "home_eskabeh_desc": { "id": "Eskabeh merupakan toko ikan segar beku rumahan yang menyediakan berbagai jenis ikan dan seafood sebagai kebutuhan makanan sehari-hari maupun kebutuhan bisnis kuliner. ESKABEH Seafood punya slogan “Toko Ikan Segar Tetangga Anda” & “Produk Ikan Segar Beku Langsung Dari Kapal”. Eskabeh Seafood berada dibawah naungan PT. Sari Kreasi Boga Tbk sebagai medium untuk menambah ekspansi bisnis di sektor ikan." },
-  "home_media_title": { "en": "Latest Updated", "id": "Terbaru" }
+  "home_eskabeh_desc": {
+    "id": "Eskabeh merupakan toko ikan segar beku rumahan yang menyediakan berbagai jenis ikan dan seafood sebagai kebutuhan makanan sehari-hari maupun kebutuhan bisnis kuliner. ESKABEH Seafood punya slogan “Toko Ikan Segar Tetangga Anda” & “Produk Ikan Segar Beku Langsung Dari Kapal”. Eskabeh Seafood berada dibawah naungan PT. Sari Kreasi Boga Tbk sebagai medium untuk menambah ekspansi bisnis di sektor ikan."
+  },
+  "home_media_title": { "en": "Latest Updated", "id": "Terbaru" },
+
+  "about_description_desc1": {
+    "en": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman.",
+    "id": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman."
+  },
+  "about_description_desc2": {
+    "en": "Perseroan memiliki kegiatan usaha untuk mendistribusikan bahan baku baik berupa olahan maupun non olahan (segar) dari penyedia/supplier kepada mitra waralaba dan mitra distributor/stockist yang tersebar di seluruh wilayah Indonesia. Rantai distribusi tersebut juga mencakup bahan baku pangan lain seperti beras dan ikan beku.",
+    "id": "Perseroan memiliki kegiatan usaha untuk mendistribusikan bahan baku baik berupa olahan maupun non olahan (segar) dari penyedia/supplier kepada mitra waralaba dan mitra distributor/stockist yang tersebar di seluruh wilayah Indonesia. Rantai distribusi tersebut juga mencakup bahan baku pangan lain seperti beras dan ikan beku."
+  },
+  "about_map_desc1": {
+    "en": "Perseroan telah sukses membuka waralaba di seluruh kota besar yang ada di Indonesia untuk merek-merek yang telah dimilikinya. Hingga saat ini, ada 969 mitra waralaba yang telah bergabung bersama Perseroan.",
+    "id": "Perseroan telah sukses membuka waralaba di seluruh kota besar yang ada di Indonesia untuk merek-merek yang telah dimilikinya. Hingga saat ini, ada 969 mitra waralaba yang telah bergabung bersama Perseroan."
+  },
+  "about_map_desc2": {
+    "en": "Dengan adanya potensi rantai distribusi yang telah dibangun, dapat mengembangkan penjualan kepada pangsa pasar selain mitra waralaba seperti",
+    "id": "Dengan adanya potensi rantai distribusi yang telah dibangun, dapat mengembangkan penjualan kepada pangsa pasar selain mitra waralaba seperti"
+  },
+  "about_vision_desc": {
+    "id": "Menjadi perusahaan makanan dan minuman Indonesia terbesar, paling menguntungkan, dan paling berpengaruh di dunia.",
+    "en": "To become the largest, most profitable, and most influential food and beverage company in Indonesia and the world."
+  },
+  "about_mission_desc1": {
+    "id": "Memiliki jaringan waralaba terbesar di Indonesia",
+    "en": "To have the largest franchise network in Indonesia."
+  },
+  "about_mission_desc2": {
+    "id": "Memiliki rantai distribusi pangan tersebar di seluruh Indonesia",
+    "en": "To have a widespread food distribution chain across Indonesia."
+  },
+  "about_mission_desc3": {
+    "id": "Menyediakan layanan pengelolaan resto yang professional dan berbasis sistem terintegrasi",
+    "en": "To provide professional restaurant management services based on an integrated system."
+  },
+  "about_mission_desc4": {
+    "id": "Mencetak enterpreneur dan sumber daya manusia yang berkualitas, professional, berdaya saing di bidang makanan & minuman",
+    "en": "To develop quality, professional, and competitive entrepreneurs and human resources in the food and beverage sector."
+  },
+  "about_mission_desc5": {
+    "id": "Menyediakan produk-produk makanan dan minuman yang berkualitas",
+    "en": "To provide high-quality food and beverage products."
+  },
+  "about_ourGroup_desc": {
+    "id": "Waralaba makanan dan minuman yang dimiliki dan dikuasai oleh Perseroan adalah Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café.",
+    "en": "The food and beverage franchises owned and controlled by the Company are Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café."
+  }
 }

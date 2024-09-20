@@ -28,7 +28,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
 const navigationMenuTriggerStyle = () =>
-  "group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-black font-montserrat font-bold text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50";
+  "group inline-flex h-9 w-max items-center justify-center rounded-md px-2 py-2 text-black font-montserrat font-bold text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50";
 
 const NavigationMenuTrigger = React.forwardRef(
   ({ className, children, haveChild, ...props }, ref) => (
@@ -40,7 +40,7 @@ const NavigationMenuTrigger = React.forwardRef(
       {children}
       {haveChild && (
         <FaChevronDown
-          className="relative top-[1px] ml-3 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
+          className="relative ml-3 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
           aria-hidden="true"
         />
       )}

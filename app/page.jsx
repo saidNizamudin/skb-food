@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import { FaChevronLeft, FaChevronRight, FaUser } from "react-icons/fa6";
+import {
+  FaArrowRight,
+  FaChevronLeft,
+  FaChevronRight,
+  FaUser,
+} from "react-icons/fa6";
 import { CiCalendar, CiUser } from "react-icons/ci";
 import useEmblaCarousel from "embla-carousel-react";
 import { useTranslate } from "@/hooks";
@@ -12,12 +17,23 @@ export default function Home() {
   return (
     <>
       <Carousel />
-      <AboutUs />
-      <OurBusiness />
+      <div className="relative">
+        <Image
+          src="/images/background.png"
+          alt="Background"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="absolute inset-0 z-[-1]"
+        />
+        <AboutUs />
+        <OurBusiness />
+      </div>
       <Gallery />
       <MediaRoom />
-      <OurGroup />
+      {/* <OurGroup /> */}
       {/* <Stock /> */}
+      <Subscribe />
     </>
   );
 }
@@ -91,9 +107,9 @@ const Carousel = () => {
 const AboutUs = () => {
   const { getTranslation } = useTranslate();
   return (
-    <div className="flex flex-col items-center p-10  gap-10 md:px-xCustom lg:flex-row">
+    <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 md:px-xCustom min-[1240px]:flex-row">
       <Image
-        src="/images/home/partner.webp"
+        src="/images/home/partner.svg"
         alt="Partner"
         width={600}
         height={400}
@@ -106,7 +122,7 @@ const AboutUs = () => {
           objectPosition: "center",
         }}
       />
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-2.5 min-w-lg">
         <span className="text-xl font-segoe font-bold text-primary">
           {getTranslation("common_aboutUs")}
         </span>
@@ -125,7 +141,7 @@ const AboutUs = () => {
 const OurBusiness = () => {
   const { getTranslation } = useTranslate();
   return (
-    <div className="flex flex-col gap-10 items-start p-10 pr-0 lg:flex-row md:gap-20 md:pl-xCustom">
+    <div className="flex flex-col gap-x-32 gap-y-10 items-start p-10 pb-32 pr-0 lg:flex-row md:pl-xCustom">
       <div className="flex flex-col gap-2.5 flex-shrink-0">
         <span className="text-xl font-segoe font-bold text-primary">
           {getTranslation("common_ourBusiness")}
@@ -199,7 +215,7 @@ const Gallery = () => {
   const { getTranslation } = useTranslate();
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
-      <div className="flex flex-col items-start justify-center gap-2.5 p-10 bg-primaryLight">
+      <div className="flex flex-col items-start justify-center gap-2.5 p-10 bg-primary">
         <Image
           src="/images/logo/skb_catering.png"
           alt="Catering"
@@ -211,13 +227,13 @@ const Gallery = () => {
             marginBottom: 20,
           }}
         />
-        <span className="text-xl font-segoe font-bold text-primary">
+        <span className="text-xl font-segoe font-bold text-white">
           {getTranslation("common_ourBusiness")}
         </span>
-        <span className="text-[32px] font-montserrat font-bold text-black leading-10">
+        <span className="text-[32px] font-montserrat font-bold text-white leading-10">
           {getTranslation("home_skb_title")}
         </span>
-        <span className="text-base font-segoe font-medium text-grey">
+        <span className="text-base font-segoe font-medium text-white">
           {getTranslation("home_skb_desc")}
         </span>
       </div>
@@ -246,7 +262,7 @@ const Gallery = () => {
           objectPosition: "center",
         }}
       />
-      <div className="flex flex-col items-start justify-center gap-2.5 p-10 bg-primaryLight order-3 md:order-4">
+      <div className="flex flex-col items-start justify-center gap-2.5 p-10 bg-primary order-3 md:order-4">
         <Image
           src="/images/logo/eskabeh.png"
           alt="Eskabeh Seafood"
@@ -258,13 +274,13 @@ const Gallery = () => {
             marginBottom: 20,
           }}
         />
-        <span className="text-xl font-segoe font-bold text-primary">
+        <span className="text-xl font-segoe font-bold text-white">
           {getTranslation("common_ourBusiness")}
         </span>
-        <span className="text-[32px] font-montserrat font-bold text-black leading-10">
+        <span className="text-[32px] font-montserrat font-bold text-white leading-10">
           {getTranslation("home_eskabeh_title")}
         </span>
-        <span className="text-base font-segoe font-medium text-grey">
+        <span className="text-base font-segoe font-medium text-white">
           {getTranslation("home_eskabeh_desc")}
         </span>
       </div>
@@ -276,7 +292,7 @@ const MediaRoom = () => {
   const { getTranslation } = useTranslate();
 
   return (
-    <div className="flex flex-col items-center p-5 md:p-10">
+    <div className="flex flex-col items-center p-5 md:p-10 md:py-20">
       <span className="text-xl font-segoe font-bold text-primary">
         {getTranslation("common_mediaRoom")}
       </span>
@@ -373,6 +389,39 @@ const OurGroup = () => {
             height: 80,
           }}
         />
+      </div>
+    </div>
+  );
+};
+
+const Subscribe = () => {
+  const { getTranslation } = useTranslate();
+  return (
+    <div className="relative flex flex-col items-center gap-5 justify-between bg-primary/90 p-10 md:flex-row">
+      <Image
+        src="/images/catering.webp"
+        alt="Catering"
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+        className="absolute inset-0 z-[-1]"
+      />
+      <span className="text-white text-center text-[clamp(24px,3vw,36px)] font-bold font-montserrat w-full md:text-start md:w-3/5">
+        {getTranslation("footer_email_title")}
+      </span>
+      <div className="relative w-3/4 md:w-2/5">
+        <input
+          type="text"
+          className="w-full h-12 px-5 pr-12 text-black font-montserrat rounded-full outline-none"
+          placeholder={getTranslation("footer_email_placeholder")}
+        />
+
+        <Button
+          size="icon"
+          className="absolute top-1/2 right-2 transform -translate-y-1/2 !w-8 !h-8"
+        >
+          <FaArrowRight size={20} />
+        </Button>
       </div>
     </div>
   );
