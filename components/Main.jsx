@@ -5,7 +5,7 @@ import { useMediaQuery } from "@/hooks";
 const Main = ({ children }) => {
   const isHugeScreen = useMediaQuery(1080);
   const isLargeScreen = useMediaQuery(750);
-  const isMediumScreen = useMediaQuery(550);
+  const isMediumScreen = useMediaQuery(600);
 
   return (
     <div>
@@ -16,8 +16,8 @@ const Main = ({ children }) => {
             : isLargeScreen
             ? "pt-[190px]"
             : isMediumScreen
-            ? "pt-[140px]"
-            : "pt-[220px]"
+            ? "pt-[100px]"
+            : "pt-[140px]"
         }
       >
         {children}

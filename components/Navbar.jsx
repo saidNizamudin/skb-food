@@ -100,8 +100,7 @@ const Navbar = () => {
   const isLargeScreen = useMediaQuery(1300);
   const isOneRow = useMediaQuery(1080);
   const isNotBurger = useMediaQuery(750);
-  const isSwitchOneRow = useMediaQuery(550);
-  const isSmallScreen = useMediaQuery(450);
+  const isSmallScreen = useMediaQuery(600);
   const isVerySmallScreen = useMediaQuery(400);
 
   return (
@@ -109,22 +108,10 @@ const Navbar = () => {
       {/* Header Section */}
       <div
         className={`flex items-center text-white bg-primary gap-2 ${
-          isSwitchOneRow
-            ? "h-[40px] px-10 justify-between"
-            : isVerySmallScreen
-            ? "h-[100px] px-5 justify-between"
-            : "h-[100px] flex-col px-5 justify-center"
+          isNotBurger ? "h-[40px] px-10 justify-between" : "hidden"
         }`}
       >
-        <div
-          className={`flex ${
-            isSwitchOneRow
-              ? "flex-row items-center gap-5"
-              : isVerySmallScreen
-              ? "flex-col gap-2"
-              : "flex-col gap-2 self-start"
-          }`}
-        >
+        <div className={`flex flex-row items-center gap-5`}>
           <span className="text-xs font-medium leading-none flex items-center">
             <BsTelephone className="mr-2" size={18} />
             (021) 7463 7390
@@ -149,7 +136,7 @@ const Navbar = () => {
             ? "h-[150px] flex-col p-10 justify-center gap-5"
             : isSmallScreen
             ? "h-[100px] px-10 justify-center gap-5"
-            : "h-[120px] px-5 justify-start"
+            : "h-[140px] px-5 justify-center gap-5"
         }`}
       >
         {!isOneRow && (
@@ -157,7 +144,7 @@ const Navbar = () => {
             className={`flex ${
               isSmallScreen
                 ? "items-center gap-5"
-                : "flex-col items-start gap-3"
+                : "flex-col justify-center items-center gap-5"
             }`}
           >
             <Link
@@ -203,6 +190,14 @@ const Navbar = () => {
                   </span>
                 )}
               </div>
+              {!isNotBurger && (
+                <Switch
+                  className={"!text-primary"}
+                  enabled={lang === "en"}
+                  onChange={(value) => setLang(value ? "en" : "id")}
+                  inverted
+                />
+              )}
             </div>
           </div>
         )}
