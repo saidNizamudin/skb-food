@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${bebasNeue.variable} ${montserrat.variable} ${segoeUI.variable}antialiased`}
       >
-        <div>
+        <div className="flex flex-col min-h-screen">
           <Navbar />
           <Main>{children}</Main>
           <Footer />

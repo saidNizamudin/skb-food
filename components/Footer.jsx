@@ -32,7 +32,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="flex flex-col p-5 gap-5 md:gap-10 md:p-10"
+      className="flex flex-col p-5 gap-5 md:gap-10 md:p-10 bg-white mt-auto"
       style={{
         boxShadow: "0px -4px 40px 2px rgba(0, 0, 0, 0.1)",
       }}
