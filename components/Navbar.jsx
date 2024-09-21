@@ -44,7 +44,7 @@ const navigation = [
   },
   {
     name: "navbar_menu3",
-    href: "/",
+    href: "/our-group",
   },
   {
     name: "navbar_menu4",
@@ -61,9 +61,9 @@ const navigation = [
     name: "navbar_menu5",
     href: "/",
     children: [
-      { name: "navbar_menu5_child1", href: "/" },
-      { name: "navbar_menu5_child2", href: "/" },
-      { name: "navbar_menu5_child3", href: "/" },
+      { name: "navbar_menu5_child1", href: "/media/press" },
+      { name: "navbar_menu5_child2", href: "/media/blog" },
+      { name: "navbar_menu5_child3", href: "/media/csr" },
     ],
   },
 ];
@@ -133,10 +133,10 @@ const Navbar = () => {
           isOneRow
             ? "h-[120px] px-10 gap-1"
             : isNotBurger
-            ? "h-[150px] flex-col p-10 justify-center gap-5"
-            : isSmallScreen
-            ? "h-[100px] px-10 justify-center gap-5"
-            : "h-[140px] px-5 justify-center gap-5"
+              ? "h-[150px] flex-col p-10 justify-center gap-5"
+              : isSmallScreen
+                ? "h-[100px] px-10 justify-center gap-5"
+                : "h-[140px] px-5 justify-center gap-5"
         }`}
       >
         {!isOneRow && (

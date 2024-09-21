@@ -160,5 +160,26 @@
   "about_ourGroup_desc": {
     "id": "Waralaba makanan dan minuman yang dimiliki dan dikuasai oleh Perseroan adalah Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café.",
     "en": "The food and beverage franchises owned and controlled by the Company are Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café."
+  },
+
+  "group_desc": {
+    "id": "Didalam proses pengembangan bisnis, Perseroan melakukan akuisisi beberapa perusahaan yang memiliki potensi untuk menambah daya serap produksi dari bahan baku yang telah dimiliki oleh Perseroan. Berikut Perusahaan yang kami akuisisi",
+    "en": "In the business development process, the Company has acquired several companies that have the potential to increase production absorption from the raw materials owned by the Company. Here are the companies we have acquired"
+  },
+  "group_content1_desc1": {
+    "id": "Lazizaa Rahmat Semesta adalah perusahaan fast food yang lahir di Sidoarjo, Jawa Timur yang pada tanggal 8 Februari 2016 mulai membuka cabang kemitraan di daerah Sidokare, Jawa Timur.",
+    "en": "Lazizaa Rahmat Semesta is a fast food company born in Sidoarjo, East Java which on February 8, 2016 began to open partnership branches in the Sidokare area, East Java."
+  },
+  "group_content1_desc2": {
+    "id": "Laziza memiliki tim Research and Development yang mumpuni dalam menganalisa dan memproduksi produk olahan ayam yang berkualitas",
+    "en": "Laziza has a competent Research and Development team in analyzing and producing quality processed chicken products."
+  },
+  "group_content2_desc1": {
+    "id": "Sumber Asri Sejahtera adalah pionir Teknologi Zero Waste di industri beras dan turunannya. Kami memproses dan menjual limbah hasil produksi beras seperti sekam, menir, beras reject, beras broken, bekatul dan dedak.",
+    "en": "Sumber Asri Sejahtera is a pioneer of Zero Waste Technology in the rice and its derivatives industry. We process and sell waste from rice production such as husks, bran, rejected rice, broken rice, bran, and bran."
+  },
+  "group_content2_desc2": {
+    "id": "Komitmen untuk menjaga kualitas dari produk kami tidak luput dari proses yang panjang untuk menghasilkan mutu yang sempurna, karena kualitas adalah prioritas kami.",
+    "en": "The commitment to maintain the quality of our products is not separated from the long process to produce perfect quality, because quality is our priority."
   }
 }

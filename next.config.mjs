@@ -1,11 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ["cdn.sanity.io"],
+  },
   async redirects() {
     return [
       {
         source: "/about-us",
         destination: "/about-us/company",
-        permanent: true, // Use true for a permanent 301 redirect
+        permanent: true,
+      },
+      {
+        source: "/media",
+        destination: "/media/press",
+        permanent: true,
       },
     ];
   },
