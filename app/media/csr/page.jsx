@@ -99,7 +99,7 @@ export default function Press() {
 
   return (
     <div className="flex flex-col px-10 py-20 min-[1500px]:px-xCustom">
-      <div className="grid gap-x-5 gap-y-10 xl:grid-cols-3 min-:grid-cols-2 max-[800px]:grid-cols-1">
+      <div className="grid gap-x-5 gap-y-10 xl:grid-cols-3 min-[800px]:grid-cols-2 max-[800px]:grid-cols-1">
         {csr.map((item, index) => {
           const postImageUrl = item.image
             ? urlFor(item.image)?.width(550).height(310).url()
