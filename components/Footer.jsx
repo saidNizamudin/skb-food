@@ -66,69 +66,60 @@ const Footer = () => {
             Email : corporatesecretary@skbfood.id
           </span>
         </div>
-        <div className="col-span-3 flex flex-col font-montserrat text-sm sm:col-span-1">
+        <div className="col-span-3 flex flex-col font-montserrat text-sm md:col-span-1">
           <span className="text-base text-black font-bold">
-            {getTranslation("common_information")}
+            {getTranslation("navbar_menu1")}
           </span>
-          <div className="flex flex-col gap-2 mt-3">
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_aboutUs")}
+          <div className="flex flex-col gap-2 mt-3 md:w-8/12">
+            <Link href="/about-us/company" className="text-grey font-semibold">
+              {getTranslation("navbar_menu1_child1")}
             </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_ourBusiness")}
+            <Link
+              href="/about-us/vision-mission"
+              className="text-grey font-semibold"
+            >
+              {getTranslation("navbar_menu1_child2")}
             </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_investors")}
+            <Link
+              href="/about-us/management"
+              className="text-grey font-semibold"
+            >
+              {getTranslation("navbar_menu1_child3")}
             </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_news")}
-            </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_csr")}
+            <Link
+              href="/about-us/structure"
+              className="text-grey font-semibold"
+            >
+              {getTranslation("navbar_menu1_child4")}
             </Link>
           </div>
         </div>
-        <div className="col-span-3 flex flex-col font-montserrat text-sm sm:col-span-1">
+        <div className="col-span-3 flex flex-col font-montserrat text-sm md:col-span-1">
           <span className="text-base text-black font-bold">
-            {getTranslation("common_information")}
+            {getTranslation("navbar_menu2")}
           </span>
-          <div className="flex flex-col gap-2 mt-3">
+          <div className="flex flex-col gap-2 mt-3 md:w-8/12">
             <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_aboutUs")}
+              {getTranslation("navbar_menu2_child1")}
             </Link>
             <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_ourBusiness")}
-            </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_investors")}
-            </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_news")}
-            </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_csr")}
+              {getTranslation("navbar_menu2_child2")}
             </Link>
           </div>
         </div>
-        <div className="col-span-3 flex flex-col font-montserrat text-sm sm:col-span-1">
+        <div className="col-span-3 flex flex-col font-montserrat text-sm md:col-span-1">
           <span className="text-base text-black font-bold">
-            {getTranslation("common_information")}
+            {getTranslation("navbar_menu5")}
           </span>
-          <div className="flex flex-col gap-2 mt-3">
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_aboutUs")}
+          <div className="flex flex-col gap-2 mt-3 md:w-8/12">
+            <Link href="/media/press" className="text-grey font-semibold">
+              {getTranslation("navbar_menu5_child1")}
             </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_ourBusiness")}
+            <Link href="/media/blog" className="text-grey font-semibold">
+              {getTranslation("navbar_menu5_child2")}
             </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_investors")}
-            </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_news")}
-            </Link>
-            <Link href="/" className="text-grey font-semibold">
-              {getTranslation("common_csr")}
+            <Link href="/media/csr" className="text-grey font-semibold">
+              {getTranslation("navbar_menu5_child3")}
             </Link>
           </div>
         </div>
