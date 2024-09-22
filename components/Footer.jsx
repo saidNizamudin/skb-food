@@ -99,10 +99,16 @@ const Footer = () => {
             {getTranslation("navbar_menu2")}
           </span>
           <div className="flex flex-col gap-2 mt-3 md:w-8/12">
-            <Link href="/" className="text-grey font-semibold">
+            <Link
+              href="/our-business/food-supply"
+              className="text-grey font-semibold"
+            >
               {getTranslation("navbar_menu2_child1")}
             </Link>
-            <Link href="/" className="text-grey font-semibold">
+            <Link
+              href="/our-business/brand-owner"
+              className="text-grey font-semibold"
+            >
               {getTranslation("navbar_menu2_child2")}
             </Link>
           </div>

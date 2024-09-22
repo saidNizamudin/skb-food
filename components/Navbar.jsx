@@ -38,8 +38,11 @@ const navigation = [
     name: "navbar_menu2",
     href: "/",
     children: [
-      { name: "navbar_menu2_child1", href: "/" },
-      { name: "navbar_menu2_child2", href: "/" },
+      { name: "navbar_menu2_child1", href: "/our-business/food-supply" },
+      {
+        name: "navbar_menu2_child2",
+        href: "/our-business/brand-owner",
+      },
     ],
   },
   {
@@ -50,7 +53,7 @@ const navigation = [
     name: "navbar_menu4",
     href: "/",
     children: [
-      { name: "navbar_menu4_child1", href: "/" },
+      { name: "navbar_menu4_child1", href: "/investor/financial" },
       { name: "navbar_menu4_child2", href: "/" },
       { name: "navbar_menu4_child3", href: "/" },
       { name: "navbar_menu4_child4", href: "/" },
@@ -182,14 +185,17 @@ const Navbar = () => {
               <div className="flex items-center justify-center bg-secondaryLight p-3 rounded-full">
                 <SlMagnifier size={18} />
               </div>
-              <div className="flex items-center justify-center text-primary bg-primaryLight p-3 rounded-full gap-2">
+              <Link
+                href="/contact"
+                className="flex items-center justify-center text-primary bg-primaryLight p-3 rounded-full gap-2"
+              >
                 <BsTelephoneFill size={18} />
                 {isLargeScreen && (
                   <span className="font-bold text-sm">
                     {getTranslation("common_contactUs")}
                   </span>
                 )}
-              </div>
+              </Link>
               {!isNotBurger && (
                 <Switch
                   className={"!text-primary"}
@@ -257,14 +263,17 @@ const Navbar = () => {
             <div className="flex items-center justify-center bg-secondaryLight p-3 rounded-full">
               <SlMagnifier size={18} />
             </div>
-            <div className="flex items-center justify-center text-primary bg-primaryLight p-3 rounded-full gap-2">
+            <Link
+              href="/contact"
+              className="flex items-center justify-center text-primary bg-primaryLight p-3 rounded-full gap-2"
+            >
               <BsTelephoneFill size={18} />
               {isLargeScreen && (
                 <span className="font-bold text-sm">
                   {getTranslation("common_contactUs")}
                 </span>
               )}
-            </div>
+            </Link>
           </div>
         )}
       </div>

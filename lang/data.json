@@ -99,6 +99,20 @@
     "id": "Direktur Keuangan & Bisnis",
     "en": "Finance & Business Director"
   },
+  "common_financialReport": {
+    "id": "Laporan Keuangan",
+    "en": "Financial Report"
+  },
+  "common_download": { "id": "Unduh", "en": "Download" },
+  "common_contactUsDesc": {
+    "id": "Hubungi kami untuk informasi lebih lanjut",
+    "en": "Contact us for more information"
+  },
+  "common_mainOffice": { "id": "Kantor Pusat", "en": "Main Office" },
+  "common_ourContact": { "id": "Kontak Kami", "en": "Our Contact" },
+  "common_telephone": { "id": "Telepon", "en": "Telephone" },
+  "common_fax": { "id": "Fax", "en": "Fax" },
+  "common_email": { "id": "Email", "en": "Email" },
 
   "home_about_title": {
     "en": "We provide the best raw material for your business"
@@ -160,6 +174,27 @@
   "about_ourGroup_desc": {
     "id": "Waralaba makanan dan minuman yang dimiliki dan dikuasai oleh Perseroan adalah Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café.",
     "en": "The food and beverage franchises owned and controlled by the Company are Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café."
+  },
+
+  "business_desc": {
+    "id": "Perseroan memiliki 2 merek dagang untuk menunjang agenda pengembangan rantai distribusi bahan baku. Berikut adalah merek yang dimiliki :",
+    "en": "The Company has 2 trademarks to support the development agenda of raw material distribution chains. Here are the brands owned:"
+  },
+  "business_content1_desc1": {
+    "id": "Eskabeh merupakan toko ikan segar beku rumahan yang menyediakan berbagai jenis ikan dan seafood sebagai kebutuhan makanan sehari-hari maupun kebutuhan bisnis kuliner.",
+    "en": "Eskabeh is a home-based frozen fresh fish store that provides various types of fish and seafood as daily food needs and culinary business needs."
+  },
+  "business_content1_desc2": {
+    "id": "ESKABEH Seafood punya slogan “Toko Ikan Segar Tetangga Anda” & “Produk Ikan Segar Beku Langsung Dari Kapal”. Eskabeh Seafood berada dibawah naungan PT. Sari Kreasi Boga Tbk sebagai medium untuk menambah ekspansi bisnis di sektor ikan.",
+    "en": "ESKABEH Seafood has the slogan “Your Neighbour Fresh Fish Store” & “Fresh Frozen Fish Products Directly From The Ship”. Eskabeh Seafood is under the auspices of PT. Sari Kreasi Boga Tbk as a medium to expand business in the fish sector."
+  },
+  "business_content2_desc1": {
+    "id": "SKB Catering merupakan salah satu bisnis andalan dari PT. SARI KREASI BOGA Tbk. sebagai upaya untuk mendekatkan diri dengan para pelanggan.",
+    "en": "SKB Catering is one of the main businesses of PT. SARI KREASI BOGA Tbk. as an effort to get closer to customers."
+  },
+  "business_content2_desc2": {
+    "id": "Disini kami menyediakan menu Catering andalan kami untuk melengkapi hidangan menu anda pada saat momen – momen penting seperti Meeting, Arisan, Ulang tahun, Gathering dan acara - acara spesial lainnya. Dengan harga yang spesial juga tentunya.",
+    "en": "Here we provide our flagship Catering menu to complement your menu at important moments such as Meetings, Arisan, Birthdays, Gatherings and other special events. With special prices of course."
   },
 
   "group_desc": {

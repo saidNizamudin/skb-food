@@ -1,0 +1,126 @@
+"use client";
+
+import { Button } from "@/components";
+import { useTranslate } from "@/hooks";
+import Image from "next/image";
+import { FaArrowRight, FaFax, FaPhone } from "react-icons/fa6";
+import { MdMail } from "react-icons/md";
+
+export default function Contact() {
+  const { getTranslation } = useTranslate();
+
+  return (
+    <div className="flex flex-col w-full">
+      <div className="w-full h-[400px] relative">
+        <Image
+          src="/images/contact/maps.png"
+          alt="Maps"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      </div>
+      <div className="flex flex-col-reverse items-start gap-10 px-10 py-20 min-[1500px]:px-xCustom lg:flex-row lg:items-center">
+        <div className="flex flex-col">
+          <span className="text-5xl font-bold font-montserrat mb-3">
+            {getTranslation("common_contactUs")}
+          </span>
+          <span className="text-base font-semibold font-segoe text-grey mb-5">
+            {getTranslation("common_contactUsDesc")}
+          </span>
+          <span className="text-xl font-semibold font-montserrat mb-2">
+            {getTranslation("common_mainOffice")}
+          </span>
+          <span className="text-base font-semibold font-segoe text-grey mb-5">
+            Beltway Office Park
+            <br />
+            Jl. Ampera Raya, Ragunan, Kec. Ps. Minggu, Kota Jakarta Selatan,
+            Daerah Khusus Ibukota Jakarta 12540
+          </span>
+          <span className="text-xl font-semibold font-montserrat mb-3">
+            {getTranslation("common_ourContact")}
+          </span>
+          <div className="flex flex-wrap gap-10 items-center">
+            <div className="flex items-start gap-3">
+              <div className="flex items-center justify-center p-1 w-7 h-7 text-2xl text-white bg-primary rounded-full">
+                <FaPhone size={18} />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-base font-bold font-montserrat">
+                  {getTranslation("common_telephone")}
+                </span>
+                <span className="text-base font-medium font-segoe text-grey">
+                  (021) 7463 7390
+                </span>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex items-center justify-center p-1 w-7 h-7 text-2xl text-white bg-primary rounded-full">
+                <FaFax size={14} />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-base font-bold font-montserrat">
+                  {getTranslation("common_fax")}
+                </span>
+                <span className="text-base font-medium font-segoe text-grey">
+                  (021) 7463 7390
+                </span>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex items-center justify-center p-1 w-7 h-7 text-2xl text-white bg-primary rounded-full">
+                <MdMail size={18} />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-base font-bold font-montserrat">
+                  {getTranslation("common_email")}
+                </span>
+                <span className="text-base font-medium font-segoe text-grey">
+                  corporatesecretary@skbfood.id
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Image
+          src="/images/logo/skb_food.png"
+          alt="SKB Food"
+          width={900}
+          height={600}
+          style={{
+            width: "350px",
+            height: "fit-content",
+          }}
+          className=";g:ml-auto"
+        />
+      </div>
+      <div className="relative flex flex-col items-center gap-5 justify-between bg-primary/90 p-10 md:flex-row">
+        <Image
+          src="/images/catering.webp"
+          alt="Catering"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="absolute inset-0 z-[-1]"
+        />
+        <span className="text-white text-center text-[clamp(24px,3vw,36px)] font-bold font-montserrat w-full md:text-start md:w-3/5">
+          {getTranslation("footer_email_title")}
+        </span>
+        <div className="relative w-3/4 md:w-2/5">
+          <input
+            type="text"
+            className="w-full h-12 px-5 pr-12 text-black font-montserrat rounded-full outline-none"
+            placeholder={getTranslation("footer_email_placeholder")}
+          />
+
+          <Button
+            size="icon"
+            className="absolute top-1/2 right-2 transform -translate-y-1/2 !w-8 !h-8"
+          >
+            <FaArrowRight size={20} />
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
