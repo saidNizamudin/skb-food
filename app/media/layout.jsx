@@ -10,7 +10,7 @@ export default function Layout({ children }) {
   const pathname = usePathname();
   const { getTranslation } = useTranslate();
 
-  const path = pathname.split("/").pop();
+  const path = pathname.split("/")[2];
 
   const getTranslationKey = (path) => {
     return (

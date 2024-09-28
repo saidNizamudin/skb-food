@@ -8,6 +8,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { useEffect, useState } from "react";
 import { Button } from "@/components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import Link from "next/link";
 
 const PRESS_QUERY = (page) =>
   `*[ _type == "press" && defined(slug.current)]|order(publishedAt desc)[${page * 9}...${
@@ -105,8 +106,29 @@ export default function Press() {
             ? urlFor(item.image)?.width(550).height(310).url()
             : null;
 
+          function depthFirstTraversal(obj, result = "") {
+            if (obj !== null && typeof obj === "object") {
+              for (const [key, value] of Object.entries(obj)) {
+                if (key === "text") {
+                  result += value + " ";
+                } else {
+                  result = depthFirstTraversal(value, result);
+                }
+              }
+            }
+            return result;
+          }
+
+          const bodyText = depthFirstTraversal(item.body).trim();
+          const slicedBodyText =
+            bodyText.length > 200 ? bodyText.slice(0, 200) + "..." : bodyText;
+
           return (
-            <div className="flex flex-col gap-2.5" key={index}>
+            <Link
+              className="group flex flex-col gap-2.5"
+              key={index}
+              href={`press/${item.slug.current}`}
+            >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
                 {postImageUrl && (
                   <Image
@@ -120,7 +142,7 @@ export default function Press() {
                       objectFit: "cover",
                       objectPosition: "center",
                     }}
-                    className="hover:scale-105 cursor-pointer"
+                    className="group-hover:scale-105 cursor-pointer"
                   />
                 )}
                 <span className="absolute right-5 top-5 text-base font-montserrat font-bold text-black bg-secondary px-5 py-1 rounded-full">
@@ -137,13 +159,13 @@ export default function Press() {
                 <span className="underline">by {item.author}</span>
                 <span>/</span>
               </div>
-              <span className="text-base font-montserrat font-bold text-black">
+              <span className="text-base font-montserrat font-bold text-black group-hover:underline">
                 {item.title}
               </span>
-              <span className="text-base font-segoe font-medium text-grey mt-auto">
-                {Array.isArray(item.body) && <PortableText value={item.body} />}
+              <span className="text-base font-segoe font-medium text-grey mt-auto group-hover:underline">
+                {slicedBodyText}
               </span>
-            </div>
+            </Link>
           );
         })}
       </div>

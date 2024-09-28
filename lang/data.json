@@ -103,6 +103,16 @@
     "id": "Laporan Keuangan",
     "en": "Financial Report"
   },
+  "common_annualReport": { "id": "Laporan Tahunan", "en": "Annual Report" },
+  "common_sustainabilityReport": {
+    "id": "Laporan Keberlanjutan",
+    "en": "Sustainability Report"
+  },
+  "common_prospectusReport": { "id": "Prospektus", "en": "Prospectus" },
+  "common_presentationReport": {
+    "id": "Presentasi kepada Investor",
+    "en": "Investor Presentations"
+  },
   "common_download": { "id": "Unduh", "en": "Download" },
   "common_contactUsDesc": {
     "id": "Hubungi kami untuk informasi lebih lanjut",
@@ -113,6 +123,13 @@
   "common_telephone": { "id": "Telepon", "en": "Telephone" },
   "common_fax": { "id": "Fax", "en": "Fax" },
   "common_email": { "id": "Email", "en": "Email" },
+  "common_backTo": { "id": "Kembali ke", "en": "Back to" },
+  "common_category": { "id": "Kategori", "en": "Category" },
+  "common_recentPost": { "id": "Postingan Terbaru", "en": "Recent Post" },
+  "common_postNotFound": {
+    "id": "Postingan tidak ditemukan",
+    "en": "Post not found"
+  },
 
   "home_about_title": {
     "en": "We provide the best raw material for your business"
@@ -216,5 +233,78 @@
   "group_content2_desc2": {
     "id": "Komitmen untuk menjaga kualitas dari produk kami tidak luput dari proses yang panjang untuk menghasilkan mutu yang sempurna, karena kualitas adalah prioritas kami.",
     "en": "The commitment to maintain the quality of our products is not separated from the long process to produce perfect quality, because quality is our priority."
+  },
+
+  "business_fish_title1": {
+    "id": "Kami menghubungkan pasar internasional dengan sumber daya laut yang melimpah",
+    "en": "We connect international markets with abundant marine resources"
+  },
+  "business_fish_desc1": {
+    "id": "Kami memastikan setiap produk diambil dari perairan yang bersih dan diproses dengan teknologi canggih untuk menjaga kesegarannya. Kami melayani berbagai segmen pasar, mulai dari restoran hingga supermarket, baik domestik maupun internasional, melalui jaringan distribusi yang luas.",
+    "en": "We ensure that every product is sourced from clean waters and processed with advanced technology to maintain its freshness. We serve various market segments, from restaurants to supermarkets, both domestically and internationally, through an extensive distribution network."
+  },
+  "business_fish_title2": {
+    "id": "Kualitas adalah prioritas utama kami",
+    "en": "Quality is our top priority"
+  },
+  "business_fish_desc2": {
+    "id": "Komitmen kami terhadap keberlanjutan mendorong praktik penangkapan ikan yang ramah lingkungan, sambil bekerja sama dengan nelayan lokal untuk menjaga ekosistem laut. Selain itu, kami mendukung kesejahteraan komunitas nelayan melalui pelatihan dan bantuan teknis.",
+    "en": "Our commitment to sustainability promotes environmentally friendly fishing practices, while working with local fishermen to preserve marine ecosystems. Additionally, we support the welfare of fishing communities through training and technical assistance."
+  },
+  "business_fish_title3": {
+    "id": "Kami menawarkan berbagai jenis ikan segar yang dipilih langsung dari sumber terbaik.",
+    "en": "We offer a variety of fresh fish selected directly from the best sources."
+  },
+  "business_fish_desc3": {
+    "id": "Komitmen kami terhadap keberlanjutan mendorong praktik penangkapan ikan yang ramah lingkungan, sambil bekerja sama dengan nelayan lokal untuk menjaga ekosistem laut. Selain itu, kami mendukung kesejahteraan komunitas nelayan melalui pelatihan dan bantuan teknis.",
+    "en": "Our commitment to sustainability promotes environmentally friendly fishing practices, while working with local fishermen to preserve marine ecosystems. Additionally, we support the welfare of fishing communities through training and technical assistance."
+  },
+  "business_rice_title1": {
+    "id": "Kami menyediakan berbagai jenis beras berkualitas tinggi, mulai dari beras putih hingga beras organik",
+    "en": "We offer various types of high-quality rice, from white rice to organic rice"
+  },
+  "business_rice_desc1": {
+    "id": "Kami berfokus memastikan bahwa beras kami tidak hanya berkualitas tinggi tetapi juga memenuhi standar kebersihan dan keamanan pangan yang ketat. Dengan menggunakan mesin-mesin canggih, kami memastikan bahwa setiap butir padi diolah dengan presisi, menghasilkan beras yang bersih, putih, dan bernutrisi.",
+    "en": "We focus on ensuring that our rice is not only high-quality but also meets strict hygiene and food safety standards. Using advanced machinery, we ensure that every grain of rice is processed with precision, producing clean, white, and nutritious rice."
+  },
+  "business_rice_title2": {
+    "id": "Proses kami diawasi oleh tenaga ahli untuk menjaga standar kualitas",
+    "en": "Our process is supervised by experts to maintain quality standards"
+  },
+  "business_rice_desc2": {
+    "id": "Proses kami diawasi oleh tenaga ahli untuk menjaga standar kualitas, baik nasional maupun internasional.",
+    "en": "Our process is supervised by experts to maintain quality standards, both national and international."
+  },
+  "business_rice_title3": {
+    "id": "Perusahaan kami terus berinovasi untuk memenuhi kebutuhan pasar",
+    "en": "Our company continuously innovates to meet market demands"
+  },
+  "business_rice_desc3": {
+    "id": "Komitmen kami terhadap keberlanjutan mendorong praktik pertanian yang ramah lingkungan, sambil bekerja sama dengan petani lokal untuk menjaga ekosistem pertanian. Selain itu, kami mendukung kesejahteraan komunitas petani melalui pelatihan dan bantuan teknis.",
+    "en": "Our commitment to sustainability promotes environmentally friendly farming practices, while working with local farmers to preserve agricultural ecosystems. Additionally, we support the welfare of farming communities through training and technical assistance."
+  },
+  "business_meat_title1": {
+    "id": "Kami menyediakan daging segar dari sumber yang terpercaya, termasuk daging sapi, ayam, dan daging lainnya",
+    "en": "We provide fresh meat from trusted sources, including beef, chicken, and other meats"
+  },
+  "business_meat_desc1": {
+    "id": "Kami memahami pentingnya kualitas dan keamanan dalam setiap potongan daging yang kami pasok. Oleh karena itu, kami menjaga standar tinggi dalam pemrosesan dan penyimpanan untuk memastikan bahwa produk kami tetap segar dan aman dikonsumsi.",
+    "en": "We understand the importance of quality and safety in every cut of meat we supply. Therefore, we maintain high standards in processing and storage to ensure our products remain fresh and safe for consumption."
+  },
+  "business_meat_title2": {
+    "id": "Menjaga Standar Kebersihan dan Keamanan Pangan",
+    "en": "Maintaining Hygiene and Food Safety Standards"
+  },
+  "business_meat_desc2": {
+    "id": "Kami memastikan setiap tahap, mulai dari pemilihan hingga pengolahan, memenuhi standar kebersihan dan keamanan pangan yang ketat.",
+    "en": "We ensure that every stage, from selection to processing, meets strict hygiene and food safety standards."
+  },
+  "business_meat_title3": {
+    "id": "Inovasi dalam Pengembangan Produk untuk Sektor Kuliner",
+    "en": "Innovation in Product Development for the Culinary Sector"
+  },
+  "business_meat_desc3": {
+    "id": "Kami terus berinovasi dalam pengembangan produk untuk mendukung pertumbuhan bisnis mitra kami di sektor kuliner.",
+    "en": "We continue to innovate in product development to support the growth of our partners' businesses in the culinary sector."
   }
 }

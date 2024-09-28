@@ -8,6 +8,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { useEffect, useState } from "react";
 import { Button } from "@/components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import Link from "next/link";
 
 const CSR_QUERY = (page) =>
   `*[ _type == "csr" && defined(slug.current)]|order(publishedAt desc)[${page * 9}...${
@@ -23,8 +24,8 @@ const urlFor = (source) =>
 
 const options = { next: { revalidate: 30 } };
 
-export default function Press() {
-  const [csr, setPress] = useState([]);
+export default function CSR() {
+  const [csr, setCSR] = useState([]);
   const [page, setPage] = useState(0);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,7 @@ export default function Press() {
       try {
         const data = await client.fetch(CSR_QUERY(0), {}, options);
         const total = await client.fetch(CSR_COUNT);
-        setPress(data);
+        setCSR(data);
         setCount(Math.ceil(total / 9));
       } catch (error) {
         console.error(error);
@@ -53,7 +54,7 @@ export default function Press() {
     async function fetchData() {
       try {
         const data = await client.fetch(CSR_QUERY(page), {}, options);
-        setPress(data);
+        setCSR(data);
       } catch (error) {
         console.error(error);
       }
@@ -88,7 +89,7 @@ export default function Press() {
     return (
       <div className="w-full h-80 flex flex-col gap-2 items-center justify-center">
         <span className="text-xl text-primary font-semibold font-montserrat">
-          No CSR Found
+          No CSR Release Found
         </span>
         <span className="text-lg text-black font-semibold font-montserrat">
           Please check back later
@@ -105,8 +106,29 @@ export default function Press() {
             ? urlFor(item.image)?.width(550).height(310).url()
             : null;
 
+          function depthFirstTraversal(obj, result = "") {
+            if (obj !== null && typeof obj === "object") {
+              for (const [key, value] of Object.entries(obj)) {
+                if (key === "text") {
+                  result += value + " ";
+                } else {
+                  result = depthFirstTraversal(value, result);
+                }
+              }
+            }
+            return result;
+          }
+
+          const bodyText = depthFirstTraversal(item.body).trim();
+          const slicedBodyText =
+            bodyText.length > 200 ? bodyText.slice(0, 200) + "..." : bodyText;
+
           return (
-            <div className="flex flex-col gap-2.5" key={index}>
+            <Link
+              className="group flex flex-col gap-2.5"
+              key={index}
+              href={`csr/${item.slug.current}`}
+            >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
                 {postImageUrl && (
                   <Image
@@ -120,11 +142,11 @@ export default function Press() {
                       objectFit: "cover",
                       objectPosition: "center",
                     }}
-                    className="hover:scale-105 cursor-pointer"
+                    className="group-hover:scale-105 cursor-pointer"
                   />
                 )}
                 <span className="absolute right-5 top-5 text-base font-montserrat font-bold text-black bg-secondary px-5 py-1 rounded-full">
-                  CSR
+                  CSR Release
                 </span>
               </div>
               <div className="flex items-center text-grey gap-1 text-sm">
@@ -137,13 +159,13 @@ export default function Press() {
                 <span className="underline">by {item.author}</span>
                 <span>/</span>
               </div>
-              <span className="text-base font-montserrat font-bold text-black">
+              <span className="text-base font-montserrat font-bold text-black group-hover:underline">
                 {item.title}
               </span>
-              <span className="text-base font-segoe font-medium text-grey mt-auto">
-                {Array.isArray(item.body) && <PortableText value={item.body} />}
+              <span className="text-base font-segoe font-medium text-grey mt-auto group-hover:underline">
+                {slicedBodyText}
               </span>
-            </div>
+            </Link>
           );
         })}
       </div>
