@@ -8,6 +8,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { useEffect, useState } from "react";
 import { Button } from "@/components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import Link from "next/link";
 
 const BLOG_QUERY = (page) =>
   `*[ _type == "blog" && defined(slug.current)]|order(publishedAt desc)[${page * 9}...${
@@ -106,7 +107,11 @@ export default function Press() {
             : null;
 
           return (
-            <div className="flex flex-col gap-2.5" key={index}>
+            <Link
+              className="flex flex-col gap-2.5 group"
+              key={index}
+              href={`/media/blog/${item.slug.current}`}
+            >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
                 {postImageUrl && (
                   <Image
@@ -137,13 +142,13 @@ export default function Press() {
                 <span className="underline">by {item.author}</span>
                 <span>/</span>
               </div>
-              <span className="text-base font-montserrat font-bold text-black">
+              <span className="text-base font-montserrat font-bold text-black group-hover:underline">
                 {item.title}
               </span>
-              <span className="text-base font-segoe font-medium text-grey mt-auto">
+              <span className="text-base font-segoe font-medium text-grey mt-auto group-hover:underline">
                 {Array.isArray(item.body) && <PortableText value={item.body} />}
               </span>
-            </div>
+            </Link>
           );
         })}
       </div>

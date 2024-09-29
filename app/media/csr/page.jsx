@@ -125,7 +125,7 @@ export default function CSR() {
 
           return (
             <Link
-              className="group flex flex-col gap-2.5"
+              className="group flex flex-col gap-2.5 group"
               key={index}
               href={`csr/${item.slug.current}`}
             >

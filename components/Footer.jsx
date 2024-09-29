@@ -59,7 +59,7 @@ const Footer = () => {
           </span>
           <br />
           <span className="text-grey font-semibold">
-            Telepon : (021) 7463 7390
+            {getTranslation("common_telephone")} : (021) 7463 7390
           </span>
           <span className="text-grey font-semibold">Fax : (021) 7463 7390</span>
           <span className="text-grey font-semibold">
