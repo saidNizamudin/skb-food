@@ -10,20 +10,6 @@ export default function Layout({ children }) {
   const pathname = usePathname();
   const { getTranslation } = useTranslate();
 
-  const path = pathname.split("/").pop();
-
-  const getTranslationKey = (path) => {
-    return (
-      {
-        financial: "navbar_menu4_child1",
-        annual: "navbar_menu4_child2",
-        sustainability: "navbar_menu4_child3",
-        prospectus: "navbar_menu4_child4",
-        presentation: "navbar_menu4_child5",
-      }[path] || path
-    );
-  };
-
   return (
     <>
       <div className="relative h-[425px] bg-black/50 flex flex-col justify-center items-center">
@@ -38,7 +24,7 @@ export default function Layout({ children }) {
 
         {/* Breadcrumb */}
         <span className="text-white text-center font-montserrat font-bold mb-1 px-5 text-4xl md:mb-3 md:text-6xl">
-          {getTranslation(getTranslationKey(path))}
+          {getTranslation("navbar_menu4")}
         </span>
         <div className="flex items-center text-white text-xl font-segoe font-bold">
           <Link href="/">

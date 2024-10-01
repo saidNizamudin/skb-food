@@ -12,6 +12,7 @@ import { CiCalendar, CiUser } from "react-icons/ci";
 import useEmblaCarousel from "embla-carousel-react";
 import { useTranslate } from "@/hooks";
 import { Button, Stock } from "@/components";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -86,9 +87,11 @@ const Carousel = () => {
         >
           We provide various types of high quality rice
         </span>
-        <Button variant="white" size="lg">
-          {getTranslation("common_discoverMore")}
-        </Button>
+        <Link href="/about-us/company">
+          <Button variant="white" size="lg">
+            {getTranslation("common_discoverMore")}
+          </Button>
+        </Link>
       </div>
       <FaChevronLeft
         onClick={handlePrev}
@@ -107,7 +110,7 @@ const Carousel = () => {
 const AboutUs = () => {
   const { getTranslation } = useTranslate();
   return (
-    <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 md:px-xCustom min-[1240px]:flex-row">
+    <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 xl:px-xCustom min-[1240px]:flex-row">
       <Image
         src="/images/home/partner.svg"
         alt="Partner"
@@ -132,7 +135,9 @@ const AboutUs = () => {
         <span className="text-base font-medium font-segoe text-grey">
           {getTranslation("home_about_desc")}
         </span>
-        <Button size="lg">{getTranslation("common_readMore")}</Button>
+        <Link href="/about-us/company">
+          <Button size="lg">{getTranslation("common_readMore")}</Button>
+        </Link>
       </div>
     </div>
   );
@@ -141,7 +146,7 @@ const AboutUs = () => {
 const OurBusiness = () => {
   const { getTranslation } = useTranslate();
   return (
-    <div className="flex flex-col gap-x-32 gap-y-10 items-start p-10 pb-32 pr-0 lg:flex-row md:pl-xCustom">
+    <div className="flex flex-col gap-x-32 gap-y-10 items-start p-10 pb-32 lg:flex-row xl:px-xCustom">
       <div className="flex flex-col gap-2.5 flex-shrink-0">
         <span className="text-xl font-segoe font-bold text-primary">
           {getTranslation("common_ourBusiness")}
@@ -149,10 +154,12 @@ const OurBusiness = () => {
         <span className="text-[32px] font-montserrat font-bold text-black leading-10">
           {getTranslation("home_business_title")}
         </span>
-        <Button size="lg">{getTranslation("common_readMore")}</Button>
+        <Link href="/our-business/food-supply">
+          <Button size="lg">{getTranslation("common_readMore")}</Button>
+        </Link>
       </div>
-      <div className="w-full md:flex-1 overflow-hidden">
-        <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide md:overflow-x-auto">
+      <div className="w-full md:flex-1">
+        <div className="flex flex-wrap items-center gap-6">
           {[
             {
               name: getTranslation("common_fish"),
@@ -166,17 +173,9 @@ const OurBusiness = () => {
               name: getTranslation("common_meat"),
               image: "/images/home/meat.webp",
             },
-            {
-              name: getTranslation("common_fish"),
-              image: "/images/home/fish.webp",
-            },
-            {
-              name: getTranslation("common_rice"),
-              image: "/images/home/rice.webp",
-            },
           ].map((item, index) => (
             <div
-              className="relative min-h-[200px] min-w-[250px] bg-slate-300 rounded-lg overflow-hidden md:min-w-[400px] md:min-h-[250px]"
+              className="relative flex-grow max-w-[400px] min-w-[250px] basis-[calc(33%-1.5rem)] aspect-[5/4] bg-slate-300 rounded-lg overflow-hidden"
               key={index}
             >
               <Image
@@ -199,9 +198,6 @@ const OurBusiness = () => {
                 <span className="text-4xl font-montserrat font-bold text-secondary">
                   {item.name}
                 </span>
-                <Button variant="secondary" size="icon">
-                  <FaChevronRight size={20} />
-                </Button>
               </div>
             </div>
           ))}

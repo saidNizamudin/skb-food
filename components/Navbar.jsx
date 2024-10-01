@@ -51,14 +51,7 @@ const navigation = [
   },
   {
     name: "navbar_menu4",
-    href: "/",
-    children: [
-      { name: "navbar_menu4_child1", href: "/investor/financial" },
-      { name: "navbar_menu4_child2", href: "/investor/annual" },
-      { name: "navbar_menu4_child3", href: "/investor/presentation" },
-      { name: "navbar_menu4_child4", href: "/investor/prospectus" },
-      { name: "navbar_menu4_child5", href: "/investor/presentation" },
-    ],
+    href: "/investor",
   },
   {
     name: "navbar_menu5",

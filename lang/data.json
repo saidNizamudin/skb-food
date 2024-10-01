@@ -248,16 +248,16 @@
     "en": "Quality is our top priority"
   },
   "business_fish_desc2": {
-    "id": "Komitmen kami terhadap keberlanjutan mendorong praktik penangkapan ikan yang ramah lingkungan, sambil bekerja sama dengan nelayan lokal untuk menjaga ekosistem laut. Selain itu, kami mendukung kesejahteraan komunitas nelayan melalui pelatihan dan bantuan teknis.",
-    "en": "Our commitment to sustainability promotes environmentally friendly fishing practices, while working with local fishermen to preserve marine ecosystems. Additionally, we support the welfare of fishing communities through training and technical assistance."
+    "id": "Dengan proses seleksi dan pengujian ketat yang memastikan produk memenuhi standar internasional dan aman dikonsumsi. Komitmen kami terhadap keberlanjutan mendorong praktik penangkapan ikan yang ramah lingkungan, sambil bekerja sama dengan nelayan lokal untuk menjaga ekosistem laut. Selain itu, kami mendukung kesejahteraan komunitas nelayan melalui pelatihan dan bantuan teknis.",
+    "en": "With strict selection and testing processes that ensure products meet international standards and are safe to consume. Our commitment to sustainability promotes environmentally friendly fishing practices, while working with local fishermen to preserve marine ecosystems. Additionally, we support the welfare of fishing communities through training and technical assistance."
   },
   "business_fish_title3": {
     "id": "Kami menawarkan berbagai jenis ikan segar yang dipilih langsung dari sumber terbaik.",
     "en": "We offer a variety of fresh fish selected directly from the best sources."
   },
   "business_fish_desc3": {
-    "id": "Komitmen kami terhadap keberlanjutan mendorong praktik penangkapan ikan yang ramah lingkungan, sambil bekerja sama dengan nelayan lokal untuk menjaga ekosistem laut. Selain itu, kami mendukung kesejahteraan komunitas nelayan melalui pelatihan dan bantuan teknis.",
-    "en": "Our commitment to sustainability promotes environmentally friendly fishing practices, while working with local fishermen to preserve marine ecosystems. Additionally, we support the welfare of fishing communities through training and technical assistance."
+    "id": "Dari ikan laut hingga ikan air tawar, produk kami dirancang untuk memenuhi kebutuhan kuliner, baik untuk restoran, hotel, atau pengecer. Kami memastikan kualitas dan kesegaran ikan kami melalui proses pengolahan yang baik dan sistem distribusi yang efisien.",
+    "en": "From sea fish to freshwater fish, our products are designed to meet culinary needs, whether for restaurants, hotels, or retailers. We ensure the quality and freshness of our fish through good processing and efficient distribution systems."
   },
   "business_rice_title1": {
     "id": "Kami menyediakan berbagai jenis beras berkualitas tinggi, mulai dari beras putih hingga beras organik",
@@ -272,16 +272,16 @@
     "en": "Our process is supervised by experts to maintain quality standards"
   },
   "business_rice_desc2": {
-    "id": "Proses kami diawasi oleh tenaga ahli untuk menjaga standar kualitas, baik nasional maupun internasional.",
-    "en": "Our process is supervised by experts to maintain quality standards, both national and international."
+    "id": "Kami bekerja sama dengan petani lokal, memberikan dukungan dan pelatihan guna meningkatkan hasil panen yang ramah lingkungan serta berkelanjutan. Kami berkomitmen untuk menjaga kesegaran dan kualitas beras hingga sampai ke tangan konsumen, baik untuk kebutuhan rumah tangga, restoran, maupun industri makanan.",
+    "en": "We collaborate with local farmers, providing support and training to improve environmentally friendly and sustainable harvests. We are committed to maintaining the freshness and quality of rice until it reaches the hands of consumers, whether for household, restaurant, or food industry needs."
   },
   "business_rice_title3": {
     "id": "Perusahaan kami terus berinovasi untuk memenuhi kebutuhan pasar",
     "en": "Our company continuously innovates to meet market demands"
   },
   "business_rice_desc3": {
-    "id": "Komitmen kami terhadap keberlanjutan mendorong praktik pertanian yang ramah lingkungan, sambil bekerja sama dengan petani lokal untuk menjaga ekosistem pertanian. Selain itu, kami mendukung kesejahteraan komunitas petani melalui pelatihan dan bantuan teknis.",
-    "en": "Our commitment to sustainability promotes environmentally friendly farming practices, while working with local farmers to preserve agricultural ecosystems. Additionally, we support the welfare of farming communities through training and technical assistance."
+    "id": "Dengan dedikasi terhadap kualitas produk dan kepedulian terhadap lingkungan, perusahaan kami terus berinovasi untuk memenuhi kebutuhan pasar yang terus berkembang, menjadi bagian penting dalam rantai pangan masyarakat Indonesia.",
+    "en": "With dedication to product quality and environmental care, our company continues to innovate to meet the needs of a growing market, becoming an important part of the food chain for the Indonesian community."
   },
   "business_meat_title1": {
     "id": "Kami menyediakan daging segar dari sumber yang terpercaya, termasuk daging sapi, ayam, dan daging lainnya",
@@ -296,15 +296,15 @@
     "en": "Maintaining Hygiene and Food Safety Standards"
   },
   "business_meat_desc2": {
-    "id": "Kami memastikan setiap tahap, mulai dari pemilihan hingga pengolahan, memenuhi standar kebersihan dan keamanan pangan yang ketat.",
-    "en": "We ensure that every stage, from selection to processing, meets strict hygiene and food safety standards."
+    "id": "Kami menggunakan teknologi modern dan berkelanjutan dalam setiap langkah proses, yang memastikan kualitas daging tetap terjaga dan kaya akan rasa. Salah satu hasil olahan daging kami adalah daging kebab. Daging kebab yang kami hasilkan memiliki tekstur yang sempurna, mudah diolah, dan siap untuk memenuhi kebutuhan industri makanan",
+    "en": "We use modern and sustainable technology in every step of the process, ensuring that the quality of the meat is maintained and rich in flavor. One of our processed meat products is kebab meat. The kebab meat we produce has a perfect texture, easy to process, and ready to meet the needs of the food industry."
   },
   "business_meat_title3": {
     "id": "Inovasi dalam Pengembangan Produk untuk Sektor Kuliner",
     "en": "Innovation in Product Development for the Culinary Sector"
   },
   "business_meat_desc3": {
-    "id": "Kami terus berinovasi dalam pengembangan produk untuk mendukung pertumbuhan bisnis mitra kami di sektor kuliner.",
-    "en": "We continue to innovate in product development to support the growth of our partners' businesses in the culinary sector."
+    "id": "Berbekal tim ahli dan komitmen pada keunggulan, perusahaan kami siap menjadi mitra terpercaya dalam menyediakan bahan baku daging kebab berkualitas premium yang tidak hanya memenuhi ekspektasi, tetapi juga membantu pelanggan kami menciptakan cita rasa terbaik dalam setiap hidangan",
+    "en": "With a team of experts and a commitment to excellence, our company is ready to be a trusted partner in providing premium quality kebab meat raw materials that not only meet expectations but also help our customers create the best taste in every dish."
   }
 }
