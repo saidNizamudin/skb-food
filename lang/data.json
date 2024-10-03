@@ -130,6 +130,11 @@
     "id": "Postingan tidak ditemukan",
     "en": "Post not found"
   },
+  "common_noData": { "id": "Data tidak ditemukan", "en": "No data found" },
+  "common_noDataDesc": {
+    "id": "Mohon maaf, data yang anda cari tidak ditemukan",
+    "en": "Sorry, the data you are looking for is not found"
+  },
 
   "home_about_title": {
     "en": "We provide the best raw material for your business"

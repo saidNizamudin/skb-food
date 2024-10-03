@@ -175,9 +175,9 @@ const Navbar = () => {
                   <GiHamburgerMenu size={20} />
                 </Button>
               )}
-              <div className="flex items-center justify-center bg-secondaryLight p-3 rounded-full">
+              {/* <div className="flex items-center justify-center bg-secondaryLight p-3 rounded-full">
                 <SlMagnifier size={18} />
-              </div>
+              </div> */}
               <Link
                 href="/contact"
                 className="flex items-center justify-center text-primary bg-primaryLight p-3 rounded-full gap-2"
@@ -253,9 +253,9 @@ const Navbar = () => {
         )}
         {isOneRow && (
           <div className="flex items-center gap-5 ml-auto h-max">
-            <div className="flex items-center justify-center bg-secondaryLight p-3 rounded-full">
+            {/* <div className="flex items-center justify-center bg-secondaryLight p-3 rounded-full">
               <SlMagnifier size={18} />
-            </div>
+            </div> */}
             <Link
               href="/contact"
               className="flex items-center justify-center text-primary bg-primaryLight p-3 rounded-full gap-2"

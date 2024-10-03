@@ -28,29 +28,8 @@ export default function AnnualReport() {
   const [document, setDocument] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  function downloadFile(url, filename) {
-    if (typeof window !== "undefined") {
-      fetch(url)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.blob();
-        })
-        .then((blob) => {
-          const blobUrl = URL.createObjectURL(blob);
-          const link = document.createElement("a");
-          link.href = blobUrl;
-          link.download = filename || "download";
-          link.click();
-          URL.revokeObjectURL(blobUrl);
-        })
-        .catch((error) => {
-          console.error("There was a problem with the fetch operation:", error);
-        });
-    } else {
-      console.error("This function must be run in a browser.");
-    }
+  function downloadFile(url) {
+    window.open(url, "_blank");
   }
 
   useEffect(() => {
@@ -118,6 +97,15 @@ export default function AnnualReport() {
             <Skeleton className="w-full max-w-[300px] aspect-[4/5]" />
             <Skeleton className="w-full max-w-[300px] aspect-[4/5]" />
           </>
+        ) : document.length === 0 ? (
+          <div className="flex flex-col justify-center gap-2.5 col-span-full">
+            <span className="text-base font-montserrat font-bold text-primary">
+              {getTranslation("common_noData")}
+            </span>
+            <span className="text-base font-montserrat font-bold text-black">
+              {getTranslation("common_noDataDesc")}
+            </span>
+          </div>
         ) : (
           document.map((item, index) => {
             const postImageUrl = item.image ? urlFor(item.image)?.url() : null;
@@ -145,7 +133,7 @@ export default function AnnualReport() {
                 <Button
                   className="!h-8 !py-1 !px-3 text-base font-montserrat font-bold"
                   onClick={() => {
-                    downloadFile(item.URL, item.title);
+                    downloadFile(item.URL);
                   }}
                 >
                   {getTranslation("common_download")}

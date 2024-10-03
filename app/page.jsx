@@ -213,7 +213,7 @@ const Gallery = () => {
     <div className="grid grid-cols-1 md:grid-cols-2">
       <div className="flex flex-col items-start justify-center gap-2.5 p-10 bg-primary">
         <Image
-          src="/images/logo/skb_catering.png"
+          src="/images/logo/skb_catering_white.png"
           alt="Catering"
           width={900}
           height={600}
@@ -246,7 +246,7 @@ const Gallery = () => {
         }}
       />
       <Image
-        src="/images/home/catering.webp"
+        src="/images/home/eskabeh.webp"
         alt="Catering"
         width={900}
         height={600}
@@ -260,7 +260,7 @@ const Gallery = () => {
       />
       <div className="flex flex-col items-start justify-center gap-2.5 p-10 bg-primary order-3 md:order-4">
         <Image
-          src="/images/logo/eskabeh.png"
+          src="/images/logo/eskabeh_white.png"
           alt="Eskabeh Seafood"
           width={900}
           height={600}
@@ -393,31 +393,33 @@ const OurGroup = () => {
 const Subscribe = () => {
   const { getTranslation } = useTranslate();
   return (
-    <div className="relative flex flex-col items-center gap-5 justify-between bg-primary/90 p-10 md:flex-row">
-      <Image
-        src="/images/catering.webp"
-        alt="Catering"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-        className="absolute inset-0 z-[-1]"
-      />
-      <span className="text-white text-center text-[clamp(24px,3vw,36px)] font-bold font-montserrat w-full md:text-start md:w-3/5">
-        {getTranslation("footer_email_title")}
-      </span>
-      <div className="relative w-3/4 md:w-2/5">
-        <input
-          type="text"
-          className="w-full h-12 px-5 pr-12 text-black font-montserrat rounded-full outline-none"
-          placeholder={getTranslation("footer_email_placeholder")}
+    <div className="relative flex items-center justify-center bg-primary/90 p-10">
+      <div className="flex flex-col items-center gap-5 justify-between md:flex-row max-w-[1600px]">
+        <Image
+          src="/images/catering.webp"
+          alt="Catering"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="absolute inset-0 z-[-1]"
         />
+        <span className="text-white text-center text-[clamp(24px,3vw,36px)] font-bold font-montserrat w-full md:text-start md:w-3/5">
+          {getTranslation("footer_email_title")}
+        </span>
+        <div className="relative w-3/4 md:w-2/5">
+          <input
+            type="text"
+            className="w-full h-12 px-5 pr-12 text-black font-montserrat rounded-full outline-none"
+            placeholder={getTranslation("footer_email_placeholder")}
+          />
 
-        <Button
-          size="icon"
-          className="absolute top-1/2 right-2 transform -translate-y-1/2 !w-8 !h-8"
-        >
-          <FaArrowRight size={20} />
-        </Button>
+          <Button
+            size="icon"
+            className="absolute top-1/2 right-2 transform -translate-y-1/2 !w-8 !h-8"
+          >
+            <FaArrowRight size={20} />
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -160,7 +160,7 @@ export default function OurGroup() {
           </div>
         </div>
       </div>
-      <div className="relative flex flex-col items-center gap-5 justify-between bg-primary/90 p-10 md:flex-row">
+      <div className="relative flex flex-col items-center gap-5 justify-between bg-primary/90 md:flex-row px-10 py-10 min-[1450px]:px-xCustom">
         <Image
           src="/images/catering.webp"
           alt="Catering"
