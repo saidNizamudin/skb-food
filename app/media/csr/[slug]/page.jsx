@@ -108,7 +108,7 @@ const MediaContent = ({ params }) => {
 
   return (
     <div className="flex gap-10 mx-auto max-w-[1500px] px-10 py-20 max-[1000px]:flex-col">
-      <div className="flex flex-col min-[1000px]:w-3/5">
+      <div className="flex flex-col min-[1000px]:w-9/12">
         {postImageUrl && (
           <Image
             src={postImageUrl}
@@ -138,7 +138,7 @@ const MediaContent = ({ params }) => {
           {Array.isArray(post.body) && <PortableText value={post.body} />}
         </span>
       </div>
-      <div className="flex flex-col min-[1000px]:w-2/5">
+      <div className="flex flex-col min-[1000px]:w-3/12">
         <Link
           href="/media/csr"
           className="flex items-center gap-5 mb-5 text-primary"
