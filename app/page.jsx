@@ -288,7 +288,7 @@ const Gallery = () => {
 };
 
 const MediaRoom = () => {
-  const LATEST_3_POST_QUERY = `*[_type in ["press", "blog", "csr"] && defined(slug.current)]|order(publishedAt desc)[0...3]{_id, title, slug, image, publishedAt, _type}`;
+  const LATEST_3_POST_QUERY = `*[_type in ["press", "blog", "csr"] && defined(slug.current)]|order(publishedAt desc)[0...3]{_id, title, author, slug, image, body, publishedAt, _type}`;
   const { projectId, dataset } = client.config();
   const urlFor = (source) =>
     projectId && dataset
@@ -412,7 +412,7 @@ const MediaRoom = () => {
               <span className="text-base font-montserrat font-bold text-black group-hover:underline">
                 {item.title}
               </span>
-              <span className="text-base font-segoe font-medium text-grey mt-auto group-hover:underline">
+              <span className="text-base font-segoe font-medium text-grey group-hover:underline">
                 {slicedBodyText}
               </span>
             </Link>
