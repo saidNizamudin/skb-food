@@ -11,7 +11,7 @@ import {
 import { CiCalendar, CiUser } from "react-icons/ci";
 import useEmblaCarousel from "embla-carousel-react";
 import { useTranslate } from "@/hooks";
-import { Button, Stock } from "@/components";
+import { Button, Stock, SymbolStock } from "@/components";
 import Link from "next/link";
 import { PortableText } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
@@ -36,7 +36,21 @@ export default function Home() {
       <Gallery />
       <MediaRoom />
       {/* <OurGroup /> */}
-      {/* <Stock /> */}
+      <div className="flex items-center justify-between gap-10 p-3 pt-0 pb-20 min-[1500px]:px-xCustom max-[1000px]:flex-col max-[1000px]:items-start">
+        <div className="relative w-full h-max">
+          <div className="w-[calc(100%+2px)] h-[316px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 border-4 bg-transparent border-white rounded-lg overflow-hidden shadow-[inset_0_0_0_4px_white]" />
+          <div className="w-[calc(100%)] h-[314px] relative z-10 shadow-lg">
+            <Stock />
+          </div>
+        </div>
+
+        <div className="relative w-[100%] md:w-[50%] h-max">
+          <div className="w-[calc(100%+2px)] h-[275px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 border-4 bg-transparent border-white rounded-lg overflow-hidden shadow-[inset_0_0_0_4px_white]" />
+          <div className="w-[calc(100%)] h-[273px] relative z-10">
+            <SymbolStock />
+          </div>
+        </div>
+      </div>
       <Subscribe />
     </>
   );
@@ -396,7 +410,11 @@ const MediaRoom = () => {
                   />
                 )}
                 <span className="absolute right-5 top-5 text-base font-montserrat font-bold text-black bg-secondary px-5 py-1 rounded-full">
-                  Press Release
+                  {item._type === "press"
+                    ? "Press Release"
+                    : item._type === "blog"
+                      ? "Blog & Artikel"
+                      : "CSR"}
                 </span>
               </div>
               <div className="flex items-center text-grey gap-1 text-sm">

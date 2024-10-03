@@ -100,7 +100,7 @@ const Navbar = () => {
   const isVerySmallScreen = useMediaQuery(400);
 
   return (
-    <header className="z-10 fixed w-full font-montserrat shadow-md">
+    <header className="z-10 fixed w-full font-montserrat shadow-md z-50">
       {/* Header Section */}
       <div
         className={`flex items-center text-white bg-primary gap-2 ${

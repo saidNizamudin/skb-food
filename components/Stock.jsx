@@ -16,19 +16,19 @@ function TradingViewWidget() {
         {
           "symbols": [
             [
-              "IDX:RAFI|1D"
+              "IDX:RAFI|1M"
             ]
           ],
           "chartOnly": false,
-          "width": "300",
-          "height": "500",
+          "width": "100%",
+          "height": "314",
           "locale": "en",
           "colorTheme": "light",
-          "autosize": true,
+          "autosize": false,
           "showVolume": false,
           "showMA": false,
           "hideDateRanges": false,
-          "hideMarketStatus": false,
+          "hideMarketStatus": true,
           "hideSymbolLogo": false,
           "scalePosition": "right",
           "scaleMode": "Normal",
@@ -36,22 +36,20 @@ function TradingViewWidget() {
           "fontSize": "10",
           "noTimeScale": false,
           "valuesTracking": "1",
-          "changeMode": "price-and-percent",
+          "changeMode": "no-values",
           "chartType": "area",
-          "maLineColor": "#2962FF",
-          "maLineWidth": 1,
-          "maLength": 9,
-          "headerFontSize": "medium",
+          "headerFontSize": "large",
+          "gridLineColor": "rgba(233, 236, 241, 0)",
+          "backgroundColor": "rgba(255, 255, 255, 1)",
+          "widgetFontColor": "rgba(0, 0, 0, 1)",
           "lineWidth": 2,
           "lineType": 0,
           "dateRanges": [
-            "1d|1",
-            "1m|30",
-            "3m|60",
-            "12m|1D",
-            "60m|1W",
-            "all|1M"
-          ]
+            "1m|1D"
+          ],
+          "lineColor": "rgba(112, 190, 255, 1)",
+          "topColor": "rgba(215, 223, 244, 1)",
+          "bottomColor": "rgba(215, 223, 244, 1)"
         }`;
       container.current.appendChild(script);
     }
@@ -60,15 +58,6 @@ function TradingViewWidget() {
   return (
     <div className="tradingview-widget-container" ref={container}>
       <div className="tradingview-widget-container__widget"></div>
-      <div className="tradingview-widget-copyright">
-        <a
-          href="https://www.tradingview.com/"
-          rel="noopener nofollow"
-          target="_blank"
-        >
-          <span className="blue-text">Track all markets on TradingView</span>
-        </a>
-      </div>
     </div>
   );
 }
