@@ -39,13 +39,13 @@ export default function BrandOwner() {
                 marginBottom: 12,
               }}
             />
-            <span className="text-xl font-segoe font-bold text-primary">
+            <span className="text-xl font-montserrat font-bold text-primary">
               Eskabeh Seafood
             </span>
-            <span className="text-xl font-segoe font-bold text-black text-justify">
+            <span className="text-xl font-montserrat font-bold text-black text-justify">
               {getTranslation("business_content1_desc1")}
             </span>
-            <span className="text-base font-montserrat font-semibold text-grey text-justify">
+            <span className="text-base font-segoe font-semibold text-grey text-justify">
               {getTranslation("business_content1_desc2")}
             </span>
           </div>
@@ -63,13 +63,13 @@ export default function BrandOwner() {
                 marginBottom: 12,
               }}
             />
-            <span className="text-xl font-segoe font-bold text-primary">
+            <span className="text-xl font-montserrat font-bold text-primary">
               SKB Catering
             </span>
-            <span className="text-xl font-segoe font-bold text-black text-justify">
+            <span className="text-xl font-montserrat font-bold text-black text-justify">
               {getTranslation("business_content2_desc1")}
             </span>
-            <span className="text-base font-montserrat font-semibold text-grey text-justify">
+            <span className="text-base font-segoe font-semibold text-grey text-justify">
               {getTranslation("business_content2_desc2")}
             </span>
           </div>

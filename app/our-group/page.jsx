@@ -39,13 +39,13 @@ export default function OurGroup() {
                 marginBottom: 12,
               }}
             />
-            <span className="text-xl font-segoe font-bold text-primary">
+            <span className="text-xl font-montserrat font-bold text-primary">
               Lazizaa Rahmat Semesta
             </span>
-            <span className="text-xl font-segoe font-bold text-black text-justify">
+            <span className="text-xl font-montserrat font-bold text-black text-justify">
               {getTranslation("group_content1_desc1")}
             </span>
-            <span className="text-base font-montserrat font-semibold text-grey text-justify">
+            <span className="text-base font-segoe font-semibold text-grey text-justify">
               {getTranslation("group_content1_desc2")}
             </span>
           </div>
@@ -63,13 +63,13 @@ export default function OurGroup() {
                 marginBottom: 12,
               }}
             />
-            <span className="text-xl font-segoe font-bold text-primary">
+            <span className="text-xl font-montserrat font-bold text-primary">
               PT. Sumber Asri Sejahtera
             </span>
-            <span className="text-xl font-segoe font-bold text-black text-justify">
+            <span className="text-xl font-montserrat font-bold text-black text-justify">
               {getTranslation("group_content2_desc1")}
             </span>
-            <span className="text-base font-montserrat font-semibold text-grey text-justify">
+            <span className="text-base font-segoe font-semibold text-grey text-justify">
               {getTranslation("group_content2_desc2")}
             </span>
           </div>

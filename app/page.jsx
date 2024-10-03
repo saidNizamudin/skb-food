@@ -13,6 +13,9 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useTranslate } from "@/hooks";
 import { Button, Stock } from "@/components";
 import Link from "next/link";
+import { PortableText } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "@/sanity/client";
 
 export default function Home() {
   return (
@@ -285,73 +288,136 @@ const Gallery = () => {
 };
 
 const MediaRoom = () => {
+  const LATEST_3_POST_QUERY = `*[_type in ["press", "blog", "csr"] && defined(slug.current)]|order(publishedAt desc)[0...3]{_id, title, slug, image, publishedAt, _type}`;
+  const { projectId, dataset } = client.config();
+  const urlFor = (source) =>
+    projectId && dataset
+      ? imageUrlBuilder({ projectId, dataset }).image(source)
+      : null;
+
+  const options = { next: { revalidate: 30 } };
+  const [latestPosts, setLatestPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { getTranslation } = useTranslate();
 
+  useEffect(() => {
+    setLoading(true);
+
+    async function fetchData() {
+      try {
+        const latestPosts = await client.fetch(LATEST_3_POST_QUERY);
+        setLatestPosts(latestPosts);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="w-full h-80 flex flex-col gap-2 items-center justify-center">
+        <span className="text-2xl text-black font-semibold font-montserrat animate-bounce">
+          Loading...
+        </span>
+      </div>
+    );
+  }
+
+  if (!loading && latestPosts.length === 0) {
+    return (
+      <div className="w-full h-80 flex flex-col gap-2 items-center justify-center">
+        <span className="text-xl text-primary font-semibold font-montserrat">
+          No Press Release Found
+        </span>
+        <span className="text-lg text-black font-semibold font-montserrat">
+          Please check back later
+        </span>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col items-center p-5 md:p-10 md:py-20">
-      <span className="text-xl font-segoe font-bold text-primary">
-        {getTranslation("common_mediaRoom")}
-      </span>
-      <span className="text-[32px] font-montserrat font-bold text-black">
-        {getTranslation("home_media_title")}
-      </span>
-      <div className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-x-3 gap-y-8 mt-5">
-        {[
-          {
-            badge: "Press Release",
-            image: "/images/home/press_release.webp",
-            title:
-              "Program CSR Batumbu bersama SKB Food Dukung Pemuda Tani Karawang",
-            desc: "Kegiatan ini merupakan program Corporate Social Responsibility (CSR), kolaborasi Batumbu dan SKB Food dalam meningkatkan kesadaran petani tentang pentingnya literasi keuangan dan pengolahan pangan. Jakarta,",
-          },
-          {
-            badge: "CSR",
-            image: "/images/home/csr.webp",
-            title: "SKDK Pengangkatan Komite Audit – RAFI",
-            desc: "SURAT KEPUTUSAN DEWAN KOMISARIS PT SARI KREASI BOGA TBK Nomor : 13/Komisaris/SKB/VI/2024 TENTANG PENGGANTIAN DAN PENGANGKATAN KOMITE AUDIT   Menimbang : Bahwa untuk membantu melaksanakan",
-          },
-          {
-            badge: "Blog & Artikel",
-            image: "/images/home/blog.webp",
-            title: "Berita Penyembelihan Hewan Kurban PT Sari Kreasi Boga, TBK",
-            desc: "Kegiatan ini merupakan program Corporate Social Responsibility (CSR), kolaborasi Batumbu dan SKB Food dalam meningkatkan kesadaran petani tentang pentingnya literasi keuangan dan pengolahan pangan. Jakarta,",
-          },
-        ].map((item, index) => (
-          <div className="flex flex-col gap-2.5" key={index}>
-            <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={900}
-                height={600}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center",
-                }}
-                className="hover:scale-105 cursor-pointer"
-              />
-              <span className="absolute right-5 top-5 text-base font-montserrat font-bold text-black bg-secondary px-5 py-1 rounded-full">
-                {item.badge}
+    <div className="flex flex-col px-10 py-20 items-center gap-10 min-[1500px]:px-xCustom">
+      <div className="flex flex-col items-center gap-2.5">
+        <span className="text-xl font-segoe font-bold text-primary">
+          {getTranslation("common_mediaRoom")}
+        </span>
+        <span className="text-[32px] font-montserrat font-bold text-black">
+          {getTranslation("home_media_title")}
+        </span>
+      </div>
+      <div className="grid gap-x-5 gap-y-10 xl:grid-cols-3 min-[800px]:grid-cols-2 max-[800px]:grid-cols-1">
+        {latestPosts.map((item, index) => {
+          const postImageUrl = item.image
+            ? urlFor(item.image)?.width(550).height(310).url()
+            : null;
+
+          function depthFirstTraversal(obj, result = "") {
+            if (obj !== null && typeof obj === "object") {
+              for (const [key, value] of Object.entries(obj)) {
+                if (key === "text") {
+                  result += value + " ";
+                } else {
+                  result = depthFirstTraversal(value, result);
+                }
+              }
+            }
+            return result;
+          }
+
+          const bodyText = depthFirstTraversal(item.body).trim();
+          const slicedBodyText =
+            bodyText.length > 200 ? bodyText.slice(0, 200) + "..." : bodyText;
+
+          return (
+            <Link
+              className="group flex flex-col gap-2.5"
+              key={index}
+              href={`press/${item.slug.current}`}
+            >
+              <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
+                {postImageUrl && (
+                  <Image
+                    src={postImageUrl}
+                    alt={item.title}
+                    width={900}
+                    height={600}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                    className="group-hover:scale-105 cursor-pointer"
+                  />
+                )}
+                <span className="absolute right-5 top-5 text-base font-montserrat font-bold text-black bg-secondary px-5 py-1 rounded-full">
+                  Press Release
+                </span>
+              </div>
+              <div className="flex items-center text-grey gap-1 text-sm">
+                <CiCalendar size={16} />
+                <span className="underline">
+                  {item.publishedAt.split("T")[0]}
+                </span>
+                <span>/</span>
+                <CiUser size={16} />
+                <span className="underline">by {item.author}</span>
+                <span>/</span>
+              </div>
+              <span className="text-base font-montserrat font-bold text-black group-hover:underline">
+                {item.title}
               </span>
-            </div>
-            <div className="flex items-center text-grey gap-1 text-sm">
-              <CiCalendar size={16} />
-              <span className="underline">September 10, 2024</span>
-              <span>/</span>
-              <CiUser size={16} />
-              <span className="underline">by Admin</span>
-              <span>/</span>
-            </div>
-            <span className="text-base font-montserrat font-bold text-black">
-              {item.title}
-            </span>
-            <span className="text-base font-segoe font-medium text-grey mt-auto">
-              {item.desc.slice(0, 200) + "..."}
-            </span>
-          </div>
-        ))}
+              <span className="text-base font-segoe font-medium text-grey mt-auto group-hover:underline">
+                {slicedBodyText}
+              </span>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
@@ -393,8 +459,8 @@ const OurGroup = () => {
 const Subscribe = () => {
   const { getTranslation } = useTranslate();
   return (
-    <div className="relative flex items-center justify-center bg-primary/90 p-10">
-      <div className="flex flex-col items-center gap-5 justify-between md:flex-row max-w-[1600px]">
+    <div className="relative flex items-center justify-center bg-primary/90 p-10 min-[1500px]:px-xCustom">
+      <div className="flex flex-col items-center gap-5 justify-between md:flex-row max-w-[1690px]">
         <Image
           src="/images/catering.webp"
           alt="Catering"

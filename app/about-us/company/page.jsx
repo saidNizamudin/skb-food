@@ -60,7 +60,7 @@ export default function Company() {
           objectPosition="center"
           className="absolute inset-0 z-[-1]"
         />
-        <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 md:px-xCustom min-[1240px]:flex-row">
+        <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 lg:px-xCustom min-[1240px]:flex-row">
           <Image
             src="/images/home/partner.svg"
             alt="Partner"
@@ -87,20 +87,20 @@ export default function Company() {
               }}
               className="mb-3"
             />
-            <span className="text-xl font-segoe font-bold text-black">
+            <span className="text-xl font-montserrat font-bold text-black">
               {getTranslation("about_description_desc1")}
             </span>
-            <span className="text-base font-montserrat font-semibold text-grey">
+            <span className="text-base font-segoe font-semibold text-grey">
               {getTranslation("about_description_desc2")}
             </span>
           </div>
         </div>
         <div className="flex flex-col items-center pb-32 lg:flex-row">
           <div className="flex flex-col gap-2.5 w-full lg:w-1/2 p-10 lg:pl-xCustom">
-            <span className="text-xl font-segoe font-bold text-black">
+            <span className="text-xl font-montserrat font-bold text-black">
               {getTranslation("about_map_desc1")}
             </span>
-            <span className="text-base font-montserrat font-semibold text-grey mb-3">
+            <span className="text-base font-segoe font-semibold text-grey mb-3">
               {getTranslation("about_map_desc2")}
             </span>
             <div className="grid grid-cols-2 gap-5">
@@ -118,18 +118,30 @@ export default function Company() {
               })}
             </div>
           </div>
-          <Image
-            src="/images/about-us/map.svg"
-            alt="Indonesia Map"
-            width={1024}
-            height={768}
-            style={{
-              height: "auto",
-              objectFit: "cover",
-              objectPosition: "center",
-            }}
-            className="w-full lg:w-1/2 p-10 pr-0"
-          />
+          <div className="relative w-full lg:w-1/2 p-10 pr-0">
+            <div className="absolute bottom-10 left-10 lg:bottom-0 lg:left-0 py-7 px-8 bg-white/50 shadow-md rounded-2xl flex items-start gap-3 max-w-[350px]">
+              <Image
+                src="/icons/flag.svg"
+                alt="Indonesia Map"
+                width={37}
+                height={37}
+              />
+              <span className="text-xl font-montserrat font-bold text-black text-balance">
+                {getTranslation("about_map_desc3")}
+              </span>
+            </div>
+            <Image
+              src="/images/about-us/map.svg"
+              alt="Indonesia Map"
+              width={1600}
+              height={768}
+              style={{
+                height: "auto",
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
+            />
+          </div>
         </div>
       </div>
       <div className="bg-primaryLight flex flex-col items-center px-10 py-14 md:px-xCustom">
