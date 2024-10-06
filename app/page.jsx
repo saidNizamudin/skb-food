@@ -16,6 +16,8 @@ import Link from "next/link";
 import { PortableText } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
   return (
@@ -35,7 +37,6 @@ export default function Home() {
       </div>
       <Gallery />
       <MediaRoom />
-      {/* <OurGroup /> */}
       <div className="flex items-center justify-between gap-10 p-3 pt-0 pb-20 min-[1500px]:px-xCustom max-[1000px]:flex-col max-[1000px]:items-start">
         <div className="relative w-full h-max">
           <div className="w-[calc(100%+2px)] h-[316px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 border-4 bg-transparent border-white rounded-lg overflow-hidden shadow-[inset_0_0_0_4px_white]" />
@@ -125,23 +126,49 @@ const Carousel = () => {
 };
 
 const AboutUs = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   const { getTranslation } = useTranslate();
   return (
     <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 xl:px-xCustom min-[1240px]:flex-row">
-      <Image
-        src="/images/home/partner.svg"
-        alt="Partner"
-        width={600}
-        height={400}
-        style={{
-          width: "100%",
-          maxWidth: 550,
-          height: "auto",
-          maxHeight: 400,
-          objectFit: "cover",
-          objectPosition: "center",
-        }}
-      />
+      <div className="relative min-w-[550px] max-w-[550px] h-[450px]">
+        <Image
+          src="/images/home/partner_1.webp"
+          alt="Partner"
+          width={310}
+          height={310}
+          data-aos="fade-right"
+          className="aspect-square absolute top-0 left-0"
+          placeholder="blur"
+          blurDataURL="/images/home/partner_1_low.webp"
+        />
+        <Image
+          src="/images/home/partner_2.webp"
+          alt="Partner"
+          width={210}
+          height={210}
+          data-aos="fade-left"
+          className="aspect-square absolute top-[100px] right-0"
+          placeholder="blur"
+          blurDataURL="/images/home/partner_2_low.webp"
+        />
+        <div
+          className="absolute bottom-10 left-[230px] bg-secondary aspect-square w-48 h-48 rounded-xl flex flex-col items-center justify-center gap-2"
+          data-aos="fade-up"
+        >
+          <span className="text-lg font-montserrat font-bold text-black w-3/5 text-center text-wrap">
+            {getTranslation("common_partner")}
+          </span>
+          <span className="text-5xl text-center font-montserrat font-bold text-primary">
+            950+
+          </span>
+        </div>
+      </div>
       <div className="flex flex-col gap-2.5 min-w-lg">
         <span className="text-xl font-segoe font-bold text-primary">
           {getTranslation("common_aboutUs")}
@@ -333,23 +360,25 @@ const MediaRoom = () => {
 
   if (loading) {
     return (
-      <div className="w-full h-80 flex flex-col gap-2 items-center justify-center">
+      <div className="w-full h-80 flex flex-col gap-2 items-center justify-center px-10 min-[1500px]:px-xCustom">
         <span className="text-2xl text-black font-semibold font-montserrat animate-bounce">
           Loading...
         </span>
+        <hr className="w-full h-[1px] bg-[#E9E9E9] border border-[#E9E9E9] mt-5" />
       </div>
     );
   }
 
   if (!loading && latestPosts.length === 0) {
     return (
-      <div className="w-full h-80 flex flex-col gap-2 items-center justify-center">
+      <div className="w-full h-80 flex flex-col gap-2 items-center justify-center px-10 min-[1500px]:px-xCustom">
         <span className="text-xl text-primary font-semibold font-montserrat">
           No Press Release Found
         </span>
         <span className="text-lg text-black font-semibold font-montserrat">
           Please check back later
         </span>
+        <hr className="w-full h-[1px] bg-[#E9E9E9] border border-[#E9E9E9] mt-5" />
       </div>
     );
   }
@@ -437,6 +466,7 @@ const MediaRoom = () => {
           );
         })}
       </div>
+      <hr className="w-full h-[1px] bg-[#E9E9E9] border border-[#E9E9E9]" />
     </div>
   );
 };

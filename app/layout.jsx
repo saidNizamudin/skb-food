@@ -3,6 +3,7 @@ import { Bebas_Neue, Montserrat } from "next/font/google";
 import { Navbar, Footer, Main } from "@/components";
 
 import "./globals.css";
+import { Suspense } from "react";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -35,7 +36,15 @@ export default function RootLayout({ children }) {
       >
         <div className="flex flex-col min-h-screen">
           <Navbar />
-          <Main>{children}</Main>
+          <Suspense
+            fallback={
+              <div className="flex justify-center items-center h-screen">
+                <h1 className="text-2xl">Loading...</h1>
+              </div>
+            }
+          >
+            <Main>{children}</Main>
+          </Suspense>
           <Footer />
         </div>
       </body>

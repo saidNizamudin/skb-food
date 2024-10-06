@@ -135,6 +135,10 @@
     "id": "Mohon maaf, data yang anda cari tidak ditemukan",
     "en": "Sorry, the data you are looking for is not found"
   },
+  "common_partner": {
+    "id": "Mitra Waralaba",
+    "en": "Franchise Partner"
+  },
 
   "home_about_title": {
     "en": "We provide the best raw material for your business"
