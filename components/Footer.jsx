@@ -139,12 +139,6 @@ const Footer = () => {
           <span className="text-grey font-medium mr-5 text-base text-center md:text-start">
             {getTranslation("footer_follow")}
           </span>
-          <Link href="#" target="_blank" rel="nonreferrer">
-            <FaFacebook
-              size={20}
-              className="text-white bg-primary p-2 rounded-full h-10 w-10 cursor-pointer hover:bg-primary/80"
-            />
-          </Link>
           <Link
             href="https://www.instagram.com/skbfood.id/"
             target="_blank"
@@ -155,14 +149,8 @@ const Footer = () => {
               className="text-white bg-primary p-2 rounded-full h-10 w-10 cursor-pointer hover:bg-primary/80"
             />
           </Link>
-          <Link href="#" target="_blank" rel="nonreferrer">
-            <FaXTwitter
-              size={20}
-              className="text-white bg-primary p-2 rounded-full h-10 w-10 cursor-pointer hover:bg-primary/80"
-            />
-          </Link>
           <Link
-            href="https://www.linkedin.com/company/skb-food/?originalSubdomain=id"
+            href="https://www.linkedin.com/company/pt-sari-kreasi-boga-tbk"
             target="_blank"
             rel="noreferrer"
           >

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const useStore = create((set) => ({
-  lang: "id",
+  lang: "en",
   setLang: (lang) => {
     set({ lang });
   },

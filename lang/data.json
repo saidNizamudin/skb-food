@@ -139,6 +139,11 @@
     "id": "Mitra Waralaba",
     "en": "Franchise Partner"
   },
+  "common_scrollDown": { "id": "Gulir ke bawah", "en": "Scroll down" },
+  "common_understand": {
+    "id": "Saya Mengerti & Setuju",
+    "en": "I Understand & agree"
+  },
 
   "home_about_title": {
     "en": "We provide the best raw material for your business"
@@ -200,6 +205,34 @@
   "about_mission_desc5": {
     "id": "Menyediakan produk-produk makanan dan minuman yang berkualitas",
     "en": "To provide high-quality food and beverage products."
+  },
+  "about_mission_desc6": {
+    "id": "Menjadi pemasok bahan baku terbesar di seluruh Indonesia",
+    "en": "To become the largest supplier of raw materials across Indonesia."
+  },
+  "about_value_title": {
+    "id": "Nilai",
+    "en": "Values"
+  },
+  "about_value_desc": {
+    "id": "Kami memiliki nilai-nilai yang terus kami jaga, yaitu :",
+    "en": "We have values that we always maintain, namely:"
+  },
+  "about_value_desc1": {
+    "id": "Integritas",
+    "en": "Integrity"
+  },
+  "about_value_desc2": {
+    "id": "Bahagia",
+    "en": "Happy"
+  },
+  "about_value_desc3": {
+    "id": "Amanah",
+    "en": "Trustworthy"
+  },
+  "about_value_desc4": {
+    "id": "Fokus",
+    "en": "Focus"
   },
   "about_ourGroup_desc": {
     "id": "Waralaba makanan dan minuman yang dimiliki dan dikuasai oleh Perseroan adalah Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café.",

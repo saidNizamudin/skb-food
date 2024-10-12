@@ -3,14 +3,16 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import {
+  FaArrowDown,
   FaArrowRight,
+  FaChevronDown,
   FaChevronLeft,
   FaChevronRight,
   FaUser,
 } from "react-icons/fa6";
 import { CiCalendar, CiUser } from "react-icons/ci";
 import useEmblaCarousel from "embla-carousel-react";
-import { useTranslate } from "@/hooks";
+import { useMediaQuery, useTranslate } from "@/hooks";
 import { Button, Stock, SymbolStock } from "@/components";
 import Link from "next/link";
 import { PortableText } from "next-sanity";
@@ -58,6 +60,10 @@ export default function Home() {
 }
 
 const Carousel = () => {
+  const isHugeScreen = useMediaQuery(1080);
+  const isLargeScreen = useMediaQuery(750);
+  const isMediumScreen = useMediaQuery(600);
+
   const images = [
     { src: "/images/hero1.webp", alt: "hero1" },
     { src: "/images/hero2.webp", alt: "hero2" },
@@ -75,6 +81,10 @@ const Carousel = () => {
 
   return (
     <div className="relative overflow-hidden">
+      <span className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 text-white text-base font-montserrat flex flex-col items-center">
+        {getTranslation("common_scrollDown")}
+        <FaArrowDown size={16} />
+      </span>
       <div className="embla" ref={emblaRef}>
         <div className="embla__container">
           {images.map((image, index) => (
@@ -86,7 +96,13 @@ const Carousel = () => {
                 height={1080}
                 style={{
                   width: "100%",
-                  height: 600,
+                  height: isHugeScreen
+                    ? "calc(100vh - 160px)"
+                    : isLargeScreen
+                      ? "calc(100vh - 190px)"
+                      : isMediumScreen
+                        ? "calc(100vh - 100px)"
+                        : "calc(100vh - 140px)",
                   objectFit: "cover",
                   objectPosition: "center",
                 }}
