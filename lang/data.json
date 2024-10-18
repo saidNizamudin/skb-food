@@ -146,37 +146,41 @@
   },
 
   "home_about_title": {
+    "id": "Kami menyediakan bahan baku terbaik untuk bisnis Anda",
     "en": "We provide the best raw material for your business"
   },
   "home_about_desc": {
-    "id": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman. Perseroan memiliki kegiatan usaha untuk mendistribusikan bahan baku baik berupa olahan maupun non olahan (segar) dari penyedia/supplier kepada mitra waralaba dan mitra distributor/stockist yang tersebar di seluruh wilayah Indonesia."
+    "id": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman. Perseroan memiliki kegiatan usaha untuk mendistribusikan bahan baku baik berupa olahan maupun non olahan (segar) dari penyedia/supplier kepada mitra waralaba dan mitra distributor/stockist yang tersebar di seluruh wilayah Indonesia.",
+    "en": "PT Sari Kreasi Boga Tbk (SKB FOOD) is a limited liability company that is currently engaged in the sale of food and beverage raw materials and franchises. The Company has business activities to distribute raw materials in the form of processed and non-processed (fresh) from providers/suppliers to franchise partners and distributor/stockist partners spread across all regions of Indonesia."
   },
   "home_business_title": { "en": "Food Supply", "id": "Persediaan Makanan" },
   "home_skb_title": { "en": "SKB Catering", "id": "SKB Catering" },
   "home_skb_desc": {
-    "id": "SKB Catering merupakan salah satu bisnis andalan dari PT. SARI KREASI BOGA Tbk. sebagai upaya untuk mendekatkan diri dengan para pelanggan. Disini kami menyediakan menu Catering andalan kami untuk melengkapi hidangan menu anda pada saat momen – momen penting seperti Meeting, Arisan, Ulang tahun, Gathering dan acara - acara spesial lainnya. Dengan harga yang spesial juga tentunya."
+    "id": "SKB Catering merupakan salah satu bisnis andalan dari PT. SARI KREASI BOGA Tbk. sebagai upaya untuk mendekatkan diri dengan para pelanggan. Disini kami menyediakan menu Catering andalan kami untuk melengkapi hidangan menu anda pada saat momen – momen penting seperti Meeting, Arisan, Ulang tahun, Gathering dan acara - acara spesial lainnya. Dengan harga yang spesial juga tentunya.",
+    "en": "SKB Catering is one of the main businesses of PT. SARI KREASI BOGA Tbk. as an effort to get closer to customers. Here we provide our flagship Catering menu to complement your menu at important moments such as Meetings, Arisan, Birthdays, Gatherings and other special events. With special prices of course."
   },
   "home_eskabeh_title": { "en": "Eskabeh Seafood", "id": "Eskabeh Seafood" },
   "home_eskabeh_desc": {
-    "id": "Eskabeh merupakan toko ikan segar beku rumahan yang menyediakan berbagai jenis ikan dan seafood sebagai kebutuhan makanan sehari-hari maupun kebutuhan bisnis kuliner. ESKABEH Seafood punya slogan “Toko Ikan Segar Tetangga Anda” & “Produk Ikan Segar Beku Langsung Dari Kapal”. Eskabeh Seafood berada dibawah naungan PT. Sari Kreasi Boga Tbk sebagai medium untuk menambah ekspansi bisnis di sektor ikan."
+    "id": "Eskabeh merupakan toko ikan segar beku rumahan yang menyediakan berbagai jenis ikan dan seafood sebagai kebutuhan makanan sehari-hari maupun kebutuhan bisnis kuliner. ESKABEH Seafood punya slogan “Toko Ikan Segar Tetangga Anda” & “Produk Ikan Segar Beku Langsung Dari Kapal”. Eskabeh Seafood berada dibawah naungan PT. Sari Kreasi Boga Tbk sebagai medium untuk menambah ekspansi bisnis di sektor ikan.",
+    "en": "Eskabeh is a home-based frozen fresh fish store that provides various types of fish and seafood as daily food needs and culinary business needs. ESKABEH Seafood has the slogan “Your Neighbour Fresh Fish Store” & “Fresh Frozen Fish Products Directly From The Ship”. Eskabeh Seafood is under the auspices of PT. Sari Kreasi Boga Tbk as a medium to expand business in the fish sector."
   },
   "home_media_title": { "en": "Latest Updated", "id": "Terbaru" },
 
   "about_description_desc1": {
-    "en": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman.",
-    "id": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman."
+    "id": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman.",
+    "en": "PT Sari Kreasi Boga Tbk (SKB FOOD) is a limited liability company that is currently engaged in the sale of food and beverage raw materials and franchises."
   },
   "about_description_desc2": {
-    "en": "Perseroan memiliki kegiatan usaha untuk mendistribusikan bahan baku baik berupa olahan maupun non olahan (segar) dari penyedia/supplier kepada mitra waralaba dan mitra distributor/stockist yang tersebar di seluruh wilayah Indonesia. Rantai distribusi tersebut juga mencakup bahan baku pangan lain seperti beras dan ikan beku.",
-    "id": "Perseroan memiliki kegiatan usaha untuk mendistribusikan bahan baku baik berupa olahan maupun non olahan (segar) dari penyedia/supplier kepada mitra waralaba dan mitra distributor/stockist yang tersebar di seluruh wilayah Indonesia. Rantai distribusi tersebut juga mencakup bahan baku pangan lain seperti beras dan ikan beku."
+    "id": "Perseroan memiliki kegiatan usaha untuk mendistribusikan bahan baku baik berupa olahan maupun non olahan (segar) dari penyedia/supplier kepada mitra waralaba dan mitra distributor/stockist yang tersebar di seluruh wilayah Indonesia. Rantai distribusi tersebut juga mencakup bahan baku pangan lain seperti beras dan ikan beku.",
+    "en": "The Company has business activities to distribute raw materials in the form of processed and non-processed (fresh) from providers/suppliers to franchise partners and distributor/stockist partners spread across all regions of Indonesia. The distribution chain also includes other food raw materials such as rice and frozen fish."
   },
   "about_map_desc1": {
-    "en": "Perseroan telah sukses membuka waralaba di seluruh kota besar yang ada di Indonesia untuk merek-merek yang telah dimilikinya. Hingga saat ini, ada 969 mitra waralaba yang telah bergabung bersama Perseroan.",
-    "id": "Perseroan telah sukses membuka waralaba di seluruh kota besar yang ada di Indonesia untuk merek-merek yang telah dimilikinya. Hingga saat ini, ada 969 mitra waralaba yang telah bergabung bersama Perseroan."
+    "id": "Perseroan telah sukses membuka waralaba di seluruh kota besar yang ada di Indonesia untuk merek-merek yang telah dimilikinya. Hingga saat ini, ada 969 mitra waralaba yang telah bergabung bersama Perseroan.",
+    "en": "The Company has successfully opened franchises in all major cities in Indonesia for the brands it owns. To date, there are 969 franchise partners who have joined the Company."
   },
   "about_map_desc2": {
-    "en": "Dengan adanya potensi rantai distribusi yang telah dibangun, dapat mengembangkan penjualan kepada pangsa pasar selain mitra waralaba seperti",
-    "id": "Dengan adanya potensi rantai distribusi yang telah dibangun, dapat mengembangkan penjualan kepada pangsa pasar selain mitra waralaba seperti"
+    "id": "Dengan adanya potensi rantai distribusi yang telah dibangun, dapat mengembangkan penjualan kepada pangsa pasar selain mitra waralaba seperti",
+    "en": "With the potential of the distribution chain that has been built, it can develop sales to market segments other than franchise partners such as"
   },
   "about_map_desc3": {
     "id": "Tersebar di area JABODETABEK dan seluruh Indonesia.",

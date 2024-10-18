@@ -152,12 +152,12 @@ const AboutUs = () => {
   const { getTranslation } = useTranslate();
   return (
     <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 xl:px-xCustom min-[1240px]:flex-row">
-      <div className="relative min-w-[550px] max-w-[550px] h-[450px]">
+      <div className="relative min-w-[300px] w-full max-w-[550px] h-[450px]">
         <Image
           src="/images/home/partner_1.webp"
           alt="Partner"
-          width={310}
-          height={310}
+          width={290}
+          height={290}
           data-aos="fade-right"
           className="aspect-square absolute top-0 left-0"
           placeholder="blur"
@@ -169,12 +169,12 @@ const AboutUs = () => {
           width={210}
           height={210}
           data-aos="fade-left"
-          className="aspect-square absolute top-[100px] right-0"
+          className="aspect-square absolute top-[150px] md:top-[100px] right-0"
           placeholder="blur"
           blurDataURL="/images/home/partner_2_low.webp"
         />
         <div
-          className="absolute bottom-10 left-[230px] bg-secondary aspect-square w-48 h-48 rounded-xl flex flex-col items-center justify-center gap-2"
+          className="absolute bottom-10 min-[550px]:left-[180px] left-0 bg-secondary aspect-square w-48 h-48 rounded-xl flex flex-col items-center justify-center gap-2"
           data-aos="fade-up"
         >
           <span className="text-lg font-montserrat font-bold text-black w-3/5 text-center text-wrap">
@@ -436,7 +436,7 @@ const MediaRoom = () => {
             <Link
               className="group flex flex-col gap-2.5"
               key={index}
-              href={`/media/${item._type}/${item.slug.current}`}
+              href={`/media/${item._type}/slug?slug=${item.slug.current}`}
             >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
                 {postImageUrl && (

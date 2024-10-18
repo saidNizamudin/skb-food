@@ -10,25 +10,25 @@ import { useParams } from "next/navigation";
 import { CiCalendar, CiUser } from "react-icons/ci";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { useTranslate } from "@/hooks";
+import { useSearchParams } from "next/navigation";
 
-const POST_QUERY = (slug) =>
-  `*[_type == "blog" && slug.current == "${slug}"][0]`;
+const MediaContent = () => {
+  const POST_QUERY = (slug) =>
+    `*[_type == "blog" && slug.current == "${slug}"][0]`;
 
-const PRESS_COUNT = `count(*[_type == "press" && defined(slug.current)])`;
-const BLOG_COUNT = `count(*[_type == "blog" && defined(slug.current)])`;
-const CSR_COUNT = `count(*[_type == "csr" && defined(slug.current)])`;
+  const PRESS_COUNT = `count(*[_type == "press" && defined(slug.current)])`;
+  const BLOG_COUNT = `count(*[_type == "blog" && defined(slug.current)])`;
+  const CSR_COUNT = `count(*[_type == "csr" && defined(slug.current)])`;
 
-const LATEST_5_POST_QUERY = `*[_type in ["press", "blog", "csr"] && defined(slug.current)]|order(publishedAt desc)[0...5]{_id, title, slug, image, publishedAt, _type}`;
+  const LATEST_5_POST_QUERY = `*[_type in ["press", "blog", "csr"] && defined(slug.current)]|order(publishedAt desc)[0...5]{_id, title, slug, image, publishedAt, _type}`;
 
-const { projectId, dataset } = client.config();
-const urlFor = (source) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
+  const { projectId, dataset } = client.config();
+  const urlFor = (source) =>
+    projectId && dataset
+      ? imageUrlBuilder({ projectId, dataset }).image(source)
+      : null;
 
-const options = { next: { revalidate: 30 } };
-
-const MediaContent = ({ params }) => {
+  const options = { next: { revalidate: 30 } };
   const { getTranslation } = useTranslate();
 
   const [post, setPost] = useState(null);
@@ -38,15 +38,20 @@ const MediaContent = ({ params }) => {
   const [blogCount, setBlogCount] = useState(0);
   const [csrCount, setCsrCount] = useState(0);
   const [latestPosts, setLatestPosts] = useState([]);
-
-  const { slug } = useParams();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     setLoading(true);
 
     async function fetchData() {
-      try {
-        const data = await client.fetch(POST_QUERY(slug), {}, options);
+      try {const data = await client.fetch(
+        POST_QUERY(searchParams.get("slug")),
+        {},
+        options
+      );
+      if (!data) {
+        return;
+      }
         if (!data) {
           return;
         }
@@ -201,7 +206,7 @@ const MediaContent = ({ params }) => {
               <Link
                 className="flex items-center gap-5 hover:underline"
                 key={index}
-                href={`/media/${item._type}/${item.slug.current}`}
+                href={`/media/${item._type}/slug?slug=${item.slug.current}`}
               >
                 <div className="relative min-w-[100px] min-h-[100px] rounded-md bg-slate-200 overflow-hidden">
                   {postImageUrl && (

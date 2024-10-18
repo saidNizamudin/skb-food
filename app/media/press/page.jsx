@@ -127,7 +127,7 @@ export default function Press() {
             <Link
               className="group flex flex-col gap-2.5"
               key={index}
-              href={`press/${item.slug.current}`}
+              href={`press/slug?slug=${item.slug.current}`}
             >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
                 {postImageUrl && (

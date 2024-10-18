@@ -95,8 +95,8 @@ export default function Company() {
             </span>
           </div>
         </div>
-        <div className="flex flex-col items-center pb-32 lg:flex-row">
-          <div className="flex flex-col gap-2.5 w-full lg:w-1/2 p-10 lg:pl-xCustom">
+        <div className="flex items-center gap-10 flex-col lg:px-xCustom px-10 py-20">
+          <div className="flex flex-col gap-2.5 w-full">
             <span className="text-xl font-montserrat font-bold text-black">
               {getTranslation("about_map_desc1")}
             </span>
@@ -118,8 +118,8 @@ export default function Company() {
               })}
             </div>
           </div>
-          <div className="relative w-full lg:w-1/2 p-10 pr-0">
-            <div className="absolute bottom-10 left-10 lg:bottom-0 lg:left-0 py-7 px-8 bg-white/50 shadow-md rounded-2xl flex items-start gap-3 max-w-[350px]">
+          <div className="relative max-w-[calc(100vw-40px)] overflow-x-auto h-[560px]">
+            <div className="absolute top-0 right-0 border py-7 px-8 bg-white/50 shadow-md rounded-2xl flex items-start gap-3 max-w-[350px]">
               <Image
                 src="/icons/flag.svg"
                 alt="Indonesia Map"
@@ -133,12 +133,11 @@ export default function Company() {
             <Image
               src="/images/about-us/map.svg"
               alt="Indonesia Map"
-              width={1600}
-              height={768}
+              width={1408}
+              height={560}
               style={{
-                height: "auto",
-                objectFit: "cover",
-                objectPosition: "center",
+                width: "1408px",
+                height: "560px",
               }}
             />
           </div>

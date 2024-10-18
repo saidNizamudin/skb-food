@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsTelephone, BsTelephoneFill } from "react-icons/bs";
 import { MdOutlineMail } from "react-icons/md";
 import { Fragment } from "react";
@@ -22,11 +22,13 @@ import {
 import { Sheet, SheetContent } from "@/components/Sheet";
 
 import { GiHamburgerMenu } from "react-icons/gi";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   {
     name: "navbar_menu1",
     href: "/",
+    value: "about-us",
     children: [
       { name: "navbar_menu1_child1", href: "/about-us/company" },
       { name: "navbar_menu1_child2", href: "/about-us/vision-mission" },
@@ -37,6 +39,7 @@ const navigation = [
   {
     name: "navbar_menu2",
     href: "/",
+    value: "our-business",
     children: [
       { name: "navbar_menu2_child1", href: "/our-business/food-supply" },
       {
@@ -48,14 +51,18 @@ const navigation = [
   {
     name: "navbar_menu3",
     href: "/our-group",
+    value: "our-group",
+    value: "our-group",
   },
   {
     name: "navbar_menu4",
     href: "/investor",
+    value: "investor",
   },
   {
     name: "navbar_menu5",
     href: "/",
+    value: "media",
     children: [
       { name: "navbar_menu5_child1", href: "/media/press" },
       { name: "navbar_menu5_child2", href: "/media/blog" },
@@ -98,6 +105,19 @@ const Navbar = () => {
   const isNotBurger = useMediaQuery(750);
   const isSmallScreen = useMediaQuery(600);
   const isVerySmallScreen = useMediaQuery(400);
+  const pathname = usePathname();
+
+  console.log(pathname);
+
+  const isActive = (value) => {
+    console.log(pathname, value);
+    if (pathname !== "/") {
+      if (pathname.startsWith(`/${value}`)) {
+        return true;
+      }
+    }
+    return false;
+  };
 
   return (
     <header className="z-10 fixed w-full font-montserrat shadow-md z-50">
@@ -223,12 +243,26 @@ const Navbar = () => {
                   <NavigationMenuItem>
                     {item.children ? (
                       <NavigationMenuTrigger haveChild={item.children}>
-                        {getTranslation(item.name)}
+                        <span
+                          className={`${
+                            isActive(item.value) ? "text-primary" : "text-black"
+                          }`}
+                        >
+                          {getTranslation(item.name)}
+                        </span>
                       </NavigationMenuTrigger>
                     ) : (
                       <Link href={item.href}>
                         <NavigationMenuTrigger haveChild={item.children}>
-                          {getTranslation(item.name)}
+                          <span
+                            className={`${
+                              isActive(item.value)
+                                ? "text-primary"
+                                : "text-black"
+                            }`}
+                          >
+                            {getTranslation(item.name)}
+                          </span>
                         </NavigationMenuTrigger>
                       </Link>
                     )}
