@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     domains: ["cdn.sanity.io"],
   },
-  output: "export",
+  // output: "export",
   async redirects() {
     return [
       {
