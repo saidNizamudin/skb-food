@@ -1,9 +1,8 @@
 import localFont from "next/font/local";
 import { Bebas_Neue, Montserrat } from "next/font/google";
-import { Navbar, Footer, Main } from "@/components";
+import Content from "./content";
 
 import "./globals.css";
-import { Suspense } from "react";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -34,19 +33,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${bebasNeue.variable} ${montserrat.variable} ${segoeUI.variable}antialiased`}
       >
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <Suspense
-            fallback={
-              <div className="flex justify-center items-center h-screen">
-                <h1 className="text-2xl">Loading...</h1>
-              </div>
-            }
-          >
-            <Main>{children}</Main>
-          </Suspense>
-          <Footer />
-        </div>
+        <Content>{children}</Content>
       </body>
     </html>
   );

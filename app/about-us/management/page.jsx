@@ -11,6 +11,7 @@ import {
 } from "@/components/Dialog";
 import { useState } from "react";
 import { MANAGEMENT_CONTENT } from "./constant";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Management() {
   const [openDialog, setOpenDialog] = useState(false);
@@ -47,6 +48,10 @@ export default function Management() {
               <span className="text-base text-grey">
                 {getTranslation("common_mainCommissioner")}
               </span>
+              <span className="text-base text-primary flex items-center mt-2">
+                {getTranslation("common_viewProfile")}
+                <FaArrowRight className="inline-block ml-2 group-hover:translate-x-1" />
+              </span>
             </div>
           </div>
           <div
@@ -68,6 +73,10 @@ export default function Management() {
               <span className="text-xl text-black">R. Iskandar Hidayat</span>
               <span className="text-base text-grey">
                 {getTranslation("common_independentCommissioner")}
+              </span>
+              <span className="text-base text-primary flex items-center mt-2">
+                {getTranslation("common_viewProfile")}
+                <FaArrowRight className="inline-block ml-2 group-hover:translate-x-1" />
               </span>
             </div>
           </div>
@@ -111,6 +120,10 @@ export default function Management() {
               <span className="text-base text-grey">
                 {getTranslation("common_mainDirector")}
               </span>
+              <span className="text-base text-primary flex items-center mt-2">
+                {getTranslation("common_viewProfile")}
+                <FaArrowRight className="inline-block ml-2 group-hover:translate-x-1" />
+              </span>
             </div>
           </div>
           <div
@@ -133,6 +146,10 @@ export default function Management() {
               <span className="text-base text-grey">
                 {getTranslation("common_managementDirector")}
               </span>
+              <span className="text-base text-primary flex items-center mt-2">
+                {getTranslation("common_viewProfile")}
+                <FaArrowRight className="inline-block ml-2 group-hover:translate-x-1" />
+              </span>
             </div>
           </div>
           <div
@@ -154,6 +171,10 @@ export default function Management() {
               <span className="text-xl text-black">Aditya Permono</span>
               <span className="text-base text-grey">
                 {getTranslation("common_financeDirector")}
+              </span>
+              <span className="text-base text-primary flex items-center mt-2">
+                {getTranslation("common_viewProfile")}
+                <FaArrowRight className="inline-block ml-2 group-hover:translate-x-1" />
               </span>
             </div>
           </div>

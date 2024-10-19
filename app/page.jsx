@@ -152,7 +152,7 @@ const AboutUs = () => {
   const { getTranslation } = useTranslate();
   return (
     <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 xl:px-xCustom min-[1240px]:flex-row">
-      <div className="relative min-w-[300px] w-full max-w-[550px] h-[450px]">
+      <div className="relative min-w-[300px] w-full max-w-[550px] h-[450px] overflow-hidden">
         <Image
           src="/images/home/partner_1.webp"
           alt="Partner"
@@ -206,7 +206,7 @@ const AboutUs = () => {
 const OurBusiness = () => {
   const { getTranslation } = useTranslate();
   return (
-    <div className="flex flex-col gap-x-32 gap-y-10 items-start p-10 pb-32 lg:flex-row xl:px-xCustom">
+    <div className="flex flex-col gap-x-32 gap-y-10 items-start md:items-center p-10 pb-32 lg:flex-row xl:px-xCustom">
       <div className="flex flex-col gap-2.5 flex-shrink-0">
         <span className="text-xl font-segoe font-bold text-primary">
           {getTranslation("common_ourBusiness")}
@@ -219,7 +219,7 @@ const OurBusiness = () => {
         </Link>
       </div>
       <div className="w-full md:flex-1">
-        <div className="flex flex-wrap items-center gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 min-[870px]:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 items-center gap-6">
           {[
             {
               name: getTranslation("common_fish"),
@@ -254,7 +254,7 @@ const OurBusiness = () => {
                 }}
                 className="hover:scale-105 cursor-pointer"
               />
-              <div className="absolute bottom-0 left-0 flex justify-between items-center p-5 w-full">
+              <div className="absolute bottom-0 left-0 flex justify-between items-center px-7 py-5 w-full">
                 <span className="text-4xl font-montserrat font-bold text-secondary">
                   {item.name}
                 </span>
@@ -271,27 +271,29 @@ const Gallery = () => {
   const { getTranslation } = useTranslate();
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
-      <div className="flex flex-col items-start justify-center gap-2.5 p-10 bg-primary">
-        <Image
-          src="/images/logo/skb_catering_white.png"
-          alt="Catering"
-          width={900}
-          height={600}
-          style={{
-            width: "auto",
-            maxHeight: 80,
-            marginBottom: 20,
-          }}
-        />
-        <span className="text-xl font-segoe font-bold text-white">
-          {getTranslation("common_ourBusiness")}
-        </span>
-        <span className="text-[32px] font-montserrat font-bold text-white leading-10">
-          {getTranslation("home_skb_title")}
-        </span>
-        <span className="text-base font-segoe font-medium text-white">
-          {getTranslation("home_skb_desc")}
-        </span>
+      <div className="flex justify-center p-10 bg-primary">
+        <div className="flex flex-col items-start justify-center gap-2.5 w-full lg:w-4/5">
+          <Image
+            src="/images/logo/skb_catering_white.png"
+            alt="Catering"
+            width={900}
+            height={600}
+            style={{
+              width: "auto",
+              maxHeight: 80,
+              marginBottom: 20,
+            }}
+          />
+          <span className="text-xl font-segoe font-bold text-white">
+            {getTranslation("common_ourBusiness")}
+          </span>
+          <span className="text-[32px] font-montserrat font-bold text-white leading-10">
+            {getTranslation("home_skb_title")}
+          </span>
+          <span className="text-base font-segoe font-medium text-white">
+            {getTranslation("home_skb_desc")}
+          </span>
+        </div>
       </div>
       <Image
         src="/images/home/catering.webp"
@@ -300,6 +302,7 @@ const Gallery = () => {
         height={600}
         style={{
           width: "100%",
+          maxHeight: "470px",
           height: "100%",
           objectFit: "cover",
           objectPosition: "center",
@@ -313,32 +316,35 @@ const Gallery = () => {
         className="order-4 md:order-3"
         style={{
           width: "100%",
+          maxHeight: "470px",
           height: "100%",
           objectFit: "cover",
           objectPosition: "center",
         }}
       />
-      <div className="flex flex-col items-start justify-center gap-2.5 p-10 bg-primary order-3 md:order-4">
-        <Image
-          src="/images/logo/eskabeh_white.png"
-          alt="Eskabeh Seafood"
-          width={900}
-          height={600}
-          style={{
-            width: "auto",
-            maxHeight: 80,
-            marginBottom: 20,
-          }}
-        />
-        <span className="text-xl font-segoe font-bold text-white">
-          {getTranslation("common_ourBusiness")}
-        </span>
-        <span className="text-[32px] font-montserrat font-bold text-white leading-10">
-          {getTranslation("home_eskabeh_title")}
-        </span>
-        <span className="text-base font-segoe font-medium text-white">
-          {getTranslation("home_eskabeh_desc")}
-        </span>
+      <div className="flex justify-center p-10 bg-primary order-3 md:order-4">
+        <div className="flex flex-col items-start justify-center gap-2.5 w-full lg:w-4/5">
+          <Image
+            src="/images/logo/eskabeh_white.png"
+            alt="Eskabeh Seafood"
+            width={900}
+            height={600}
+            style={{
+              width: "auto",
+              maxHeight: 80,
+              marginBottom: 20,
+            }}
+          />
+          <span className="text-xl font-segoe font-bold text-white">
+            {getTranslation("common_ourBusiness")}
+          </span>
+          <span className="text-[32px] font-montserrat font-bold text-white leading-10">
+            {getTranslation("home_eskabeh_title")}
+          </span>
+          <span className="text-base font-segoe font-medium text-white">
+            {getTranslation("home_eskabeh_desc")}
+          </span>
+        </div>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ export default function Contact() {
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <div className="flex flex-col-reverse items-start gap-10 px-10 py-20 min-[1500px]:px-xCustom lg:flex-row lg:items-center">
+      <div className="flex flex-col-reverse items-start gap-10 px-10 py-20 min-[1500px]:px-xCustom lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-col">
           <span className="text-5xl font-bold font-montserrat mb-3">
             {getTranslation("common_contactUs")}
@@ -92,7 +92,7 @@ export default function Contact() {
           width={900}
           height={600}
           style={{
-            width: "350px",
+            width: "500px",
             height: "fit-content",
           }}
           className=";g:ml-auto"

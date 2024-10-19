@@ -107,10 +107,7 @@ const Navbar = () => {
   const isVerySmallScreen = useMediaQuery(400);
   const pathname = usePathname();
 
-  console.log(pathname);
-
   const isActive = (value) => {
-    console.log(pathname, value);
     if (pathname !== "/") {
       if (pathname.startsWith(`/${value}`)) {
         return true;
