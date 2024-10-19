@@ -5,21 +5,18 @@ import { useCallback, useEffect, useState } from "react";
 import {
   FaArrowDown,
   FaArrowRight,
-  FaChevronDown,
   FaChevronLeft,
   FaChevronRight,
-  FaUser,
 } from "react-icons/fa6";
 import { CiCalendar, CiUser } from "react-icons/ci";
 import useEmblaCarousel from "embla-carousel-react";
 import { useMediaQuery, useTranslate } from "@/hooks";
 import { Button, Stock, SymbolStock } from "@/components";
 import Link from "next/link";
-import { PortableText } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
-import { client } from "@/sanity/client";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
+import { decode } from "html-entities";
 
 export default function Home() {
   return (
@@ -351,14 +348,6 @@ const Gallery = () => {
 };
 
 const MediaRoom = () => {
-  const LATEST_3_POST_QUERY = `*[_type in ["press", "blog", "csr"] && defined(slug.current)]|order(publishedAt desc)[0...3]{_id, title, author, slug, image, body, publishedAt, _type}`;
-  const { projectId, dataset } = client.config();
-  const urlFor = (source) =>
-    projectId && dataset
-      ? imageUrlBuilder({ projectId, dataset }).image(source)
-      : null;
-
-  const options = { next: { revalidate: 30 } };
   const [latestPosts, setLatestPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { getTranslation } = useTranslate();
@@ -368,10 +357,13 @@ const MediaRoom = () => {
 
     async function fetchData() {
       try {
-        const latestPosts = await client.fetch(LATEST_3_POST_QUERY);
-        setLatestPosts(latestPosts);
+        const latestPosts = await axios.get(
+          "https://skbfood.id/wp-json/wp/v2/posts?_embed&per_page=3"
+        );
+        setLatestPosts(latestPosts.data);
       } catch (error) {
         console.error(error);
+        setLatestPosts([]);
       } finally {
         setLoading(false);
       }
@@ -416,54 +408,47 @@ const MediaRoom = () => {
         </span>
       </div>
       <div className="grid gap-x-5 gap-y-10 xl:grid-cols-3 min-[800px]:grid-cols-2 max-[800px]:grid-cols-1">
-        {latestPosts.map((item, index) => {
-          const postImageUrl = item.image
-            ? urlFor(item.image)?.width(550).height(310).url()
-            : null;
-
-          function depthFirstTraversal(obj, result = "") {
-            if (obj !== null && typeof obj === "object") {
-              for (const [key, value] of Object.entries(obj)) {
-                if (key === "text") {
-                  result += value + " ";
-                } else {
-                  result = depthFirstTraversal(value, result);
-                }
-              }
-            }
-            return result;
-          }
-
-          const bodyText = depthFirstTraversal(item.body).trim();
-          const slicedBodyText =
-            bodyText.length > 200 ? bodyText.slice(0, 200) + "..." : bodyText;
-
+        {latestPosts?.map((item, index) => {
+          const body = item?.content?.rendered || "";
+          const strippedBody = body.replace(/(<([^>]+)>)/gi, ""); // Remove HTML tags
+          const decodedBody = decode(strippedBody);
+          const truncatedBody =
+            decodedBody.length > 200
+              ? `${decodedBody.slice(0, 200).trim()}...`
+              : decodedBody;
           return (
             <Link
               className="group flex flex-col gap-2.5"
               key={index}
-              href={`/media/${item._type}/slug?slug=${item.slug.current}`}
+              href={`/media/${
+                item.categories?.[0] === 31
+                  ? "press"
+                  : item.categories?.[0] === 35
+                    ? "csr"
+                    : "blog"
+              }/slug?slug=${item.slug}`}
             >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
-                {postImageUrl && (
-                  <Image
-                    src={postImageUrl}
-                    alt={item.title}
-                    width={900}
-                    height={600}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                    }}
-                    className="group-hover:scale-105 cursor-pointer"
-                  />
-                )}
+                <Image
+                  src={
+                    item._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                    "/default_post.png"
+                  }
+                  alt={item.title?.rendered}
+                  width={900}
+                  height={600}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
+                  className="group-hover:scale-105 cursor-pointer"
+                />
                 <span className="absolute right-5 top-5 text-base font-montserrat font-bold text-black bg-secondary px-5 py-1 rounded-full">
-                  {item._type === "press"
+                  {(item.categories?.[0] === 31) === "press"
                     ? "Press Release"
-                    : item._type === "blog"
+                    : (item.categories?.[0] === 3) === "blog"
                       ? "Blog & Artikel"
                       : "CSR"}
                 </span>
@@ -471,18 +456,30 @@ const MediaRoom = () => {
               <div className="flex items-center text-grey gap-1 text-sm">
                 <CiCalendar size={16} />
                 <span className="underline">
-                  {item.publishedAt.split("T")[0]}
+                  {new Date(item.date).toLocaleDateString("id-ID", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  }) ||
+                    new Date().toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
                 </span>
                 <span>/</span>
                 <CiUser size={16} />
-                <span className="underline">by {item.author}</span>
+                <span className="underline">
+                  by {item._embedded?.author?.[0]?.name}
+                </span>
                 <span>/</span>
               </div>
-              <span className="text-base font-montserrat font-bold text-black group-hover:underline">
-                {item.title}
-              </span>
+              <span
+                className="text-base font-montserrat font-bold text-black group-hover:underline"
+                dangerouslySetInnerHTML={{ __html: item.title.rendered }}
+              />
               <span className="text-base font-segoe font-medium text-grey group-hover:underline">
-                {slicedBodyText}
+                {truncatedBody || "No content"}
               </span>
             </Link>
           );

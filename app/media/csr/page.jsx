@@ -1,28 +1,14 @@
 "use client";
 
-import { client } from "@/sanity/client";
 import Image from "next/image";
 import { CiCalendar, CiUser } from "react-icons/ci";
-import { PortableText } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
 import { useEffect, useState } from "react";
-import { Button } from "@/components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import Link from "next/link";
+import axios from "axios";
+import { decode } from "html-entities";
 
-const CSR_QUERY = (page) =>
-  `*[ _type == "csr" && defined(slug.current)]|order(publishedAt desc)[${page * 9}...${
-    page * 9 + 9
-  }]{_id, title, slug, image, body, author, publishedAt}`;
-const CSR_COUNT = `count(*[_type == "csr" && defined(slug.current)])`;
-
-const { projectId, dataset } = client.config();
-const urlFor = (source) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
-
-const options = { next: { revalidate: 30 } };
+const BASE_URL = "https://skbfood.id/wp-json/wp/v2/";
 
 export default function CSR() {
   const [csr, setCSR] = useState([]);
@@ -36,12 +22,17 @@ export default function CSR() {
 
     async function fetchData() {
       try {
-        const data = await client.fetch(CSR_QUERY(0), {}, options);
-        const total = await client.fetch(CSR_COUNT);
-        setCSR(data);
+        const data = await axios.get(
+          `${BASE_URL}posts?categories=35&_embed&per_page=9&page=1`
+        );
+
+        const total = data.headers["x-wp-total"];
+        console.log(data.data);
+        setCSR(data.data);
         setCount(Math.ceil(total / 9));
       } catch (error) {
         console.error(error);
+        setCSR([]);
       } finally {
         setLoading(false);
       }
@@ -51,12 +42,18 @@ export default function CSR() {
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     async function fetchData() {
       try {
-        const data = await client.fetch(CSR_QUERY(page), {}, options);
+        const { data } = await axios.get(
+          `${BASE_URL}posts?categories=35&_embed&per_page=9&page=${page + 1}`
+        );
         setCSR(data);
       } catch (error) {
         console.error(error);
+        setCSR([]);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -89,7 +86,7 @@ export default function CSR() {
     return (
       <div className="w-full h-80 flex flex-col gap-2 items-center justify-center">
         <span className="text-xl text-primary font-semibold font-montserrat">
-          No CSR Release Found
+          No CSR Found
         </span>
         <span className="text-lg text-black font-semibold font-montserrat">
           Please check back later
@@ -101,69 +98,72 @@ export default function CSR() {
   return (
     <div className="flex flex-col px-10 py-20 min-[1500px]:px-xCustom">
       <div className="grid gap-x-5 gap-y-10 xl:grid-cols-3 min-[800px]:grid-cols-2 max-[800px]:grid-cols-1">
-        {csr.map((item, index) => {
-          const postImageUrl = item.image
-            ? urlFor(item.image)?.width(550).height(310).url()
-            : null;
-
-          function depthFirstTraversal(obj, result = "") {
-            if (obj !== null && typeof obj === "object") {
-              for (const [key, value] of Object.entries(obj)) {
-                if (key === "text") {
-                  result += value + " ";
-                } else {
-                  result = depthFirstTraversal(value, result);
-                }
-              }
-            }
-            return result;
-          }
-
-          const bodyText = depthFirstTraversal(item.body).trim();
-          const slicedBodyText =
-            bodyText.length > 200 ? bodyText.slice(0, 200) + "..." : bodyText;
+        {csr?.map((item, index) => {
+          const body = item?.content?.rendered || "";
+          const strippedBody = body.replace(/(<([^>]+)>)/gi, ""); // Remove HTML tags
+          const decodedBody = decode(strippedBody);
+          const truncatedBody =
+            decodedBody.length > 200
+              ? `${decodedBody.slice(0, 200).trim()}...`
+              : decodedBody;
 
           return (
             <Link
-              className="group flex flex-col gap-2.5 group"
+              className="group flex flex-col gap-2.5"
               key={index}
-              href={`csr/slug?slug=${item.slug.current}`}
+              href={`csr/slug?slug=${item?.slug}`}
             >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
-                {postImageUrl && (
-                  <Image
-                    src={postImageUrl}
-                    alt={item.title}
-                    width={900}
-                    height={600}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                    }}
-                    className="group-hover:scale-105 cursor-pointer"
-                  />
-                )}
+                <Image
+                  src={
+                    item?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                    "/default_post.png"
+                  }
+                  alt={item?.title?.rendered}
+                  width={900}
+                  height={600}
+                  style={{
+                    width: "100%",
+                    height: "250px",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
+                  className="group-hover:scale-105 cursor-pointer"
+                />
                 <span className="absolute right-5 top-5 text-base font-montserrat font-bold text-black bg-secondary px-5 py-1 rounded-full">
-                  CSR Release
+                  CSR
                 </span>
               </div>
               <div className="flex items-center text-grey gap-1 text-sm">
                 <CiCalendar size={16} />
                 <span className="underline">
-                  {item.publishedAt.split("T")[0]}
+                  {new Date(item?.date).toLocaleDateString("id-ID", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  }) ||
+                    new Date().toLocaleDateString("id-ID", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
                 </span>
                 <span>/</span>
                 <CiUser size={16} />
-                <span className="underline">by {item.author}</span>
+                <span className="underline">
+                  by
+                  {item?._embedded.author[0].name || "Admin"}
+                </span>
                 <span>/</span>
               </div>
-              <span className="text-base font-montserrat font-bold text-black group-hover:underline">
-                {item.title}
-              </span>
-              <span className="text-base font-segoe font-medium text-grey mt-auto group-hover:underline">
-                {slicedBodyText}
+              <span
+                className="text-base font-montserrat font-bold text-black group-hover:underline"
+                dangerouslySetInnerHTML={{
+                  __html: item.title.rendered || "Untitled",
+                }}
+              />
+              <span className="text-base font-segoe font-medium text-grey group-hover:underline">
+                {truncatedBody || "No content"}
               </span>
             </Link>
           );

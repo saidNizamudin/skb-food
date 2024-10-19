@@ -1,34 +1,15 @@
 "use client";
 
-import { PortableText } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
-import { client } from "@/sanity/client";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import { CiCalendar, CiUser } from "react-icons/ci";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { useTranslate } from "@/hooks";
 import { useSearchParams } from "next/navigation";
+import axios from "axios";
 
 const MediaContent = () => {
-  const POST_QUERY = (slug) =>
-    `*[_type == "press" && slug.current == "${slug}"][0]`;
-
-  const PRESS_COUNT = `count(*[_type == "press" && defined(slug.current)])`;
-  const BLOG_COUNT = `count(*[_type == "blog" && defined(slug.current)])`;
-  const CSR_COUNT = `count(*[_type == "csr" && defined(slug.current)])`;
-
-  const LATEST_5_POST_QUERY = `*[_type in ["press", "blog", "csr"] && defined(slug.current)]|order(publishedAt desc)[0...5]{_id, title, slug, image, publishedAt, _type}`;
-
-  const { projectId, dataset } = client.config();
-  const urlFor = (source) =>
-    projectId && dataset
-      ? imageUrlBuilder({ projectId, dataset }).image(source)
-      : null;
-
-  const options = { next: { revalidate: 30 } };
   const { getTranslation } = useTranslate();
 
   const [post, setPost] = useState(null);
@@ -45,33 +26,38 @@ const MediaContent = () => {
 
     async function fetchData() {
       try {
-        const data = await client.fetch(POST_QUERY(
-          searchParams.get("slug")
-        ), {}, options);
-        if (!data) {
+        const [data, pressCount, blogCount, csrCount, latestPosts] =
+          await Promise.all([
+            axios.get(
+              `https://skbfood.id/wp-json/wp/v2/posts?_embed&slug=${searchParams.get(
+                "slug"
+              )}`
+            ),
+            axios.get("https://skbfood.id/wp-json/wp/v2/posts?categories=31"),
+            axios.get("https://skbfood.id/wp-json/wp/v2/posts?categories=3"),
+            axios.get("https://skbfood.id/wp-json/wp/v2/posts?categories=35"),
+            axios.get(
+              "https://skbfood.id/wp-json/wp/v2/posts?_embed&per_page=5"
+            ),
+          ]);
+
+        if (!data.data.length) {
           return;
         }
 
-        setPost(data);
+        setPost(data.data[0]);
+        setPressCount(pressCount.headers["x-wp-total"]);
+        setBlogCount(blogCount.headers["x-wp-total"]);
+        setCsrCount(csrCount.headers["x-wp-total"]);
+        setLatestPosts(latestPosts.data);
 
-        const postImageUrl = data.image
-          ? urlFor(data.image)?.width(550).height(310).url()
-          : null;
+        const postImageUrl =
+          data.data[0]?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+          "/default_post.png";
         setPostImageUrl(postImageUrl);
-
-        const pressCount = await client.fetch(PRESS_COUNT);
-        setPressCount(pressCount);
-
-        const blogCount = await client.fetch(BLOG_COUNT);
-        setBlogCount(blogCount);
-
-        const csrCount = await client.fetch(CSR_COUNT);
-        setCsrCount(csrCount);
-
-        const latestPosts = await client.fetch(LATEST_5_POST_QUERY);
-        setLatestPosts(latestPosts);
       } catch (error) {
         console.error(error);
+        setLatestPosts([]);
       } finally {
         setLoading(false);
       }
@@ -108,38 +94,45 @@ const MediaContent = () => {
   }
 
   return (
-    <div className="flex gap-10 mx-auto max-w-[1500px] px-10 py-20 max-[1000px]:flex-col">
-      <div className="flex flex-col min-[1000px]:w-9/12">
-        {postImageUrl && (
-          <Image
-            src={postImageUrl}
-            alt={post.title}
-            className="w-full max-h-[450px] object-cover object-center mb-5"
-            width={550}
-            height={310}
-          />
-        )}
-        <span className="text-4xl font-bold font-montserrat text-[#1F1F1F] mb-2">
-          {post.title}
-        </span>
+    <div className="flex gap-10 mx-auto max-w-[1500px] px-10 py-20 max-[1200px]:flex-col">
+      <div className="flex flex-col min-[1200px]:w-9/12">
+        <Image
+          src={postImageUrl}
+          alt={post.title?.rendered}
+          className="w-full max-h-[450px] object-cover object-center mb-5 border rounded-lg shadow-md"
+          width={550}
+          height={310}
+        />
+        <span
+          className="text-4xl font-bold font-montserrat text-[#1F1F1F] mb-2"
+          dangerouslySetInnerHTML={{ __html: post.title?.rendered }}
+        />
         <div className="flex items-center text-grey gap-1 text-base font-semibold mb-5">
           <CiCalendar size={20} />
           <span className="underline">
-            {new Date(post.publishedAt).toLocaleDateString("en-US", {
+            {new Date(post.date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
-            })}
+            }) ||
+              new Date().toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
           </span>
           <span>/</span>
           <CiUser size={20} />
-          <span className="underline">by {post.author}</span>
+          <span className="underline">
+            by {post._embedded?.author?.[0]?.name || "Admin"}
+          </span>
         </div>
-        <span className="text-base font-normal font-segoe text-[#1F1F1F]">
-          {Array.isArray(post.body) && <PortableText value={post.body} />}
-        </span>
+        <span
+          className="mt-10 text-base font-normal font-segoe text-[#1F1F1F]"
+          dangerouslySetInnerHTML={{ __html: post.content?.rendered }}
+        />
       </div>
-      <div className="flex flex-col min-[1000px]:w-3/12">
+      <div className="flex flex-col min-[1200px]:w-3/12">
         <Link
           href="/media/press"
           className="flex items-center gap-5 mb-5 text-primary"
@@ -193,44 +186,52 @@ const MediaContent = () => {
             {getTranslation("common_recentPost")}
           </span>
           <hr className="w-full h-[1px] bg-[#E9E9E9] border border-[#E9E9E9]" />
-          {latestPosts.map((item, index) => {
-            const postImageUrl = item.image
-              ? urlFor(item.image)?.width(550).height(310).url()
-              : null;
-
+          {latestPosts?.map((item, index) => {
             return (
               <Link
-                className="flex items-center gap-5 hover:underline"
+                className="flex items-center gap-5 hover:underline min-[1200px]:flex-col min-[1500px]:flex-row max-[500px]:flex-col"
                 key={index}
-                href={`/media/${item._type}/slug?slug=${item.slug.current}`}
+                href={`/media/${
+                  item.categories?.[0] === 31
+                    ? "press"
+                    : item.categories?.[0] === 35
+                      ? "csr"
+                      : "blog"
+                }/slug?slug=${item.slug}`}
               >
-                <div className="relative min-w-[100px] min-h-[100px] rounded-md bg-slate-200 overflow-hidden">
-                  {postImageUrl && (
-                    <Image
-                      src={postImageUrl}
-                      alt={item.title}
-                      width={900}
-                      height={600}
-                      style={{
-                        width: "100px",
-                        height: "100px",
-                        objectFit: "cover",
-                        objectPosition: "center",
-                      }}
-                      className="group-hover:scale-105 cursor-pointer"
-                    />
-                  )}
+                <div className="relative min-w-[120px] min-h-[130px] rounded-md bg-slate-200 overflow-hidden min-[1500px]:w-[120px] min-[1200px]:w-full max-[500px]:w-full">
+                  <Image
+                    src={
+                      item._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                      "/default_post.png"
+                    }
+                    alt={item.title?.rendered}
+                    width={900}
+                    height={600}
+                    style={{
+                      height: "130px",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                    className="group-hover:scale-105 cursor-pointer min-[1500px]:w-[120px] min-[1200px]:w-full w-[120px] max-[500px]:w-full"
+                  />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="text-base font-bold font-montserrat text-black">
-                    {item.title}
-                  </span>
+                  <span
+                    className="text-base font-bold font-montserrat text-black"
+                    dangerouslySetInnerHTML={{ __html: item.title.rendered }}
+                  />
                   <span className="text-sm font-semibold font-segoe text-grey">
-                    {new Date(item.publishedAt).toLocaleDateString("en-US", {
+                    {new Date(item.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
-                    })}
+                    }) ||
+                      new Date().toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
                   </span>
                 </div>
               </Link>

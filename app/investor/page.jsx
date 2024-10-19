@@ -4,27 +4,17 @@ import Image from "next/image";
 import { Button } from "@/components";
 import { FiDownload } from "react-icons/fi";
 import { useTranslate } from "@/hooks";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/Tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/Tabs";
 import { useEffect, useState } from "react";
-import imageUrlBuilder from "@sanity/image-url";
-import { client } from "@/sanity/client";
 import { Skeleton } from "@/components/Skeleton";
-import { type } from "os";
+import axios from "axios";
 
-const DOCUMENT_QUERY = (type) =>
-  `*[ _type == "investor" && type == "${type}"]{_id, title, URL, image}`;
-
-const { projectId, dataset } = client.config();
-const urlFor = (source) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
-
-const options = { next: { revalidate: 30 } };
+const BASE_URL = "https://skbfood.id/wp-json/wp/v2/";
 
 export default function AnnualReport() {
   const { getTranslation } = useTranslate();
   const [activeTab, setActiveTab] = useState("financial");
+  const [allData, setAllData] = useState([]);
   const [document, setDocument] = useState([]);
   const [financial, setFinancial] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -39,7 +29,7 @@ export default function AnnualReport() {
     const result = {};
 
     docs.forEach((item) => {
-      const yearMatch = item.title.trim().match(/\d{4}$/);
+      const yearMatch = item.title?.rendered?.trim()?.match(/\d{4}$/);
       if (yearMatch) {
         const year = yearMatch[0];
         if (!result[year]) result[year] = [];
@@ -49,8 +39,8 @@ export default function AnnualReport() {
 
     Object.keys(result).forEach((year) => {
       result[year].sort((a, b) => {
-        const quarterA = a.title.trim().match(/Q\d/)[0];
-        const quarterB = b.title.trim().match(/Q\d/)[0];
+        const quarterA = a.title?.rendered?.trim()?.match(/Q\d/)[0];
+        const quarterB = b.title?.rendered?.trim()?.match(/Q\d/)[0];
         return quarterA.localeCompare(quarterB);
       });
     });
@@ -66,18 +56,19 @@ export default function AnnualReport() {
   }
 
   useEffect(() => {
-    if (!activeTab) return;
-
     setLoading(true);
 
     async function fetchData() {
       try {
-        const data = await client.fetch(DOCUMENT_QUERY(activeTab), {}, options);
-        setDocument(data);
-        if (activeTab === "financial") {
-          const financialData = await categorizeAndSortDocuments(data);
-          setFinancial(financialData);
-        }
+        const data = await axios.get(
+          `${BASE_URL}posts?categories=36&_embed&per_page=50`
+        );
+        setAllData(data.data);
+        const financialData = await categorizeAndSortDocuments(
+          data.data.filter((item) => item.tags.includes(37))
+        );
+        console.log(financialData);
+        setFinancial(financialData);
       } catch (error) {
         console.error(error);
       } finally {
@@ -86,7 +77,25 @@ export default function AnnualReport() {
     }
 
     fetchData();
-  }, [activeTab]);
+  }, []);
+
+  useEffect(() => {
+    const tag = (() => {
+      switch (activeTab) {
+        case "annual":
+          return 40;
+        case "sustainability":
+          return 38;
+        case "prospectus":
+          return 39;
+        case "presentation":
+          return 41;
+        default:
+          return 37;
+      }
+    })();
+    setDocument(allData.filter((item) => item.tags.includes(tag)));
+  }, [activeTab, allData]);
 
   return (
     <div className="flex flex-col px-10 py-20 min-[1450px]:px-xCustom">
@@ -161,16 +170,19 @@ export default function AnnualReport() {
                 </div>
                 <div className="grid gap-x-10 gap-y-20 grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
                   {financial[year].map((item, itemIndex) => {
-                    const postImageUrl = item.image
-                      ? urlFor(item.image)?.url()
-                      : null;
-
+                    const url = item.content?.rendered.replace(
+                      /<[^>]*>?/gm,
+                      ""
+                    );
                     return (
                       <div className="flex flex-col gap-2.5" key={itemIndex}>
                         <div className="relative rounded-xl w-max min-w-[300px] max-w-[400px] min-h-[290px] overflow-hidden shadow-2xl border-2">
                           <Image
-                            src={postImageUrl}
-                            alt={item.title}
+                            src={
+                              item._embedded?.["wp:featuredmedia"]?.[0]
+                                ?.source_url || "/default_post.png"
+                            }
+                            alt={item.title?.rendered}
                             width={1000}
                             height={1000}
                             style={{
@@ -183,11 +195,11 @@ export default function AnnualReport() {
                           />
                         </div>
                         <span className="text-base font-montserrat font-bold text-black max-w-[250px]">
-                          {item.title}
+                          {item.title?.rendered}
                         </span>
                         <Button
                           className="!h-8 !py-1 !px-3 text-base font-montserrat font-bold"
-                          onClick={() => downloadFile(item.URL)}
+                          onClick={() => downloadFile(url)}
                         >
                           {getTranslation("common_download")}
                           <FiDownload className="font-bold ml-5" />
@@ -200,14 +212,17 @@ export default function AnnualReport() {
             ))
         ) : (
           document.map((item, index) => {
-            const postImageUrl = item.image ? urlFor(item.image)?.url() : null;
+            const url = item.content?.rendered.replace(/<[^>]*>?/gm, "");
 
             return (
               <div className="flex flex-col gap-2.5" key={index}>
                 <div className="relative rounded-xl w-max min-w-[300] max-w-[400px] min-h-[290px] overflow-hidden shadow-2xl border-2">
                   <Image
-                    src={postImageUrl}
-                    alt={item.title}
+                    src={
+                      item._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                      "/default_post.png"
+                    }
+                    alt={item.title?.rendered}
                     width={1000}
                     height={1000}
                     style={{
@@ -220,12 +235,12 @@ export default function AnnualReport() {
                   />
                 </div>
                 <span className="text-base font-montserrat font-bold text-black max-w-[250px]">
-                  {item.title}
+                  {item.title?.rendered}
                 </span>
                 <Button
                   className="!h-8 !py-1 !px-3 text-base font-montserrat font-bold"
                   onClick={() => {
-                    downloadFile(item.URL);
+                    downloadFile(url);
                   }}
                 >
                   {getTranslation("common_download")}

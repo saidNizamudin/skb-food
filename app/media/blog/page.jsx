@@ -1,31 +1,17 @@
 "use client";
 
-import { client } from "@/sanity/client";
 import Image from "next/image";
 import { CiCalendar, CiUser } from "react-icons/ci";
-import { PortableText } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
 import { useEffect, useState } from "react";
-import { Button } from "@/components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import Link from "next/link";
+import axios from "axios";
+import { decode } from "html-entities";
 
-const BLOG_QUERY = (page) =>
-  `*[ _type == "blog" && defined(slug.current)]|order(publishedAt desc)[${page * 9}...${
-    page * 9 + 9
-  }]{_id, title, slug, image, body, author, publishedAt}`;
-const BLOG_COUNT = `count(*[_type == "blog" && defined(slug.current)])`;
+const BASE_URL = "https://skbfood.id/wp-json/wp/v2/";
 
-const { projectId, dataset } = client.config();
-const urlFor = (source) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
-
-const options = { next: { revalidate: 30 } };
-
-export default function Press() {
-  const [blog, setPress] = useState([]);
+export default function Blog() {
+  const [blog, setBlog] = useState([]);
   const [page, setPage] = useState(0);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -36,12 +22,17 @@ export default function Press() {
 
     async function fetchData() {
       try {
-        const data = await client.fetch(BLOG_QUERY(0), {}, options);
-        const total = await client.fetch(BLOG_COUNT);
-        setPress(data);
+        const data = await axios.get(
+          `${BASE_URL}posts?categories=3&_embed&per_page=9&page=1`
+        );
+
+        const total = data.headers["x-wp-total"];
+        console.log(data.data);
+        setBlog(data.data);
         setCount(Math.ceil(total / 9));
       } catch (error) {
         console.error(error);
+        setBlog([]);
       } finally {
         setLoading(false);
       }
@@ -51,12 +42,18 @@ export default function Press() {
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     async function fetchData() {
       try {
-        const data = await client.fetch(BLOG_QUERY(page), {}, options);
-        setPress(data);
+        const { data } = await axios.get(
+          `${BASE_URL}posts?categories=3&_embed&per_page=9&page=${page + 1}`
+        );
+        setBlog(data);
       } catch (error) {
         console.error(error);
+        setBlog([]);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -89,7 +86,7 @@ export default function Press() {
     return (
       <div className="w-full h-80 flex flex-col gap-2 items-center justify-center">
         <span className="text-xl text-primary font-semibold font-montserrat">
-          No Blog Found
+          No Blog & Article Found
         </span>
         <span className="text-lg text-black font-semibold font-montserrat">
           Please check back later
@@ -101,52 +98,72 @@ export default function Press() {
   return (
     <div className="flex flex-col px-10 py-20 min-[1500px]:px-xCustom">
       <div className="grid gap-x-5 gap-y-10 xl:grid-cols-3 min-[800px]:grid-cols-2 max-[800px]:grid-cols-1">
-        {blog.map((item, index) => {
-          const postImageUrl = item.image
-            ? urlFor(item.image)?.width(550).height(310).url()
-            : null;
+        {blog?.map((item, index) => {
+          const body = item?.content?.rendered || "";
+          const strippedBody = body.replace(/(<([^>]+)>)/gi, ""); // Remove HTML tags
+          const decodedBody = decode(strippedBody);
+          const truncatedBody =
+            decodedBody.length > 200
+              ? `${decodedBody.slice(0, 200).trim()}...`
+              : decodedBody;
 
           return (
             <Link
-              className="flex flex-col gap-2.5 group"
+              className="group flex flex-col gap-2.5"
               key={index}
-              href={`/media/blog/slug?slug=${item.slug.current}`}
+              href={`blog/slug?slug=${item?.slug}`}
             >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
-                {postImageUrl && (
-                  <Image
-                    src={postImageUrl}
-                    alt={item.title}
-                    width={900}
-                    height={600}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                    }}
-                    className="hover:scale-105 cursor-pointer"
-                  />
-                )}
+                <Image
+                  src={
+                    item?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                    "/default_post.png"
+                  }
+                  alt={item?.title?.rendered}
+                  width={900}
+                  height={600}
+                  style={{
+                    width: "100%",
+                    height: "250px",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
+                  className="group-hover:scale-105 cursor-pointer"
+                />
                 <span className="absolute right-5 top-5 text-base font-montserrat font-bold text-black bg-secondary px-5 py-1 rounded-full">
-                  Blog & Artikel
+                  Blog & Article
                 </span>
               </div>
               <div className="flex items-center text-grey gap-1 text-sm">
                 <CiCalendar size={16} />
                 <span className="underline">
-                  {item.publishedAt.split("T")[0]}
+                  {new Date(item?.date).toLocaleDateString("id-ID", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  }) ||
+                    new Date().toLocaleDateString("id-ID", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
                 </span>
                 <span>/</span>
                 <CiUser size={16} />
-                <span className="underline">by {item.author}</span>
+                <span className="underline">
+                  by
+                  {item?._embedded.author[0].name || "Admin"}
+                </span>
                 <span>/</span>
               </div>
-              <span className="text-base font-montserrat font-bold text-black group-hover:underline">
-                {item.title}
-              </span>
-              <span className="text-base font-segoe font-medium text-grey mt-auto group-hover:underline">
-                {Array.isArray(item.body) && <PortableText value={item.body} />}
+              <span
+                className="text-base font-montserrat font-bold text-black group-hover:underline"
+                dangerouslySetInnerHTML={{
+                  __html: item.title.rendered || "Untitled",
+                }}
+              />
+              <span className="text-base font-segoe font-medium text-grey group-hover:underline">
+                {truncatedBody || "No content"}
               </span>
             </Link>
           );
