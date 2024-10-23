@@ -86,8 +86,8 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        <Image
-          src="/images/logo/skb_food.png"
+        <img
+          src="/images/logo/skb_food.webp"
           alt="SKB Food"
           width={900}
           height={600}
@@ -99,13 +99,10 @@ export default function Contact() {
         />
       </div>
       <div className="relative flex flex-col items-center gap-5 justify-between bg-primary/90 md:flex-row px-10 py-10 min-[1500px]:px-xCustom">
-        <Image
+        <img
           src="/images/catering.webp"
           alt="Catering"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="absolute inset-0 z-[-1]"
+          className="absolute inset-0 z-[-1] object-cover object-center w-full h-full"
         />
         <span className="text-white text-center text-[clamp(24px,3vw,36px)] font-bold font-montserrat w-full md:text-start md:w-3/5">
           {getTranslation("footer_email_title")}

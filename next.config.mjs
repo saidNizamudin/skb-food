@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["skbfood.id"],
+    domains: ["skbfood.id", "dev.skbfood.id"],
   },
-  // output: "export",
   async redirects() {
     return [
       {

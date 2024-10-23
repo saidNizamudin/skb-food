@@ -19,21 +19,17 @@ export default function VisionMission() {
           </span>
         </div>
         <div className="relative h-[600px]">
-          <Image
-            src="/images/about-us/vision.png"
+          <img
+            src="/images/about-us/vision.webp"
             alt="Vision"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
+            className="absolute inset-0 z-[-1] w-full h-full object-cover"
           />
         </div>
         <div className="relative order-4 min-[1120px]:order-3 h-[600px]">
-          <Image
-            src="/images/about-us/mission.png"
+          <img
+            src="/images/about-us/mission.webp"
             alt="Mission"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
+            className="absolute inset-0 z-[-1] w-full h-full object-cover"
           />
         </div>
         <div className="flex flex-col items-start justify-center h-[600px] gap-2.5 p-10 px-10 md:px-20 bg-primary order-3 min-[1120px]:order-4">
@@ -65,7 +61,7 @@ export default function VisionMission() {
         </div>
         <div className="flex flex-wrap justify-center gap-5 mt-10">
           <div className="flex flex-col items-start gap-10 w-[250px] p-10 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
-            <Image
+            <img
               src="/icons/integrity.svg"
               alt="Integrity"
               width={100}
@@ -77,19 +73,14 @@ export default function VisionMission() {
           </div>
 
           <div className="flex flex-col items-start gap-10 w-[250px] p-10 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
-            <Image
-              src="/icons/happy.svg"
-              alt="Happy"
-              width={100}
-              height={100}
-            />
+            <img src="/icons/happy.svg" alt="Happy" width={100} height={100} />
             <span className="text-lg font-montserrat font-bold text-black text-center">
               {getTranslation("about_value_desc2")}
             </span>
           </div>
 
           <div className="flex flex-col items-start gap-10 w-[250px] p-10 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
-            <Image
+            <img
               src="/icons/trustworth.svg"
               alt="Trustworthy"
               width={100}
@@ -101,12 +92,7 @@ export default function VisionMission() {
           </div>
 
           <div className="flex flex-col items-start gap-10 w-[250px] p-10 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
-            <Image
-              src="/icons/focus.svg"
-              alt="Focus"
-              width={100}
-              height={100}
-            />
+            <img src="/icons/focus.svg" alt="Focus" width={100} height={100} />
             <span className="text-lg font-montserrat font-bold text-black text-center">
               {getTranslation("about_value_desc4")}
             </span>

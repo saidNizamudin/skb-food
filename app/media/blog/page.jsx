@@ -8,7 +8,7 @@ import Link from "next/link";
 import axios from "axios";
 import { decode } from "html-entities";
 
-const BASE_URL = "https://skbfood.id/wp-json/wp/v2/";
+const BASE_URL = "https://dev.skbfood.id/wp-json/wp/v2/";
 
 export default function Blog() {
   const [blog, setBlog] = useState([]);
@@ -114,10 +114,10 @@ export default function Blog() {
               href={`blog/slug?slug=${item?.slug}`}
             >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
-                <Image
+                <img
                   src={
                     item?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-                    "/default_post.png"
+                    "/default_post.webp"
                   }
                   alt={item?.title?.rendered}
                   width={900}
@@ -191,6 +191,7 @@ export default function Blog() {
                 ? "bg-primary"
                 : "bg-primaryLight } hover:bg-primary/30"
             }`}
+            onClick={() => setPage(index)}
           >
             <span
               className={`text-lg font-montserrat font-bold ${

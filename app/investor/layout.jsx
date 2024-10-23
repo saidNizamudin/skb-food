@@ -13,13 +13,10 @@ export default function Layout({ children }) {
   return (
     <>
       <div className="relative h-[425px] bg-black/50 flex flex-col justify-center items-center">
-        <Image
-          src="/images/breadcrumb.png"
+        <img
+          src="/images/breadcrumb.webp"
           alt="BreadCrumb"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="absolute inset-0 z-[-1]"
+          className="absolute inset-0 z-[-1] w-full h-full object-cover"
         />
 
         {/* Breadcrumb */}

@@ -40,8 +40,8 @@ const Footer = () => {
       <div className="w-full grid grid-cols-3 gap-5 md:grid-cols-5">
         <div className="col-span-3 flex flex-col font-montserrat text-sm md:col-span-2">
           <Link href="/" className="text-2xl font-bold">
-            <Image
-              src="/images/logo/skb_food.png"
+            <img
+              src="/images/logo/skb_food.webp"
               alt="SKB Food"
               width={900}
               height={600}

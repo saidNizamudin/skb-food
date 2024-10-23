@@ -19,17 +19,15 @@ export default function BrandOwner() {
       <div className="flex flex-col items-center mt-20 gap-20">
         <div className="flex w-full items-center gap-x-20 gap-y-10 flex-col lg:flex-row">
           <div className="relative overflow-hidden rounded-xl h-[400px] lg:h-[500px] w-full lg:w-1/2">
-            <Image
-              src="/images/business/content1.png"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="right top"
+            <img
+              src="/images/business/content1.webp"
               alt="First Content"
+              className="absolute inset-0 object-cover object-right-top"
             />
           </div>
           <div className="flex flex-col gap-2.5 w-full lg:w-1/2">
-            <Image
-              src="/images/logo/eskabeh.png"
+            <img
+              src="/images/logo/eskabeh.webp"
               alt="Lazizza"
               width={1000}
               height={500}
@@ -52,8 +50,8 @@ export default function BrandOwner() {
         </div>
         <div className="flex w-full items-center gap-x-20 gap-y-10 flex-col lg:flex-row">
           <div className="flex flex-col gap-2.5 w-full lg:w-1/2">
-            <Image
-              src="/images/logo/skb_catering.png"
+            <img
+              src="/images/logo/skb_catering.webp"
               alt="SAS"
               width={1000}
               height={500}
@@ -74,12 +72,10 @@ export default function BrandOwner() {
             </span>
           </div>
           <div className="relative overflow-hidden rounded-xl h-[400px] lg:h-[500px] w-full lg:w-1/2">
-            <Image
-              src="/images/business/content2.png"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
+            <img
+              src="/images/business/content2.webp"
               alt="Second Content"
+              className="absolute inset-0 object-cover object-center"
             />
           </div>
         </div>

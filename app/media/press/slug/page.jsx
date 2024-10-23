@@ -29,15 +29,21 @@ const MediaContent = () => {
         const [data, pressCount, blogCount, csrCount, latestPosts] =
           await Promise.all([
             axios.get(
-              `https://skbfood.id/wp-json/wp/v2/posts?_embed&slug=${searchParams.get(
+              `https://dev.skbfood.id/wp-json/wp/v2/posts?_embed&slug=${searchParams.get(
                 "slug"
               )}`
             ),
-            axios.get("https://skbfood.id/wp-json/wp/v2/posts?categories=31"),
-            axios.get("https://skbfood.id/wp-json/wp/v2/posts?categories=3"),
-            axios.get("https://skbfood.id/wp-json/wp/v2/posts?categories=35"),
             axios.get(
-              "https://skbfood.id/wp-json/wp/v2/posts?_embed&per_page=5"
+              "https://dev.skbfood.id/wp-json/wp/v2/posts?categories=31"
+            ),
+            axios.get(
+              "https://dev.skbfood.id/wp-json/wp/v2/posts?categories=3"
+            ),
+            axios.get(
+              "https://dev.skbfood.id/wp-json/wp/v2/posts?categories=35"
+            ),
+            axios.get(
+              "https://dev.skbfood.id/wp-json/wp/v2/posts?_embed&per_page=5&categories_exclude=36"
             ),
           ]);
 
@@ -53,7 +59,7 @@ const MediaContent = () => {
 
         const postImageUrl =
           data.data[0]?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-          "/default_post.png";
+          "/default_post.webp";
         setPostImageUrl(postImageUrl);
       } catch (error) {
         console.error(error);
@@ -96,7 +102,7 @@ const MediaContent = () => {
   return (
     <div className="flex gap-10 mx-auto max-w-[1500px] px-10 py-20 max-[1200px]:flex-col">
       <div className="flex flex-col min-[1200px]:w-9/12">
-        <Image
+        <img
           src={postImageUrl}
           alt={post.title?.rendered}
           className="w-full max-h-[450px] object-cover object-center mb-5 border rounded-lg shadow-md"
@@ -200,10 +206,10 @@ const MediaContent = () => {
                 }/slug?slug=${item.slug}`}
               >
                 <div className="relative min-w-[120px] min-h-[130px] rounded-md bg-slate-200 overflow-hidden min-[1500px]:w-[120px] min-[1200px]:w-full max-[500px]:w-full">
-                  <Image
+                  <img
                     src={
                       item._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-                      "/default_post.png"
+                      "/default_post.webp"
                     }
                     alt={item.title?.rendered}
                     width={900}

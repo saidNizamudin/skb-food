@@ -34,8 +34,8 @@ export default function Structure() {
         </span>
       </div>
       <div className="overflow-x-auto">
-        <Image
-          src="/images/about-us/structure.png"
+        <img
+          src="/images/about-us/structure.webp"
           alt="Structure"
           width={1500}
           height={1000}

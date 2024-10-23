@@ -32,8 +32,8 @@ export default function Management() {
             className="flex flex-col gap-2 cursor-pointer group"
             onClick={() => handleOpenDialog(0)}
           >
-            <Image
-              src="/images/about-us/commissioner1.png"
+            <img
+              src="/images/about-us/commissioner1.webp"
               alt="Comisioner"
               width={600}
               height={750}
@@ -58,8 +58,8 @@ export default function Management() {
             className="flex flex-col gap-2 cursor-pointer group"
             onClick={() => handleOpenDialog(1)}
           >
-            <Image
-              src="/images/about-us/commissioner2.png"
+            <img
+              src="/images/about-us/commissioner2.webp"
               alt="Comisioner"
               width={600}
               height={750}
@@ -104,8 +104,8 @@ export default function Management() {
             className="flex flex-col gap-2 cursor-pointer group"
             onClick={() => handleOpenDialog(2)}
           >
-            <Image
-              src="/images/about-us/director1.png"
+            <img
+              src="/images/about-us/director1.webp"
               alt="Comisioner"
               width={600}
               height={750}
@@ -130,8 +130,8 @@ export default function Management() {
             className="flex flex-col gap-2 cursor-pointer group"
             onClick={() => handleOpenDialog(3)}
           >
-            <Image
-              src="/images/about-us/director2.png"
+            <img
+              src="/images/about-us/director2.webp"
               alt="Comisioner"
               width={600}
               height={750}
@@ -156,8 +156,8 @@ export default function Management() {
             className="flex flex-col gap-2 cursor-pointer group"
             onClick={() => handleOpenDialog(4)}
           >
-            <Image
-              src="/images/about-us/director3.png"
+            <img
+              src="/images/about-us/director3.webp"
               alt="Comisioner"
               width={600}
               height={750}
@@ -183,8 +183,8 @@ export default function Management() {
       <Dialog open={openDialog} onOpenChange={setOpenDialog}>
         <DialogContent className="!w-10/12 !max-w-[1000px] max-h-[500px] rounded-xl flex gap-0 !p-0 overflow-hidden">
           <div className="min-w-[250px] h-[500px] bg-primary relative hidden lg:block">
-            <Image
-              src={`/images/about-us/${index === 0 ? "commissioner1" : index === 1 ? "commissioner2" : index === 2 ? "director1" : index === 3 ? "director2" : "director3"}.png`}
+            <img
+              src={`/images/about-us/${index === 0 ? "commissioner1" : index === 1 ? "commissioner2" : index === 2 ? "director1" : index === 3 ? "director2" : "director3"}.webp`}
               alt={
                 index === 0
                   ? "Comisioner"
@@ -196,9 +196,7 @@ export default function Management() {
                         ? "Director"
                         : "Director"
               }
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
+              className="absolute inset-0 w-full h-full object-center object-cover"
             />
           </div>
           <DialogHeader className="flex flex-col gap-5 items-start p-10 lg:p-5">

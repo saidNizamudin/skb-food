@@ -9,14 +9,17 @@ import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/Skeleton";
 import axios from "axios";
 
-const BASE_URL = "https://skbfood.id/wp-json/wp/v2/";
+const BASE_URL = "https://dev.skbfood.id/wp-json/wp/v2/";
 
 export default function AnnualReport() {
   const { getTranslation } = useTranslate();
   const [activeTab, setActiveTab] = useState("financial");
   const [allData, setAllData] = useState([]);
-  const [document, setDocument] = useState([]);
   const [financial, setFinancial] = useState([]);
+  const [annual, setAnnual] = useState([]);
+  const [sustainability, setSustainability] = useState([]);
+  const [prospectus, setProspectus] = useState([]);
+  const [presentation, setPresentation] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const CURRENT_YEAR = 2024;
@@ -67,8 +70,22 @@ export default function AnnualReport() {
         const financialData = await categorizeAndSortDocuments(
           data.data.filter((item) => item.tags.includes(37))
         );
-        console.log(financialData);
+        const annualData = data.data.filter((item) => item.tags.includes(40));
+        const sustainabilityData = data.data.filter((item) =>
+          item.tags.includes(38)
+        );
+        const prospectusData = data.data.filter((item) =>
+          item.tags.includes(39)
+        );
+        const presentationData = data.data.filter((item) =>
+          item.tags.includes(41)
+        );
+
         setFinancial(financialData);
+        setAnnual(annualData);
+        setSustainability(sustainabilityData);
+        setProspectus(prospectusData);
+        setPresentation(presentationData);
       } catch (error) {
         console.error(error);
       } finally {
@@ -78,24 +95,6 @@ export default function AnnualReport() {
 
     fetchData();
   }, []);
-
-  useEffect(() => {
-    const tag = (() => {
-      switch (activeTab) {
-        case "annual":
-          return 40;
-        case "sustainability":
-          return 38;
-        case "prospectus":
-          return 39;
-        case "presentation":
-          return 41;
-        default:
-          return 37;
-      }
-    })();
-    setDocument(allData.filter((item) => item.tags.includes(tag)));
-  }, [activeTab, allData]);
 
   return (
     <div className="flex flex-col px-10 py-20 min-[1450px]:px-xCustom">
@@ -149,15 +148,6 @@ export default function AnnualReport() {
             <Skeleton className="w-full max-w-[300px] aspect-[4/5]" />
             <Skeleton className="w-full max-w-[300px] aspect-[4/5]" />
           </>
-        ) : document.length === 0 ? (
-          <div className="flex flex-col justify-center gap-2.5 col-span-full">
-            <span className="text-base font-montserrat font-bold text-primary">
-              {getTranslation("common_noData")}
-            </span>
-            <span className="text-base font-montserrat font-bold text-black">
-              {getTranslation("common_noDataDesc")}
-            </span>
-          </div>
         ) : activeTab === "financial" ? (
           Array.from({ length: CURRENT_YEAR + 1 })
             .map((_, i) => CURRENT_YEAR - i)
@@ -177,10 +167,10 @@ export default function AnnualReport() {
                     return (
                       <div className="flex flex-col gap-2.5" key={itemIndex}>
                         <div className="relative rounded-xl w-max min-w-[300px] max-w-[400px] min-h-[290px] overflow-hidden shadow-2xl border-2">
-                          <Image
+                          <img
                             src={
                               item._embedded?.["wp:featuredmedia"]?.[0]
-                                ?.source_url || "/default_post.png"
+                                ?.source_url || "/default_post.webp"
                             }
                             alt={item.title?.rendered}
                             width={1000}
@@ -211,44 +201,67 @@ export default function AnnualReport() {
               </div>
             ))
         ) : (
-          document.map((item, index) => {
-            const url = item.content?.rendered.replace(/<[^>]*>?/gm, "");
+          (() => {
+            const document =
+              activeTab === "annual"
+                ? annual
+                : activeTab === "sustainability"
+                  ? sustainability
+                  : activeTab === "prospectus"
+                    ? prospectus
+                    : presentation;
 
-            return (
-              <div className="flex flex-col gap-2.5" key={index}>
-                <div className="relative rounded-xl w-max min-w-[300] max-w-[400px] min-h-[290px] overflow-hidden shadow-2xl border-2">
-                  <Image
-                    src={
-                      item._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-                      "/default_post.png"
-                    }
-                    alt={item.title?.rendered}
-                    width={1000}
-                    height={1000}
-                    style={{
-                      height: "390px",
-                      width: "auto",
-                      minWidth: "300px",
-                      objectFit: "cover",
-                    }}
-                    className="hover:scale-105 cursor-pointer"
-                  />
+            if (document.length === 0) {
+              return (
+                <div className="flex flex-col justify-center gap-2.5 col-span-full">
+                  <span className="text-base font-montserrat font-bold text-primary">
+                    {getTranslation("common_noData")}
+                  </span>
+                  <span className="text-base font-montserrat font-bold text-black">
+                    {getTranslation("common_noDataDesc")}
+                  </span>
                 </div>
-                <span className="text-base font-montserrat font-bold text-black max-w-[250px]">
-                  {item.title?.rendered}
-                </span>
-                <Button
-                  className="!h-8 !py-1 !px-3 text-base font-montserrat font-bold"
-                  onClick={() => {
-                    downloadFile(url);
-                  }}
-                >
-                  {getTranslation("common_download")}
-                  <FiDownload className="font-bold ml-5" />
-                </Button>
-              </div>
-            );
-          })
+              );
+            }
+
+            return document.map((item, index) => {
+              const url = item.content?.rendered.replace(/<[^>]*>?/gm, "");
+              return (
+                <div className="flex flex-col gap-2.5" key={index}>
+                  <div className="relative rounded-xl w-max min-w-[300px] max-w-[400px] min-h-[290px] overflow-hidden shadow-2xl border-2">
+                    <img
+                      src={
+                        item._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                        "/default_post.webp"
+                      }
+                      alt={item.title?.rendered}
+                      width={1000}
+                      height={1000}
+                      style={{
+                        height: "390px",
+                        width: "auto",
+                        minWidth: "300px",
+                        objectFit: "cover",
+                      }}
+                      className="hover:scale-105 cursor-pointer"
+                    />
+                  </div>
+                  <span className="text-base font-montserrat font-bold text-black max-w-[250px]">
+                    {item.title?.rendered}
+                  </span>
+                  <Button
+                    className="!h-8 !py-1 !px-3 text-base font-montserrat font-bold"
+                    onClick={() => {
+                      downloadFile(url);
+                    }}
+                  >
+                    {getTranslation("common_download")}
+                    <FiDownload className="font-bold ml-5" />
+                  </Button>
+                </div>
+              );
+            });
+          })()
         )}
       </div>
     </div>

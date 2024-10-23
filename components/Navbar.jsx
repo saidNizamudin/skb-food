@@ -166,8 +166,8 @@ const Navbar = () => {
                 isSmallScreen && "mr-auto"
               }`}
             >
-              <Image
-                src="/images/logo/skb_food.png"
+              <img
+                src="/images/logo/skb_food.webp"
                 alt="SKB Food"
                 width={900}
                 height={600}
@@ -219,8 +219,8 @@ const Navbar = () => {
         )}
         {isOneRow && (
           <Link href="/" className="text-2xl font-bold font-bebas mr-auto">
-            <Image
-              src="/images/logo/skb_food.png"
+            <img
+              src="/images/logo/skb_food.webp"
               alt="SKB Food"
               width={900}
               height={600}

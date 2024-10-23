@@ -49,35 +49,28 @@ export default function Company() {
   return (
     <>
       <div className="relative">
-        <Image
-          src="/images/background.png"
+        <img
+          src="/images/background.webp"
           alt="Background"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="absolute inset-0 z-[-1]"
+          className="absolute inset-0 z-[-1] object-cover object-center"
         />
         <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 lg:px-xCustom min-[1240px]:flex-row">
           <div className="relative min-w-[300px] w-full max-w-[550px] h-[450px] overflow-hidden">
-            <Image
+            <img
               src="/images/home/partner_1.webp"
               alt="Partner"
               width={290}
               height={290}
               data-aos="fade-right"
               className="aspect-square absolute top-0 left-0"
-              placeholder="blur"
-              blurDataURL="/images/home/partner_1_low.webp"
             />
-            <Image
+            <img
               src="/images/home/partner_2.webp"
               alt="Partner"
               width={210}
               height={210}
               data-aos="fade-left"
               className="aspect-square absolute top-[150px] md:top-[100px] right-0"
-              placeholder="blur"
-              blurDataURL="/images/home/partner_2_low.webp"
             />
             <div
               className="absolute bottom-10 min-[550px]:left-[180px] left-0 bg-secondary aspect-square w-48 h-48 rounded-xl flex flex-col items-center justify-center gap-2"
@@ -92,8 +85,8 @@ export default function Company() {
             </div>
           </div>
           <div className="flex flex-col gap-2.5">
-            <Image
-              src="/images/logo/skb_food.png"
+            <img
+              src="/images/logo/skb_food.webp"
               alt="SKB Food"
               width={900}
               height={600}
@@ -136,7 +129,7 @@ export default function Company() {
           </div>
           <div className="relative w-full lg:w-1/2 overflow-hidden">
             <div className="md:absolute top-0 right-5 p-3 bg-white/80 shadow-md rounded-2xl border flex items-center gap-3 max-w-[350px] z-10 mx-auto md:mx-0">
-              <Image
+              <img
                 src="/icons/flag.svg"
                 alt="Indonesia Map"
                 width={37}
@@ -148,7 +141,7 @@ export default function Company() {
               </span>
             </div>
             <div className="relative overflow-auto p-5 lg:p-10 lg:pr-0">
-              <Image
+              <img
                 src="/images/about-us/map.svg"
                 alt="Indonesia Map"
                 width={1600}
@@ -173,7 +166,7 @@ export default function Company() {
         </span>
         <div className="flex flex-wrap justify-center gap-x-20 gap-y-10">
           {[1, 2, 3, 4, 5].map((i) => (
-            <Image
+            <img
               key={i}
               src={`/images/about-us/logo${i}.svg`}
               alt={`Logo ${i}`}

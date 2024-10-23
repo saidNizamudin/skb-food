@@ -23,13 +23,10 @@ export default function Home() {
     <>
       <Carousel />
       <div className="relative">
-        <Image
-          src="/images/background.png"
+        <img
+          src="/images/background.webp"
           alt="Background"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="absolute inset-0 z-[-1]"
+          className="absolute inset-0 z-[-1] object-cover object-center"
         />
         <AboutUs />
         <OurBusiness />
@@ -86,7 +83,7 @@ const Carousel = () => {
         <div className="embla__container">
           {images.map((image, index) => (
             <div className="embla__slide" key={index}>
-              <Image
+              <img
                 src={image.src}
                 alt={image.alt}
                 width={1920}
@@ -150,25 +147,21 @@ const AboutUs = () => {
   return (
     <div className="flex flex-col items-center p-10 pt-32 gap-x-32 gap-y-10 xl:px-xCustom min-[1240px]:flex-row">
       <div className="relative min-w-[300px] w-full max-w-[550px] h-[450px] overflow-hidden">
-        <Image
+        <img
           src="/images/home/partner_1.webp"
           alt="Partner"
           width={290}
           height={290}
           data-aos="fade-right"
           className="aspect-square absolute top-0 left-0"
-          placeholder="blur"
-          blurDataURL="/images/home/partner_1_low.webp"
         />
-        <Image
+        <img
           src="/images/home/partner_2.webp"
           alt="Partner"
           width={210}
           height={210}
           data-aos="fade-left"
           className="aspect-square absolute top-[150px] md:top-[100px] right-0"
-          placeholder="blur"
-          blurDataURL="/images/home/partner_2_low.webp"
         />
         <div
           className="absolute bottom-10 min-[550px]:left-[180px] left-0 bg-secondary aspect-square w-48 h-48 rounded-xl flex flex-col items-center justify-center gap-2"
@@ -235,7 +228,7 @@ const OurBusiness = () => {
               className="relative flex-grow max-w-[400px] min-w-[250px] basis-[calc(33%-1.5rem)] aspect-[5/4] bg-slate-300 rounded-lg overflow-hidden"
               key={index}
             >
-              <Image
+              <img
                 src={item.image}
                 alt={item.name}
                 width={900}
@@ -270,8 +263,8 @@ const Gallery = () => {
     <div className="grid grid-cols-1 md:grid-cols-2">
       <div className="flex justify-center p-10 bg-primary">
         <div className="flex flex-col items-start justify-center gap-2.5 w-full lg:w-4/5">
-          <Image
-            src="/images/logo/skb_catering_white.png"
+          <img
+            src="/images/logo/skb_catering_white.webp"
             alt="Catering"
             width={900}
             height={600}
@@ -292,7 +285,7 @@ const Gallery = () => {
           </span>
         </div>
       </div>
-      <Image
+      <img
         src="/images/home/catering.webp"
         alt="Catering"
         width={900}
@@ -305,7 +298,7 @@ const Gallery = () => {
           objectPosition: "center",
         }}
       />
-      <Image
+      <img
         src="/images/home/eskabeh.webp"
         alt="Catering"
         width={900}
@@ -321,8 +314,8 @@ const Gallery = () => {
       />
       <div className="flex justify-center p-10 bg-primary order-3 md:order-4">
         <div className="flex flex-col items-start justify-center gap-2.5 w-full lg:w-4/5">
-          <Image
-            src="/images/logo/eskabeh_white.png"
+          <img
+            src="/images/logo/eskabeh_white.webp"
             alt="Eskabeh Seafood"
             width={900}
             height={600}
@@ -358,7 +351,7 @@ const MediaRoom = () => {
     async function fetchData() {
       try {
         const latestPosts = await axios.get(
-          "https://skbfood.id/wp-json/wp/v2/posts?_embed&per_page=3"
+          "https://dev.skbfood.id/wp-json/wp/v2/posts?_embed&per_page=3&categories_exclude=36"
         );
         setLatestPosts(latestPosts.data);
       } catch (error) {
@@ -429,10 +422,10 @@ const MediaRoom = () => {
               }/slug?slug=${item.slug}`}
             >
               <div className="relative min-w-[300px] min-h-[250px] bg-slate-200 overflow-hidden">
-                <Image
+                <img
                   src={
                     item._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-                    "/default_post.png"
+                    "/default_post.webp"
                   }
                   alt={item.title?.rendered}
                   width={900}
@@ -498,8 +491,8 @@ const OurGroup = () => {
         {getTranslation("common_ourGroup")}
       </span>
       <div className="flex flex-wrap justify-center gap-10 md:gap-5">
-        <Image
-          src="/images/logo/sas.png"
+        <img
+          src="/images/logo/sas.webp"
           alt="SAS"
           width={1000}
           height={500}
@@ -508,8 +501,8 @@ const OurGroup = () => {
             height: 80,
           }}
         />
-        <Image
-          src="/images/logo/lazizza.png"
+        <img
+          src="/images/logo/lazizza.webp"
           alt="Lazizza"
           width={1000}
           height={500}
@@ -528,13 +521,10 @@ const Subscribe = () => {
   return (
     <div className="relative flex items-center justify-center bg-primary/90 p-10 min-[1500px]:px-xCustom">
       <div className="flex flex-col items-center gap-5 justify-between md:flex-row max-w-[1690px]">
-        <Image
+        <img
           src="/images/catering.webp"
           alt="Catering"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="absolute inset-0 z-[-1]"
+          className="absolute inset-0 z-[-1] object-cover object-center w-full h-full"
         />
         <span className="text-white text-center text-[clamp(24px,3vw,36px)] font-bold font-montserrat w-full md:text-start md:w-3/5">
           {getTranslation("footer_email_title")}

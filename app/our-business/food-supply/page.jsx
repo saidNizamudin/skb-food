@@ -19,8 +19,8 @@ export default function OurGroup() {
       <div className="flex flex-col px-10 py-20 min-[1450px]:px-xCustom">
         <div className="flex flex-col items-center mt-20 gap-x-20 gap-y-32">
           <div className="grid grid-cols-1 justify-items-center gap-x-10 gap-y-10 lg:grid-cols-2 xl:gap-x-20">
-            <Image
-              src="/images/business/fish.png"
+            <img
+              src="/images/business/fish.webp"
               alt="Fish"
               width={1000}
               height={500}
@@ -100,8 +100,8 @@ export default function OurGroup() {
                 </AccordionItem>
               </Accordion>
             </div>
-            <Image
-              src="/images/business/rice.png"
+            <img
+              src="/images/business/rice.webp"
               alt="Fish"
               width={1000}
               height={500}
@@ -109,8 +109,8 @@ export default function OurGroup() {
             />
           </div>
           <div className="grid grid-cols-1 justify-items-center gap-x-10 gap-y-10 lg:grid-cols-2 xl:gap-x-20">
-            <Image
-              src="/images/business/meat.png"
+            <img
+              src="/images/business/meat.webp"
               alt="Fish"
               width={1000}
               height={500}
@@ -119,7 +119,7 @@ export default function OurGroup() {
             <div className="flex flex-col gap-2.5 w-full md:w-2/3 lg:w-full">
               <div className="flex items-center gap-5">
                 <div className="flex items-center justify-center w-[60px] h-[60px] rounded-full bg-primary text-white">
-                  <Image
+                  <img
                     src={"/icons/meat.svg"}
                     alt="Meat"
                     width={40}
@@ -161,13 +161,10 @@ export default function OurGroup() {
         </div>
       </div>
       <div className="relative flex flex-col items-center gap-5 justify-between bg-primary/90 md:flex-row px-10 py-10 min-[1450px]:px-xCustom">
-        <Image
+        <img
           src="/images/catering.webp"
           alt="Catering"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="absolute inset-0 z-[-1]"
+          className="absolute inset-0 z-[-1] object-cover object-center w-full h-full"
         />
         <span className="text-white text-center text-[clamp(24px,3vw,36px)] font-bold font-montserrat w-full md:text-start md:w-3/5">
           {getTranslation("footer_email_title")}
