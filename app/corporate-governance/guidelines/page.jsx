@@ -3,31 +3,31 @@
 import Image from "next/image";
 import { useTranslate } from "@/hooks";
 
-export default function BrandOwner() {
+export default function OurGroup() {
   const { getTranslation } = useTranslate();
 
   return (
     <div className="flex flex-col px-10 py-20 min-[1450px]:px-xCustom">
       <div className="flex flex-col items-center">
         <span className="text-2xl font-segoe font-bold text-primary text-center mb-2">
-          {getTranslation("common_ourBusiness")}
+          {getTranslation("common_ourGroup")}
         </span>
         <span className="text-lg font-segoe font-semibold text-grey text-justify md:text-center">
-          {getTranslation("business_desc")}
+          {getTranslation("group_desc")}
         </span>
       </div>
       <div className="flex flex-col items-center mt-20 gap-20">
         <div className="flex w-full items-center gap-x-20 gap-y-10 flex-col lg:flex-row">
           <div className="relative overflow-hidden rounded-xl h-[400px] lg:h-[500px] w-full lg:w-1/2">
             <img
-              src="/images/business/content1.webp"
+              src="/images/group/content1.webp"
               alt="First Content"
-              className="absolute inset-0 object-cover object-right-top"
+              className="absolute inset-0 w-full h-full object-cover object-right-top"
             />
           </div>
           <div className="flex flex-col gap-2.5 w-full lg:w-1/2">
             <img
-              src="/images/logo/eskabeh.webp"
+              src="/images/logo/lazizza.webp"
               alt="Lazizza"
               width={1000}
               height={500}
@@ -38,20 +38,20 @@ export default function BrandOwner() {
               }}
             />
             <span className="text-xl font-montserrat font-bold text-primary">
-              Eskabeh Seafood
+              Lazizaa Rahmat Semesta
             </span>
             <span className="text-xl font-montserrat font-bold text-black text-justify">
-              {getTranslation("business_content1_desc1")}
+              {getTranslation("group_content1_desc1")}
             </span>
             <span className="text-base font-segoe font-semibold text-grey text-justify">
-              {getTranslation("business_content1_desc2")}
+              {getTranslation("group_content1_desc2")}
             </span>
           </div>
         </div>
         <div className="flex w-full items-center gap-x-20 gap-y-10 flex-col lg:flex-row">
           <div className="flex flex-col gap-2.5 w-full lg:w-1/2">
             <img
-              src="/images/logo/skb_catering.webp"
+              src="/images/logo/sas.webp"
               alt="SAS"
               width={1000}
               height={500}
@@ -62,20 +62,20 @@ export default function BrandOwner() {
               }}
             />
             <span className="text-xl font-montserrat font-bold text-primary">
-              SKB Catering
+              PT. Sumber Asri Sejahtera
             </span>
             <span className="text-xl font-montserrat font-bold text-black text-justify">
-              {getTranslation("business_content2_desc1")}
+              {getTranslation("group_content2_desc1")}
             </span>
             <span className="text-base font-segoe font-semibold text-grey text-justify">
-              {getTranslation("business_content2_desc2")}
+              {getTranslation("group_content2_desc2")}
             </span>
           </div>
           <div className="relative overflow-hidden rounded-xl h-[400px] lg:h-[500px] w-full lg:w-1/2">
             <img
-              src="/images/business/content2.webp"
+              src="/images/group/content2.webp"
               alt="Second Content"
-              className="absolute inset-0 object-cover object-center w-full h-full"
+              className="absolute inset-0 w-full h-full object-cover object-center"
             />
           </div>
         </div>

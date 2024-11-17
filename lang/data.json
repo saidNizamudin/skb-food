@@ -35,11 +35,52 @@
     "id": "Presentasi kepada Investor",
     "en": "Investor Presentations"
   },
+  "navbar_menu4_child6": {
+    "id": "Keterbukaan Informasi",
+    "en": "Information Disclosure"
+  },
 
   "navbar_menu5": { "id": "Ruang Media", "en": "Media Room" },
   "navbar_menu5_child1": { "id": "Press Release", "en": "Press Release" },
   "navbar_menu5_child2": { "id": "Blog & Artikel", "en": "Blog & Articles" },
   "navbar_menu5_child3": { "id": "CSR", "en": "CSR" },
+
+  "navbar_menu6": {
+    "id": "Tata Kelola Perusahaan",
+    "en": "Corporate Governance"
+  },
+  "navbar_menu6_child1": {
+    "id": "Anggaran Dasar",
+    "en": "Articles of Association"
+  },
+  "navbar_menu6_child2": {
+    "id": "Struktur Tata Kelola",
+    "en": "Governance Structure"
+  },
+  "navbar_menu6_child3": {
+    "id": "Kode Etik Perusahaan",
+    "en": "Company Code of Ethics"
+  },
+  "navbar_menu6_child4": {
+    "id": "Manajemen Risiko",
+    "en": "Risk Management"
+  },
+  "navbar_menu6_child5": {
+    "id": "Pedoman Dewan Direksi - Komisaris",
+    "en": "Board of Directors - Commissioners Guidelines"
+  },
+  "navbar_menu6_child6": {
+    "id": "Piagam BOD - BOC",
+    "en": "BOD - BOC Charter"
+  },
+  "navbar_menu6_child7": {
+    "id": "Profesi Penunjang Pasar Modal",
+    "en": "Capital Market Supporting Profession"
+  },
+  "navbar_menu6_child8": {
+    "id": "Rapat Umum Pemegang Saham",
+    "en": "General Meeting of Shareholders"
+  },
 
   "footer_email_title": {
     "id": "Berlangganan buletin kami & Dapatkan Informasi tentang berita dan penawaran",
@@ -145,6 +186,12 @@
     "en": "I Understand & agree"
   },
   "common_viewProfile": { "id": "Lihat Profil", "en": "View Profile" },
+  "common_member": { "id": "Anggota", "en": "Member" },
+  "common_notary": { "id": "Notaris", "en": "Notary" },
+  "common_bureau": {
+    "id": "Biro Administrasi Efek",
+    "en": "Securities Administration Bureau"
+  },
 
   "home_about_title": {
     "id": "Kami menyediakan bahan baku terbaik untuk bisnis Anda",
@@ -238,6 +285,62 @@
   "about_value_desc4": {
     "id": "Fokus",
     "en": "Focus"
+  },
+  "about_attitude_title": {
+    "id": "Sikap Kerja",
+    "en": "Work Attitude"
+  },
+  "about_attitude_desc": {
+    "id": "Sikap kerja didalam perusahaan kami adalah sebagai berikut :",
+    "en": "The work attitude in our company is as follows:"
+  },
+  "about_attitude_title1": {
+    "id": "Orientasi Pencapaian",
+    "en": "Achievement Orientation"
+  },
+  "about_attitude_desc1": {
+    "id": "Fokus pada pencapaian hasil terbaik dengan standar tinggi.",
+    "en": "Focus on achieving the best results with high standards."
+  },
+  "about_attitude_title2": {
+    "id": "Inovasi",
+    "en": "Innovation"
+  },
+  "about_attitude_desc2": {
+    "id": "Mendorong inovasi dan solusi kreatif di setiap aspek.",
+    "en": "Encourage innovation and creative solutions in every aspect."
+  },
+  "about_attitude_title3": {
+    "id": "Kepuasan Pelanggan",
+    "en": "Customer Satisfaction"
+  },
+  "about_attitude_desc3": {
+    "id": "Prioritas utama kami adalah kepuasan pelanggan.",
+    "en": "Our top priority is customer satisfaction."
+  },
+  "about_attitude_title4": {
+    "id": "Kepemilikan",
+    "en": "Ownership"
+  },
+  "about_attitude_desc4": {
+    "id": "Rasa tanggung jawab penuh untuk hasil terbaik.",
+    "en": "A sense of full responsibility for the best results."
+  },
+  "about_attitude_title5": {
+    "id": "Kerjasama tim",
+    "en": "Teamwork"
+  },
+  "about_attitude_desc5": {
+    "id": "Kerjasama tim yang solid untuk mencapai tujuan bersama",
+    "en": "Solid teamwork to achieve common goals"
+  },
+  "about_attitude_title6": {
+    "id": "Kerapian",
+    "en": "Neatness"
+  },
+  "about_attitude_desc6": {
+    "id": "Kerapian dan ketertiban dalam setiap detail pekerjaan.",
+    "en": "Neatness and orderliness in every detail of work."
   },
   "about_ourGroup_desc": {
     "id": "Waralaba makanan dan minuman yang dimiliki dan dikuasai oleh Perseroan adalah Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café.",
@@ -357,5 +460,100 @@
   "business_meat_desc3": {
     "id": "Berbekal tim ahli dan komitmen pada keunggulan, perusahaan kami siap menjadi mitra terpercaya dalam menyediakan bahan baku daging kebab berkualitas premium yang tidak hanya memenuhi ekspektasi, tetapi juga membantu pelanggan kami menciptakan cita rasa terbaik dalam setiap hidangan",
     "en": "With a team of experts and a commitment to excellence, our company is ready to be a trusted partner in providing premium quality kebab meat raw materials that not only meet expectations but also help our customers create the best taste in every dish."
+  },
+
+  "articles_content1_desc1": {
+    "id": "Anggaran Dasar ini memuat informasi penting yang didalamnya adalah dokumen pedoman yang mengatur mekanisme kerja, struktur organisasi, wewenang dan tanggung jawab yang menjadi landasan dari PT Sari Kreasi Boga Tbk dalam menjalankan bisnis Perusahaan",
+    "en": "This Articles of Association contains important information which is a guideline document that regulates the working mechanism, organizational structure, authority, and responsibilities that are the basis of PT Sari Kreasi Boga Tbk in running the Company's business"
+  },
+  "articles_content1_desc2": {
+    "id": "dan telah disesuaikan dengan Peraturan Otoritas Jasa Keuangan POJK No. 33/POJK.04/2014 tanggal 8 Desember 2014 tentang Direksi dan Dewan Komisaris Emiten atau Perusahaan Terbuka, POJK No. 32/POJK.04/2014 tanggal 8 Desember 2014 tentang rencana dan pelaksanaan Rapat Umum Pemegang Saham Perusahaan Terbuka.",
+    "en": "and has been adjusted to the Financial Services Authority Regulation POJK No. 33/POJK.04/2014 dated December 8, 2014 concerning the Board of Directors and Board of Commissioners of Issuers or Public Companies, POJK No. 32/POJK.04/2014 dated December 8, 2014 concerning the plan and implementation of the General Meeting of Shareholders of Public Companies."
+  },
+
+  "governance_menu1": {
+    "id": "Komite Audit",
+    "en": "Audit Committee"
+  },
+  "governance_menu2": {
+    "id": "Komite Nominasi dan Remunerasi",
+    "en": "Nomination and Remuneration Committee"
+  },
+  "governance_menu3": {
+    "id": "Sekretaris Perusahaan",
+    "en": "Corporate Secretary"
+  },
+  "governance_menu4": {
+    "id": "Audit Internal",
+    "en": "Internal Audit"
+  },
+  "governance_menu1_title": {
+    "id": "Profile Komite Audit",
+    "en": "Audit Committee Profile"
+  },
+  "governance_menu1_desc": {
+    "id": "Komite Audit adalah bagian penting dari struktur tata kelola perusahaan yang bertugas untuk memastikan integritas laporan keuangan, kepatuhan terhadap regulasi, serta efektivitas sistem pengendalian internal. Komite Audit juga berkomitmen untuk menjaga transparansi dan akuntabilitas dalam semua aspek operasional yang baik terhadap peraturan dan perundangan-undangan yang belaku",
+    "en": "The Audit Committee is an important part of the corporate governance structure that is responsible for ensuring the integrity of financial reports, compliance with regulations, and the effectiveness of internal control systems. The Audit Committee is also committed to maintaining transparency and accountability in all operational aspects in accordance with applicable regulations and laws"
+  },
+  "governance_menu1_lead": {
+    "id": "Ketua Komite Audit",
+    "en": "Chairman of the Audit Committee"
+  },
+  "governance_menu1_member": {
+    "id": "Anggota Komite Audit",
+    "en": "Member of the Audit Committee"
+  },
+  "governance_menu2_title": {
+    "id": "Profile Komite Nominasi dan Remunerasi",
+    "en": "Nomination and Remuneration Committee Profile"
+  },
+  "governance_menu2_desc": {
+    "id": "PT Sari Kreasi Boga Tbk membentuk Komite Nominasi dan Remunerasi untuk melaksanakan, mengatur, dan menegakkan prinsip-prinsip Tata Kelola Perusahaan yang baik (Good Corporate Governance)",
+    "en": "PT Sari Kreasi Boga Tbk has formed the Nomination and Remuneration Committee to implement, regulate, and enforce the principles of Good Corporate Governance"
+  },
+  "governance_menu2_lead": {
+    "id": "Ketua Komite Nominasi & Remunerasi",
+    "en": "Chairman of the Nomination & Remuneration Committee"
+  },
+  "governance_menu2_member": {
+    "id": "Anggota Komite Nominasi & Remunerasi",
+    "en": "Member of the Nomination & Remuneration Committee"
+  },
+  "governance_menu3_title": {
+    "id": "Profile Sekretaris Perusahaan",
+    "en": "Corporate Secretary Profile"
+  },
+  "governance_menu3_desc": {
+    "id": "Nurul Wahyuningsih, Warga Negara Indonesia -  menjabat sebagai Sekretaris Perusahaan sejak tahun 2023 dan diangkat berdasarkan Surat Keputusan 196/SKB/DIR/SKD/VIII/2023. Memperoleh gelar magister dari Fakultas Ekonomi dan Bisnis Universitas Trisakti pada tahun 2020.",
+    "en": "Nurul Wahyuningsih, Indonesian Citizen - has served as Corporate Secretary since 2023 and was appointed based on Decree 196/SKB/DIR/SKD/VIII/2023. Obtained a master's degree from the Faculty of Economics and Business, Trisakti University in 2020."
+  },
+  "governance_menu3_lead": {
+    "id": "Sekretaris Perusahaan",
+    "en": "Corporate Secretary"
+  },
+  "governance_menu4_title": {
+    "id": "Profile Audit Internal",
+    "en": "Internal Audit Profile"
+  },
+  "governance_menu4_desc": {
+    "id": "Ali Masykur, Warga Negara Indonesia, menjabat sebagai Audit Internal Perseroan sejak 2022 berdasarkan Surat Keputusan No. 087/SKB/DIR/SKDK/IV/2022 pada tanggal 12 April 2022. Memperoleh gelar Sarjana Ekonomi dari STIE Jayakarta pada tahun 2021.",
+    "en": "Ali Masykur, Indonesian Citizen, has served as the Company's Internal Auditor since 2022 based on Decree No. 087/SKB/DIR/SKDK/IV/2022 on April 12, 2022. Obtained a Bachelor of Economics degree from STIE Jayakarta in 2021."
+  },
+  "governance_menu4_lead": {
+    "id": "Kepala Audit Internal",
+    "en": "Head of Internal Audit"
+  },
+
+  "charter_internal_audit": {
+    "id": "Piagam Audit Internal",
+    "en": "Internal Audit Charter"
+  },
+  "charter_audit_committee": {
+    "id": "Piagam Komite Audit",
+    "en": "Audit Committee Charter"
+  },
+  "charter_nomination_committee": {
+    "id": "Piagam Komite Nominasi & Remunerasi",
+    "en": "Nomination & Remuneration Committee Charter"
   }
 }

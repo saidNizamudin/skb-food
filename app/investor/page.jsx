@@ -20,6 +20,7 @@ export default function AnnualReport() {
   const [sustainability, setSustainability] = useState([]);
   const [prospectus, setProspectus] = useState([]);
   const [presentation, setPresentation] = useState([]);
+  const [information, setInformation] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const CURRENT_YEAR = 2024;
@@ -80,12 +81,16 @@ export default function AnnualReport() {
         const presentationData = data.data.filter((item) =>
           item.tags.includes(41)
         );
+        const informationData = data.data.filter((item) =>
+          item.tags.includes(42)
+        );
 
         setFinancial(financialData);
         setAnnual(annualData);
         setSustainability(sustainabilityData);
         setProspectus(prospectusData);
         setPresentation(presentationData);
+        setInformation(informationData);
       } catch (error) {
         console.error(error);
       } finally {
@@ -121,6 +126,10 @@ export default function AnnualReport() {
             {
               value: "presentation",
               label: getTranslation("navbar_menu4_child5"),
+            },
+            {
+              value: "information",
+              label: getTranslation("navbar_menu4_child6"),
             },
           ].map((tab) => (
             <TabsTrigger
@@ -206,10 +215,14 @@ export default function AnnualReport() {
               activeTab === "annual"
                 ? annual
                 : activeTab === "sustainability"
-                  ? sustainability
-                  : activeTab === "prospectus"
-                    ? prospectus
-                    : presentation;
+                ? sustainability
+                : activeTab === "prospectus"
+                ? prospectus
+                : activeTab === "presentation"
+                ? presentation
+                : activeTab === "information"
+                ? information
+                : [];
 
             if (document.length === 0) {
               return (

@@ -55,6 +55,21 @@ const navigation = [
     value: "our-group",
   },
   {
+    name: "navbar_menu6",
+    href: "/",
+    value: "corporate-governance",
+    children: [
+      { name: "navbar_menu6_child1", href: "/corporate-governance/articles" },
+      { name: "navbar_menu6_child2", href: "/corporate-governance/governance" },
+      { name: "navbar_menu6_child3", href: "/corporate-governance/ethics" },
+      { name: "navbar_menu6_child4", href: "/corporate-governance/risk" },
+      { name: "navbar_menu6_child5", href: "/corporate-governance/guidelines" },
+      { name: "navbar_menu6_child6", href: "/corporate-governance/charter" },
+      { name: "navbar_menu6_child7", href: "/corporate-governance/profession" },
+      { name: "navbar_menu6_child8", href: "/corporate-governance/meeting" },
+    ],
+  },
+  {
     name: "navbar_menu4",
     href: "/investor",
     value: "investor",
@@ -100,9 +115,9 @@ const Navbar = () => {
   const { lang } = useStore((state) => ({ lang: state.lang }));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { setLang } = useStore();
-  const isLargeScreen = useMediaQuery(1300);
-  const isOneRow = useMediaQuery(1080);
-  const isNotBurger = useMediaQuery(750);
+  const isLargeScreen = useMediaQuery(1330);
+  const isOneRow = useMediaQuery(1250);
+  const isNotBurger = useMediaQuery(950);
   const isSmallScreen = useMediaQuery(600);
   const isVerySmallScreen = useMediaQuery(400);
   const pathname = usePathname();
@@ -146,10 +161,10 @@ const Navbar = () => {
           isOneRow
             ? "h-[120px] px-10 gap-1"
             : isNotBurger
-              ? "h-[150px] flex-col p-10 justify-center gap-5"
-              : isSmallScreen
-                ? "h-[100px] px-10 justify-center gap-5"
-                : "h-[140px] px-5 justify-center gap-5"
+            ? "h-[150px] flex-col p-10 justify-center gap-5"
+            : isSmallScreen
+            ? "h-[100px] px-10 justify-center gap-5"
+            : "h-[140px] px-5 justify-center gap-5"
         }`}
       >
         {!isOneRow && (

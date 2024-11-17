@@ -50,17 +50,17 @@ export default function VisionMission() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center p-10 py-20 gap-x-32 gap-y-10">
+      <div className="flex flex-col items-start p-10 gap-x-32 gap-y-5">
         <div className="flex flex-col gap-2">
-          <span className="text-4xl font-montserrat font-bold text-black text-center">
+          <span className="text-4xl font-montserrat font-bold text-black">
             {getTranslation("about_value_title")}
           </span>
-          <span className="text-base font-segoe font-medium text-grey text-center">
+          <span className="text-base font-segoe font-medium text-grey">
             {getTranslation("about_value_desc")}
           </span>
         </div>
-        <div className="flex flex-wrap justify-center gap-5 mt-10">
-          <div className="flex flex-col items-start gap-10 w-[250px] p-10 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
+        <div className="w-full justify-center gap-5 mt-10 grid grid-cols-1 min-[500px]:grid-cols-2 min-[1000px]:grid-cols-4">
+          <div className="flex flex-col items-start gap-2 w-full p-5 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
             <img
               src="/icons/integrity.svg"
               alt="Integrity"
@@ -71,15 +71,13 @@ export default function VisionMission() {
               {getTranslation("about_value_desc1")}
             </span>
           </div>
-
-          <div className="flex flex-col items-start gap-10 w-[250px] p-10 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
+          <div className="flex flex-col items-start gap-2 w-full p-5 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
             <img src="/icons/happy.svg" alt="Happy" width={100} height={100} />
             <span className="text-lg font-montserrat font-bold text-black text-center">
               {getTranslation("about_value_desc2")}
             </span>
           </div>
-
-          <div className="flex flex-col items-start gap-10 w-[250px] p-10 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
+          <div className="flex flex-col items-start gap-2 w-full p-5 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
             <img
               src="/icons/trustworth.svg"
               alt="Trustworthy"
@@ -90,13 +88,54 @@ export default function VisionMission() {
               {getTranslation("about_value_desc3")}
             </span>
           </div>
-
-          <div className="flex flex-col items-start gap-10 w-[250px] p-10 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
+          <div className="flex flex-col items-start gap-2 w-full p-5 border rounded-xl shadow-lg hover:scale-105 hover:shadow-lg">
             <img src="/icons/focus.svg" alt="Focus" width={100} height={100} />
             <span className="text-lg font-montserrat font-bold text-black text-center">
               {getTranslation("about_value_desc4")}
             </span>
           </div>
+        </div>
+      </div>
+      <div className="flex flex-col items-start p-10 gap-x-32 gap-y-10">
+        <div className="flex flex-col gap-2">
+          <span className="text-4xl font-montserrat font-bold text-black">
+            {getTranslation("about_attitude_title")}
+          </span>
+          <span className="text-base font-segoe font-medium text-grey">
+            {getTranslation("about_attitude_desc")}
+          </span>
+        </div>
+        <div className="grid gap-5 w-full grid-cols-1 md:grid-cols-2">
+          {[
+            "achievement",
+            "innovation",
+            "customer",
+            "ownership",
+            "teamwork",
+            "neatness",
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="flex items-start gap-5 w-full p-5 rounded-xl bg-primaryLight"
+            >
+              <div className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-primary text-white">
+                <img
+                  src={`/icons/${item}.svg`}
+                  alt={item}
+                  width={31}
+                  height={31}
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-montserrat font-bold text-black">
+                  {getTranslation(`about_attitude_title${index + 1}`)}
+                </span>
+                <span className="text-sm font-montserrat font-normal text-black">
+                  {getTranslation(`about_attitude_desc${index + 1}`)}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </>

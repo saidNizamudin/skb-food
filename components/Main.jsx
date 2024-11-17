@@ -14,8 +14,8 @@ import { Button } from "@/components";
 const Main = ({ children }) => {
   const { getTranslation } = useTranslate();
   const [showWarning, setShowWarning] = useState(false);
-  const isHugeScreen = useMediaQuery(1080);
-  const isLargeScreen = useMediaQuery(750);
+  const isHugeScreen = useMediaQuery(1250);
+  const isLargeScreen = useMediaQuery(950);
   const isMediumScreen = useMediaQuery(600);
 
   useEffect(() => {
@@ -31,10 +31,10 @@ const Main = ({ children }) => {
           isHugeScreen
             ? "pt-[160px]"
             : isLargeScreen
-              ? "pt-[190px]"
-              : isMediumScreen
-                ? "pt-[100px]"
-                : "pt-[140px]"
+            ? "pt-[190px]"
+            : isMediumScreen
+            ? "pt-[100px]"
+            : "pt-[140px]"
         }
       >
         {children}

@@ -1,6 +1,6 @@
 "use client";
 
-export default function AboutUs() {
+export default function CorporateGovernance() {
   // redirect to /about-us/company
 
   return;
