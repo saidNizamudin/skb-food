@@ -81,16 +81,25 @@ const Footer = () => {
               {getTranslation("navbar_menu1_child2")}
             </Link>
             <Link
-              href="/about-us/management"
+              href="/about-us/milestones"
               className="text-grey font-semibold"
             >
               {getTranslation("navbar_menu1_child3")}
             </Link>
             <Link
-              href="/about-us/structure"
+              href="/about-us/manugement"
               className="text-grey font-semibold"
             >
               {getTranslation("navbar_menu1_child4")}
+            </Link>
+            <Link
+              href="/about-us/structure"
+              className="text-grey font-semibold"
+            >
+              {getTranslation("navbar_menu1_child5")}
+            </Link>
+            <Link href="/about-us/awards" className="text-grey font-semibold">
+              {getTranslation("navbar_menu1_child6")}
             </Link>
           </div>
         </div>

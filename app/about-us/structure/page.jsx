@@ -27,10 +27,10 @@ export default function Structure() {
     <div className="flex flex-col py-20 gap-y-20 px-5 md:px-10">
       <div className="flex flex-col items-center justify-center">
         <span className="text-xl font-segoe font-bold text-primary">
-          {getTranslation("navbar_menu1_child3")}
+          {getTranslation("navbar_menu1")}
         </span>
         <span className="text-[40px] font-montserrat font-bold text-black">
-          {getTranslation("navbar_menu1_child4")}
+          {getTranslation("navbar_menu1_child5")}
         </span>
       </div>
       <div className="overflow-x-auto">

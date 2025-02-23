@@ -3,12 +3,20 @@
   "navbar_menu1_child1": { "id": "Profil Perusahaan", "en": "Company Profile" },
   "navbar_menu1_child2": { "id": "Visi Misi", "en": "Vision Mission" },
   "navbar_menu1_child3": {
+    "id": "Jejak Langkah",
+    "en": "Milestones"
+  },
+  "navbar_menu1_child4": {
     "id": "Profil Manajemen",
     "en": "Management Profile"
   },
-  "navbar_menu1_child4": {
+  "navbar_menu1_child5": {
     "id": "Struktur Organisasi",
     "en": "Organizational Structure"
+  },
+  "navbar_menu1_child6": {
+    "id": "Penghargaan",
+    "en": "Awards"
   },
 
   "navbar_menu2": { "id": "Bisnis Kami", "en": "Our Business" },
@@ -192,6 +200,14 @@
     "id": "Biro Administrasi Efek",
     "en": "Securities Administration Bureau"
   },
+  "common_yes": { "id": "Ya", "en": "Yes" },
+  "common_no": { "id": "Tidak", "en": "No" },
+  "common_name": { "id": "Nama", "en": "Name" },
+  "common_position": { "id": "Jabatan", "en": "Position" },
+  "common_commissionerBoard": {
+    "id": "Dewan Komisaris",
+    "en": "Board of Commissioners"
+  },
 
   "home_about_title": {
     "id": "Kami menyediakan bahan baku terbaik untuk bisnis Anda",
@@ -214,6 +230,14 @@
   },
   "home_media_title": { "en": "Latest Updated", "id": "Terbaru" },
 
+  "about_milestones_title": {
+    "id": "Jejak Langkah",
+    "en": "Milestone"
+  },
+  "about_milestones_desc": {
+    "id": "Budaya perusahaan memiliki nilai-nilai inti yang dijunjung tinggi seluruh insan Perusahaan.",
+    "en": "The company culture has core values that are highly respected by all Company personnel."
+  },
   "about_description_desc1": {
     "id": "PT Sari Kreasi Boga Tbk (SKB FOOD) adalah suatu perseroan terbatas yang saat ini bergerak di bidang penjualan bahan baku dan waralaba makanan dan minuman.",
     "en": "PT Sari Kreasi Boga Tbk (SKB FOOD) is a limited liability company that is currently engaged in the sale of food and beverage raw materials and franchises."
@@ -345,6 +369,42 @@
   "about_ourGroup_desc": {
     "id": "Waralaba makanan dan minuman yang dimiliki dan dikuasai oleh Perseroan adalah Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café.",
     "en": "The food and beverage franchises owned and controlled by the Company are Kebab Turki Babarafi, Container Kebab by Babarafi, Smokey Kebab, Sueger, Kebab Kitchen, Babarafi Café."
+  },
+  "about_management_table_title1": {
+    "id": "Tabel Hubungan Afiliasi Dewan Komisaris",
+    "en": "Board of Commissioners Affiliation Table"
+  },
+  "about_management_table_title2": {
+    "id": "Tabel Hubungan Afiliasi Dewan Direksi",
+    "en": "Board of Directors Affiliation Table"
+  },
+  "about_management_table_header1": {
+    "id": "Hubungan keuangan, keluarga dan kepengurusan direksi",
+    "en": "Financial, family and management director relationships"
+  },
+  "about_management_table_header2_1": {
+    "id": "Hubungan Keuangan dengan",
+    "en": "Financial Relationship with"
+  },
+  "about_management_table_header2_2": {
+    "id": "Hubungan Keluarga dengan",
+    "en": "Family Relationship with"
+  },
+  "about_management_table_header3_1": {
+    "id": "Dewan Komisioner",
+    "en": "Board of Commissioners"
+  },
+  "about_management_table_header3_2": {
+    "id": "Direksi",
+    "en": "Directors"
+  },
+  "about_management_table_header3_3": {
+    "id": "Pemegang Saham",
+    "en": "Shareholders"
+  },
+  "about_award_year": {
+    "id": "Penghargaan Tahun",
+    "en": "Award Year"
   },
 
   "business_desc": {

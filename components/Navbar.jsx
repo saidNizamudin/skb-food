@@ -32,8 +32,10 @@ const navigation = [
     children: [
       { name: "navbar_menu1_child1", href: "/about-us/company" },
       { name: "navbar_menu1_child2", href: "/about-us/vision-mission" },
-      { name: "navbar_menu1_child3", href: "/about-us/management" },
-      { name: "navbar_menu1_child4", href: "/about-us/structure" },
+      { name: "navbar_menu1_child3", href: "/about-us/milestones" },
+      { name: "navbar_menu1_child4", href: "/about-us/management" },
+      { name: "navbar_menu1_child5", href: "/about-us/structure" },
+      { name: "navbar_menu1_child6", href: "/about-us/awards" },
     ],
   },
   {

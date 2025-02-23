@@ -17,8 +17,10 @@ export default function Layout({ children }) {
       {
         company: "navbar_menu1_child1",
         "vision-mission": "navbar_menu1_child2",
-        management: "navbar_menu1_child3",
-        structure: "navbar_menu1_child4",
+        milestones: "navbar_menu1_child3",
+        management: "navbar_menu1_child4",
+        structure: "navbar_menu1_child5",
+        awards: "navbar_menu1_child6",
       }[path] || path
     );
   };

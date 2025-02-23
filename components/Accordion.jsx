@@ -15,17 +15,21 @@ const AccordionItem = React.forwardRef(({ className, ...props }, ref) => (
 AccordionItem.displayName = "AccordionItem";
 
 const AccordionTrigger = React.forwardRef(
-  ({ className, children, ...props }, ref) => (
+  ({ className, triggerIcon, children, ...props }, ref) => (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
         ref={ref}
         className={cn(
-          "flex flex-1 items-center py-4 text-start text-lg font-bold text-black font-segoe transition-all [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:text-primary",
+          "flex flex-1 items-center py-4 text-start text-lg font-bold text-black font-segoe transition-all [&[data-state=open]_svg]:rotate-180 [&[data-state=open]]:text-primary",
           className
         )}
         {...props}
       >
-        <FaChevronDown className="min-h-5 min-w-5 max-h-5 max-w-5 text-primary font-bold transition-transform duration-200 mr-5" />
+        {triggerIcon ? (
+          triggerIcon
+        ) : (
+          <FaChevronDown className="min-h-5 min-w-5 max-h-5 max-w-5 text-primary font-bold transition-transform duration-200 mr-5" />
+        )}
         {children}
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
@@ -34,10 +38,12 @@ const AccordionTrigger = React.forwardRef(
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
 const AccordionContent = React.forwardRef(
-  ({ className, children, ...props }, ref) => (
+  ({ className, noPaddingChild, children, ...props }, ref) => (
     <AccordionPrimitive.Content
       ref={ref}
-      className="overflow-hidden text-base font-semibold font-segoe text-grey ml-10 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+      className={`overflow-hidden text-base font-semibold font-segoe text-grey data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down ${
+        noPaddingChild ? "" : "ml-10"
+      }`}
       {...props}
     >
       <div className={cn("pb-4 pt-0", className)}>{children}</div>
