@@ -274,11 +274,14 @@ const MenuNav = () => {
                       </MenubarSubTrigger>
                       <MenubarSubContent sideOffset={8}>
                         {component.children.map((subComponent) => (
-                          <MenubarItem key={subComponent.name}>
-                            <Link href={subComponent.href}>
+                          <Link
+                            href={subComponent.href}
+                            key={subComponent.name}
+                          >
+                            <MenubarItem>
                               {getTranslation(subComponent.name)}
-                            </Link>
-                          </MenubarItem>
+                            </MenubarItem>
+                          </Link>
                         ))}
                       </MenubarSubContent>
                     </MenubarSub>
