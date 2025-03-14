@@ -265,7 +265,7 @@ export default function ManagementCommisioner() {
             </DialogTitle>
             <div className="w-20 h-2 bg-primary" />
             <DialogDescription
-              className="max-h-[400px] overflow-y-auto text-base text-start font-normal font-segoe slim-scrollbar pr-5"
+              className="max-h-[400px] overflow-y-auto text-base text-start text-black font-normal font-segoe slim-scrollbar pr-5"
               dangerouslySetInnerHTML={{
                 __html: MANAGEMENT_CONTENT[index],
               }}

@@ -3,7 +3,7 @@
 import { useTranslate } from "@/app/TranslationProvider";
 
 export default function BrandOwner() {
-  const { getTranslation } = useTranslate();
+  const { getTranslation, lang } = useTranslate();
 
   return (
     <div className="flex flex-col px-10 py-20 min-[1450px]:px-xCustom">
@@ -17,7 +17,7 @@ export default function BrandOwner() {
       </div>
       <div className="mt-20 overflow-auto">
         <img
-          src="/images/about-us/milestone.webp"
+          src={`/images/about-us/milestone-${lang}.webp`}
           alt="First Content"
           className="min-w-[800px] w-full"
         />

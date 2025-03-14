@@ -262,6 +262,9 @@ export const LANG = {
   },
   common_viewProfile: { id: "Lihat Profil", en: "View Profile" },
   common_member: { id: "Anggota", en: "Member" },
+  common_lead: { id: "Ketua", en: "Lead" },
+  common_secretary: { id: "Sekretaris Perusahaan", en: "Corporate Secretary" },
+  common_internal_audit: { id: "Auditor Internal", en: "Internal Auditor" },
   common_notary: { id: "Notaris", en: "Notary" },
   common_bureau: {
     id: "Biro Administrasi Efek",
@@ -742,6 +745,98 @@ export const LANG = {
   governance_principle_image_title: {
     id: "Struktur Tata Kelola Perusahaan",
     en: "Corporate Governance Structure",
+  },
+  gov_audit_lead: {
+    id: "Ketua Komite Audit & Komisaris Independen",
+    en: "Chairman of the Audit Committee & Independent Commissioner",
+  },
+  gov_audit_title: {
+    id: "Profile Komite Audit",
+    en: "Audit Committee Profile",
+  },
+  gov_audit_desc: {
+    id: "Komite Audit adalah bagian penting dari struktur tata kelola perusahaan yang bertugas untuk memastikan integritas laporan keuangan, kepatuhan terhadap regulasi, serta efektivitas sistem pengendalian internal. Komite Audit juga berkomitmen untuk menjaga transparansi dan akuntabilitas dalam semua aspek operasional yang baik terhadap peraturan dan perundangan-undangan yang belaku",
+    en: "The Audit Committee is an important part of the corporate governance structure that is responsible for ensuring the integrity of financial reports, compliance with regulations, and the effectiveness of internal control systems. The Audit Committee is also committed to maintaining transparency and accountability in all operational aspects in accordance with applicable regulations and laws",
+  },
+  gov_nom_title: {
+    id: "Pedoman dan Tata Tertib Kerja Nominasi dan Remunerasi",
+    en: "Guidelines and Rules for Nomination and Remuneration",
+  },
+  gov_nom_desc1: {
+    id: "Pedoman Nominasi dan Remunerasi disusun berdasarkan pada POJK No. 34/POJK.04/2014 tentang Pembentukan dan Pedoman Pelaksanaan Kerja Komite Nominasi dan Remunerasi Emiten atau Perusahaan Publik serta Anggaran Dasar Perseroan.",
+    en: "The Nomination and Remuneration Guidelines are prepared based on POJK No. 34/POJK.04/2014 concerning the Establishment and Implementation Guidelines for the Nomination and Remuneration Committee of Issuers or Public Companies, as well as the Company's Articles of Association.",
+  },
+  gov_nom_desc2: {
+    id: "Berdasarkan POJK No. 34/POJK.04/2014, Komite Nominasi dan Remunerasi adalah komite yang dibentuk oleh dan bertanggung jawab kepada Dewan Komisaris dalam membantu melaksanakan fungsi dan tugas Dewan Komisaris terkait Nominasi dan Remunerasi terhadap anggota Direksi dan anggota Dewan Komisaris.",
+    en: "Based on POJK No. 34/POJK.04/2014, the Nomination and Remuneration Committee is a committee formed by and responsible to the Board of Commissioners in assisting the execution of the Board’s functions and duties related to the Nomination and Remuneration of members of the Board of Directors and the Board of Commissioners.",
+  },
+  gov_nom_point_title: {
+    id: "Tugas dan Tanggung Jawab Nominasi dan Remunerasi",
+    en: "Duties and Responsibilities of Nomination and Remuneration",
+  },
+  gov_nom_point_1: {
+    id: "Komposisi jabatan Anggota Direksi dan/atau Dewan Komisaris",
+    en: "Composition of positions of the Board of Directors and/or Board of Commissioners",
+  },
+  gov_nom_point_2: {
+    id: "Kebijakan dan kriteria yang dibutuhkan dalam proses nominasi calon Anggota Direksi dan/atau Dewan Komisaris; dan",
+    en: "Policies and criteria required in the nomination process for candidates for the Board of Directors and/or Board of Commissioners; and",
+  },
+  gov_nom_point_3: {
+    id: "Kebijakan evaluasi kinerja bagi anggota direksi dan Dewan Komisaris.",
+    en: "Performance evaluation policies for members of the Board of Directors and Board of Commissioners.",
+  },
+  gov_nom_table_head1: {
+    id: "Fungsi Nominasi",
+    en: "Nomination Function",
+  },
+  gov_nom_table_head2: {
+    id: "Fungsi Remunerasi",
+    en: "Remuneration Function",
+  },
+  gov_nom_table_head1_1: {
+    id: "Komposisi jabatan Anggota Direksi dan/atau Dewan Komisaris",
+    en: "Composition of positions of the Board of Directors and/or Board of Commissioners",
+  },
+  gov_nom_table_head1_2: {
+    id: "Kebijakan dan kriteria yang dibutuhkan dalam proses nominasi calon Anggota Direksi dan/atau Dewan Komisaris",
+    en: "Policies and criteria required in the nomination process for candidates for the Board of Directors and/or Board of Commissioners",
+  },
+  gov_nom_table_head1_3: {
+    id: "Kebijakan evaluasi kinerja bagi anggota direksi dan Dewan Komisaris.",
+    en: "Performance evaluation policies for members of the Board of Directors and Board of Commissioners.",
+  },
+  gov_nom_table_head2_1: {
+    id: "Struktur, kebijakan dan besaran remunerasi anggota Direksi dan Dewan Komisaris",
+    en: "Structure, policies, and amount of remuneration for members of the Board of Directors and Board of Commissioners",
+  },
+  gov_nom_table_head2_2: {
+    id: "Membantu Dewan Komisaris melakukan penilaian kinerja dengan kesesuaian remunerasi yang diterima anggota Direksi dan Dewan Komisaris",
+    en: "Assist the Board of Commissioners in conducting performance assessments in accordance with the remuneration received by members of the Board of Directors and Board of Commissioners",
+  },
+  gov_secretary_title: {
+    id: "Profile Sekretaris Perusahaan",
+    en: "Corporate Secretary Profile",
+  },
+  gov_secretary_desc1: {
+    id: "Sekretaris Perusahaan berfungsi sebagai penghubung antara Perseroan dengan Pemegang Saham serta Pemangku Kepentingan lainnya untuk memastikan kepatuhan Perseroan terhadap Peraturan Perundang-undangan di bidang Pasar Modal. Pembentukan Sekretaris Perusahaan mengacu kepada Peraturan OJK No 35/POJK.04/2014 tentang Sekretaris Perusahaan Emiten atau Perusahaan Publik.",
+    en: "The Corporate Secretary serves as a liaison between the Company and Shareholders and other Stakeholders to ensure the Company's compliance with Capital Market Regulations. The establishment of the Corporate Secretary refers to OJK Regulation No. 35/POJK.04/2014 concerning the Corporate Secretary of Issuers or Public Companies.",
+  },
+  gov_secretary_desc2: {
+    id: "Fungsi Sekretaris Perusahaan dirancang sebagai organ untuk memastikan dalam rangka membantu Direksi dan Dewan Komisaris memenuhi kewajiban untuk patuh pada prinsip transparansi, akuntabel, bertanggung jawab, independen dan berkeadilan. Secara struktur Sekretaris Perusahaan bertanggung jawab langsung kepada Direksi. Dalam struktur organisasi Perseroan, Sekretaris Perusahaan bertanggung jawab kepada Direktur Utama.",
+    en: "The Corporate Secretary's function is designed as an organ to ensure that in order to assist the Board of Directors and Board of Commissioners in fulfilling their obligations to comply with the principles of transparency, accountability, responsibility, independence, and fairness. Structurally, the Corporate Secretary is directly responsible to the Board of Directors. In the Company's organizational structure, the Corporate Secretary is responsible to the President Director.",
+  },
+  gov_audit_internal_title: {
+    id: "Profile Audit Internal",
+    en: "Internal Audit Profile",
+  },
+  gov_audit_internal_desc1: {
+    id: "Unit Audit Internal dibentuk berdasarkan POJK No. 56/OJK.04/2015 tentang Pembentukan dan Pedoman Penyusunan Piagam Unit Audit Internal.",
+    en: "The Internal Audit Unit was established based on POJK No. 56/OJK.04/2015 concerning the Establishment and Guidelines for the Preparation of the Internal Audit Unit Charter.",
+  },
+  gov_audit_internal_desc2: {
+    id: "Audit Internal merupakan bagian dari organisasi perusahaan yang mewujudkan sistem pengawasan yang memadai untuk menjaga dan mengamankan kegiatan usaha sesuai dengan tujuan dan kebijakan Perseroan. Audit internal juga sebagai fungsi strategis dalam membantu dan meningkatkan peran Direksi dalam menjalankan fungsi pengawasan terhadap pengurusan Perseroan.",
+    en: "Internal Audit is part of the company's organization that realizes an adequate supervisory system to maintain and secure business activities in accordance with the Company's objectives and policies. Internal audit is also a strategic function in assisting and improving the role of the Board of Directors in carrying out supervisory functions over the management of the Company.",
   },
   gov_relation_title: {
     id: "Struktur dan Hubungan Tata Kelola Perusahaan",
